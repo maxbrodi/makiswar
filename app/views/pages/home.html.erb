@@ -9,20 +9,15 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <h1>Welcome!</h1>
+      <h1><%= t('.title') %></h1>
+      <%= link_to t('.sign_up'), new_username_path, class:'btn btn-primary' %>
+      <%= link_to t('.sign_in'), new_user_session_path, class:'btn btn-success' %>
 
-      <h2>This is the homepage</h2>
 
-      <p>
-        Find me in <code>app/views/pages/home.html.erb</code>
-      </p>
-
-      <p>
-        Thanks to the <a href="https://github.com/thoughtbot/high_voltage">high_voltage</a>
-        gem, if you need more static pages (like <code>/contact</code> or <code>/about-us</code>),
-        just create a file in the <code>app/views/pages</code> folder, the route will be automatically
-        available without you adding any controller or touching the <code>config/routes.rb</code> file!
-      </p>
+    <!-- Utile pour les tests : à supprimer ensuite -->
+      <% if current_user %>
+        <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
+      <% end %>
     </div>
   </div>
 </div>
