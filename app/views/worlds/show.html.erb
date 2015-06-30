@@ -42,12 +42,23 @@
       Menu d'actions
 
       <div class="">
-        <div id="cell-info-11" class="hidden">
-            <%= players_on_map[:11].name %>
-            <%= players_on_map[:11].crew %>
-            <%= players_on_map[:11].name %>
+        <div class="cell-info" id="cell-info-22">
+            <% if @players_on_map[:"22"] %>
+              <div class="idmaki hidden">-<%= @players_on_map[:"22"].x - @x_shift %>-<%= @players_on_map[:"22"].y - @y_shift %>-</div>
+              <%= @players_on_map[:"22"].name %>
+              <%= @players_on_map[:"22"].crew %>
+            <% end %>
 
             Attack !
+        </div>
+         <div class="cell-info" id="cell-info-23">
+            <% if @players_on_map[:"23"] %>
+              <%= @players_on_map[:"23"].name %>
+              <%= @players_on_map[:"23"].crew %>
+              Attack !
+            <% end %>
+
+
         </div>
       </div>
     </div>
