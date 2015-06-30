@@ -1,0 +1,22 @@
+fr:
+  devise:
+    registrations:
+      new:
+        instruction: "Un petit effort c'est bientôt fini!"
+        email: "soit pas timide %{username}"
+        password: "même toi tu ne dois pas réussir à t'en souvenir"
+    sessions:
+      new:
+        instruction: "Hehe te revoilà, connecte-toi pour continuer"
+        email: "ton email"
+        password: "ton mot de passe"
+  pages:
+    home:
+      title: "Bienvenue sur Makiswar"
+      sign_up: "Inscription"
+      sign_in: "Connexion"
+      sign_out: "Adios"
+  usernames:
+    new:
+      instruction: "Commence par choisir un mot de passe"
+      submit: "Valider"
