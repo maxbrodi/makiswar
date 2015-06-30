@@ -1,12 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <h4><%= t('.instruction') %></h4>
+      <div class="text-center">
+        <%= link_to t('component.back'), root_path, class:'btn btn-default' %>
+        <h4><%= t('.instruction') %></h4>
 
-      <%= form_tag username_path, method: :post do %>
-        <%= text_field_tag :username, '', class: "form-control" %>
-        <%= submit_tag t('.submit'), class: "btn btn-primary" %>
-      <% end %>
+        <%= form_tag username_path, method: :post do %>
+          <%= text_field_tag :username, '', class: "form-control" %>
+          <%= submit_tag t('.submit'), class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

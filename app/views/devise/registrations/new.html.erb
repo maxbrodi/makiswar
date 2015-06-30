@@ -1,18 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <h4><%= t('.instruction') %></h4>
+      <div class="text-center">
+        <%= link_to t('component.back'), new_username_path, class:'btn btn-default' %>
+        <h4><%= t('.instruction') %></h4>
 
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
 
-        <%= f.input :name, as: :hidden, input_html: { value: session[:username] } %>
-        <%= f.input :email, placeholder: t('.email', username: session[:username]), required: true, autofocus: true %>
-        <%= f.input :password, placeholder: t('.password'), required: true %>
-        <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-primary" %>
-      <% end %>
+          <%= f.input :name, as: :hidden, input_html: { value: session[:username] } %>
+          <%= f.input :email, placeholder: t('.email', username: session[:username]), required: true, autofocus: true %>
+          <%= f.input :password, placeholder: t('.password'), required: true %>
+          <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-primary" %>
+        <% end %>
 
-      <%= render "devise/shared/links" %>
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>

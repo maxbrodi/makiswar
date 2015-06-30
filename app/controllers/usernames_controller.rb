@@ -7,12 +7,18 @@ class UsernamesController < ApplicationController
 
   def create
     username = params[:username]
+    check = User.where(lowername: username.downcase).first
 
     if username.present?
-      session[:username] = username
-      redirect_to new_user_registration_path
+      if check.nil?
+        session[:username] = username
+        redirect_to new_user_registration_path
+      else
+        flash[:alert] = I18n.t("usernames.create.flash.alert.already_taken")
+        render :new
+      end
     else
-      flash[:alert] = "Please provide a username"
+      flash[:alert] = I18n.t("usernames.create.flash.alert.empty")
       render :new
     end
   end
