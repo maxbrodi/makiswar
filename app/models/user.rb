@@ -38,4 +38,11 @@ class User < ActiveRecord::Base
   belongs_to :world
   validates :name, presence: true, uniqueness: true
 
+  scope :in_area, ->(user) do
+    where(":world_id = 1 AND x >= :min_x AND x <= :max_x AND y >= :min_y AND y <= :max_y",
+      world_id: user.world_id,
+      min_x: user.x - 2, max_x: user.x + 2,
+      min_y: user.y - 2, max_y: user.y + 2
+    )
+  end
 end

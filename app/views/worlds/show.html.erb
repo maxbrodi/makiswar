@@ -1,0 +1,57 @@
+<h1>Worlds#show</h1>
+<p>Salut les nobos</p>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="worldmap">
+        <!-- first row -->
+        <div class="cell" data-cell="11">1:1</div>
+        <div class="cell" data-cell="12">1:2</div>
+        <div class="cell" data-cell="13"></div>
+        <div class="cell" data-cell="14"></div>
+        <div class="cell" data-cell="15"></div>
+        <!-- second row -->
+        <div class="cell" data-cell="21"></div>
+        <div class="cell" data-cell="22"></div>
+        <div class="cell" data-cell="23"></div>
+        <div class="cell" data-cell="24"></div>
+        <div class="cell" data-cell="25"></div>
+        <!-- third row -->
+        <div class="cell" data-cell="31"></div>
+        <div class="cell" data-cell="32"></div>
+        <div class="cell" data-cell="33" id='player'></div>
+        <div class="cell" data-cell="34"></div>
+        <div class="cell" data-cell="35"></div>
+        <!-- fourth row -->
+        <div class="cell" data-cell="41"></div>
+        <div class="cell" data-cell="42"></div>
+        <div class="cell" data-cell="43"></div>
+        <div class="cell" data-cell="44"></div>
+        <div class="cell" data-cell="45"></div>
+        <!-- fifth row -->
+        <div class="cell" data-cell="51"></div>
+        <div class="cell" data-cell="52"></div>
+        <div class="cell" data-cell="53"></div>
+        <div class="cell" data-cell="54"></div>
+        <div class="cell" data-cell="55"></div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      Menu d'actions
+
+      <div class="">
+        <div id="cell-info-11" class="hidden">
+            <%= players_on_map[:11].name %>
+            <%= players_on_map[:11].crew %>
+            <%= players_on_map[:11].name %>
+
+            Attack !
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

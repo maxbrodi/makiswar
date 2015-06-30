@@ -1,0 +1,20 @@
+.worldmap{
+  text-align: center;
+  background: #4BCC65;
+}
+
+.cell{
+  width: 20%;
+  height: 40px;
+  float:left;
+
+  // border
+   border-width:1px;
+   border-style:solid;
+   border-color:#47C663;
+}
+
+#player{
+  background: image-url('maki_placeholder.png');
+  background-size: cover;
+}
