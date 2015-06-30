@@ -7,8 +7,8 @@ $( document ).ready(function() {
   // affichage des autres makis
 
   $('.cell-info').each(function( index ) {
-    var x = $( this ).text().split('-')[1];
-    var y = $( this ).text().split('-')[2];
+    var x = $( this ).data('x');
+    var y = $( this ).data('y');
     console.log(x);
     console.log(y);
     console.log(x + y);

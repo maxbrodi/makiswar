@@ -7,8 +7,8 @@
     <div class="col-xs-12 col-md-6">
       <div class="worldmap">
         <!-- first row -->
-        <div class="cell" data-cell="11">1:1</div>
-        <div class="cell" data-cell="12">1:2</div>
+        <div class="cell" data-cell="11"></div>
+        <div class="cell" data-cell="12"></div>
         <div class="cell" data-cell="13"></div>
         <div class="cell" data-cell="14"></div>
         <div class="cell" data-cell="15"></div>
@@ -42,24 +42,16 @@
       Menu d'actions
 
       <div class="">
-        <div class="cell-info" id="cell-info-22">
-            <% if @players_on_map[:"22"] %>
-              <div class="idmaki hidden">-<%= @players_on_map[:"22"].x - @x_shift %>-<%= @players_on_map[:"22"].y - @y_shift %>-</div>
-              <%= @players_on_map[:"22"].name %>
-              <%= @players_on_map[:"22"].crew %>
-            <% end %>
+        <% @players_on_map.each do |cell, player| %>
 
-            Attack !
-        </div>
-         <div class="cell-info" id="cell-info-23">
-            <% if @players_on_map[:"23"] %>
-              <%= @players_on_map[:"23"].name %>
-              <%= @players_on_map[:"23"].crew %>
-              Attack !
-            <% end %>
+          <div class="cell-info" id="cell-info-<%= cell %>" data-x="<%= player.x - @x_shift %>" data-y="<%= player.y - @y_shift%>">
+                <%= player.name %>
+                <%= player.crew %>
+               Attack !
+          </div>
 
+        <% end%>
 
-        </div>
       </div>
     </div>
   </div>
