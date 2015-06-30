@@ -1,4 +1,6 @@
 fr:
+  component:
+    back: 'Retour'
   devise:
     registrations:
       new:
@@ -16,7 +18,19 @@ fr:
       sign_up: "Inscription"
       sign_in: "Connexion"
       sign_out: "Adios"
+      profile: "Mon profil"
   usernames:
+    create:
+      flash:
+        alert:
+          already_taken: "Ce nom d'utilisateur est déjà pris"
+          empty: "Merci de renseigner un nom d'utilisateur"
     new:
-      instruction: "Commence par choisir un mot de passe"
+      instruction: "Commence par choisir un pseudo pour ton maki"
       submit: "Valider"
+  users:
+    show:
+      collection: 'Ma Collection'
+      stats: 'Mes Stats'
+      account: 'Mon Compte'
+

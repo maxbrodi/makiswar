@@ -1,4 +1,6 @@
 en:
+  component:
+    back: 'Retour'
   devise:
     registrations:
       new:
@@ -16,7 +18,18 @@ en:
       sign_up: "Sign Up"
       sign_in: "Sign In"
       sign_out: "Sign Out"
+      profile: "My Profile"
   usernames:
+    create:
+      flash:
+        alert:
+          already_taken: "This username has already been taken"
+          empty: "Please provide a username"
     new:
       instruction: "Start by choosing a nickname"
       submit: "Validate"
+  users:
+    show:
+      collection: 'My Collection'
+      stats: 'My Stats'
+      account: 'My Account'

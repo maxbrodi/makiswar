@@ -22,6 +22,7 @@
 #  x                      :integer
 #  y                      :integer
 #  world_id               :integer
+#  lowername              :string
 #
 # Indexes
 #
@@ -37,5 +38,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :world
   validates :name, presence: true, uniqueness: true
+  before_save { |user| user.lowername = user.name.downcase }
 
 end

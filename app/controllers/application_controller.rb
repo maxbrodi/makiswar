@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    worlds_show_path
+    # worlds_show_path Wil come back after merge with Max
+    root_path #Delete after merge with Max
   end
 
   private
