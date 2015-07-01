@@ -1,7 +1,3 @@
-<h1>Worlds#show</h1>
-<p>Salut les nobos</p>
-
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6">
@@ -36,23 +32,39 @@
         <div class="cell" data-cell="53"></div>
         <div class="cell" data-cell="54"></div>
         <div class="cell" data-cell="55"></div>
+        <!-- life and soy sauce jauges -->
+        <div id="life">
+          Life <%= @life %>
+        </div>
+        <div id="soja">
+          Soy Sauce <%= @soja %>
+        </div>
+
       </div>
     </div>
     <div class="col-xs-12 col-md-6">
-      Menu d'actions
+      <div class="info-bottom">
 
-      <div class="">
-        <% @players_on_map.each do |cell, player| %>
-
-          <div class="cell-info" id="cell-info-<%= cell %>" data-x="<%= player.x - @x_shift %>" data-y="<%= player.y - @y_shift%>" data-crew="<%= player.crew %>">
-                <%= player.name %>
-                <%= player.crew %>
-               Attack !
+        <div class="">
+        <!-- news info -->
+          <div class="news-info">
+            Salut les petits makis, ça farte ?
           </div>
+          <!-- players infos -->
+          <% @players_on_map.each do |cell, player| %>
 
-        <% end%>
+            <div class="cell-info hidden" id="cell-info-<%= cell %>" data-x="<%= player.x - @x_shift %>" data-y="<%= player.y - @y_shift%>" data-crew="<%= player.crew %>">
+                <p><%= player.name %></p>
+                <p><%= player.crew %></p>
+                <p>Attack !</p>
+            </div>
+
+          <% end%>
+
+        </div>
 
       </div>
+
     </div>
   </div>
 </div>

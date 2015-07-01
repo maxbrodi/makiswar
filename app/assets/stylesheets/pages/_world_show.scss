@@ -14,6 +14,13 @@
    border-color:#47C663;
 }
 
+.info-bottom {
+  background-color: #C6C6C6;
+  border-radius: 5px;
+  padding: 20px;
+  height: 7em;
+}
+
 .babyrice{
   background: image-url('baby.png');
   background-size: cover;
@@ -34,3 +41,14 @@
   background-size: cover;
 }
 
+#life{
+  position: absolute;;
+  top: 7px;
+  left: 14px;
+}
+
+#soja{
+  position: absolute;;
+  top: 7px;
+  right: 14px;
+}

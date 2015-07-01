@@ -15,5 +15,10 @@ class WorldsController < ApplicationController
       @players_on_map[("#{player[:x] - @x_shift}#{player[:y] - @y_shift}").to_sym] = player
     end
 
+    # Infos top
+
+    @life = current_user.life
+    @soja = current_user.soja
+
   end
 end

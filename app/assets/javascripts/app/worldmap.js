@@ -21,4 +21,21 @@ $( document ).ready(function() {
     $('*[data-cell="'+ x + y + '"]').addClass(crew);
   });
 
+  // click sur un maki
+  $('.cell').click(function() {
+    // get cell coord
+    var cell_coord = $( this ).data('cell');
+    // hide previous cell info
+    $('.cell-info').addClass( "hidden" );
+    // show or hide clicked cell info
+    $('#cell-info-' + cell_coord).removeClass( "hidden" );
+    // show or hide news info
+    if( $('#cell-info-' + cell_coord).is(":visible")) {
+      $('.news-info').addClass( "hidden" );
+    }
+    else {
+      $('.news-info').removeClass( "hidden" );
+    };
+  });
+
 });
