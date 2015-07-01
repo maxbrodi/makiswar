@@ -1,11 +1,7 @@
-<h1>Worlds#show</h1>
 <% if current_user %>
   <%= link_to t('.profile'), user_path, class:'btn btn-warning' %>
   <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
 <% end %>
-<p>Salut les nobos</p>
-
-
 
 <div class="container">
   <div class="row">
@@ -26,7 +22,7 @@
         <!-- third row -->
         <div class="cell" data-cell="31"></div>
         <div class="cell" data-cell="32"></div>
-        <div class="cell" data-cell="33" id='player'></div>
+        <div class="cell" data-cell="33" id='player' data-playercrew="<%= current_user.crew %>"></div>
         <div class="cell" data-cell="34"></div>
         <div class="cell" data-cell="35"></div>
         <!-- fourth row -->
@@ -41,23 +37,39 @@
         <div class="cell" data-cell="53"></div>
         <div class="cell" data-cell="54"></div>
         <div class="cell" data-cell="55"></div>
+        <!-- life and soy sauce jauges -->
+        <div id="life">
+          Life <%= @life %>
+        </div>
+        <div id="soja">
+          Soy Sauce <%= @soja %>
+        </div>
+
       </div>
     </div>
     <div class="col-xs-12 col-md-6">
-      Menu d'actions
+      <div class="info-bottom">
 
-      <div class="">
-        <% @players_on_map.each do |cell, player| %>
-
-          <div class="cell-info" id="cell-info-<%= cell %>" data-x="<%= player.x - @x_shift %>" data-y="<%= player.y - @y_shift%>">
-                <%= player.name %>
-                <%= player.crew %>
-               Attack !
+        <div class="">
+        <!-- news info -->
+          <div class="news-info">
+            <%= t(@info, ennemies: @ennemies) %>
           </div>
+          <!-- players infos -->
+          <% @players_on_map.each do |cell, player| %>
 
-        <% end%>
+            <div class="cell-info hidden" id="cell-info-<%= cell %>" data-x="<%= player.x - @x_shift %>" data-y="<%= player.y - @y_shift%>" data-crew="<%= player.crew %>">
+                <p><%= player.name %></p>
+                <p><%= player.crew %></p>
+                <p>Attack !</p>
+            </div>
+
+          <% end%>
+
+        </div>
 
       </div>
+
     </div>
   </div>
 </div>

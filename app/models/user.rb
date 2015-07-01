@@ -16,7 +16,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  name                   :string
-#  crew                   :string           default("Baby Rice")
+#  crew                   :string           default("babyrice")
 #  soja                   :integer          default(24)
 #  life                   :integer          default(10)
 #  x                      :integer

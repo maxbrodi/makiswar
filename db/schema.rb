@@ -16,9 +16,15 @@ ActiveRecord::Schema.define(version: 20150701122624) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "event_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.boolean  "read",          default: false
-    t.string   "name"
+    t.integer  "event_type_id"
     t.integer  "world_id"
     t.integer  "user_id"
     t.integer  "other_user_id"
@@ -27,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150701122624) do
     t.datetime "updated_at",                    null: false
   end
 
+  add_index "events", ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
   add_index "events", ["item_id"], name: "index_events_on_item_id", using: :btree
   add_index "events", ["other_user_id"], name: "index_events_on_other_user_id", using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
@@ -59,20 +66,20 @@ ActiveRecord::Schema.define(version: 20150701122624) do
   add_index "items", ["world_id"], name: "index_items_on_world_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",          null: false
-    t.string   "encrypted_password",     default: "",          null: false
+    t.string   "email",                  default: "",         null: false
+    t.string   "encrypted_password",     default: "",         null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,           null: false
+    t.integer  "sign_in_count",          default: 0,          null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.string   "name"
-    t.string   "crew",                   default: "Baby Rice"
+    t.string   "crew",                   default: "babyrice"
     t.integer  "soja",                   default: 24
     t.integer  "life",                   default: 10
     t.integer  "x"
@@ -96,6 +103,7 @@ ActiveRecord::Schema.define(version: 20150701122624) do
     t.integer  "usercount",   default: 0
   end
 
+  add_foreign_key "events", "event_types"
   add_foreign_key "events", "items"
   add_foreign_key "events", "users"
   add_foreign_key "events", "users", column: "other_user_id"
