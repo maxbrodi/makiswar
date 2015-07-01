@@ -14,12 +14,41 @@
    border-color:#47C663;
 }
 
-#player{
-  background: image-url('maki_placeholder.png');
+.info-bottom {
+  background-color: #C6C6C6;
+  border-radius: 5px;
+  padding: 20px;
+  height: 7em;
+}
+
+.babyrice{
+  background: image-url('baby.png');
   background-size: cover;
 }
 
 .salmon{
-  background: image-url('maki_placeholder.png');
+  background: image-url('salmon.png');
   background-size: cover;
+}
+
+.avocado{
+  background: image-url('avocado.png');
+  background-size: cover;
+}
+
+.bastardo{
+  background: image-url('bastardo.png');
+  background-size: cover;
+}
+
+#life{
+  position: absolute;;
+  top: 7px;
+  left: 14px;
+}
+
+#soja{
+  position: absolute;;
+  top: 7px;
+  right: 14px;
 }
