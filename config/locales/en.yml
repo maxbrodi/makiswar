@@ -35,6 +35,8 @@ en:
       account: 'My Account'
   worlds:
     show:
+      sign_out: "Sign Out"
+      profile: "My Profile"
       info1: "Hello makis! Welcome on MakiOne, your best source of information."
       info2: "Life is beautiful. Shrimps are amazing."
       info3: "Beware of %{ennemies}!"

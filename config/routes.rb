@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'fights/show'
+
   get 'worlds/show'
 
   scope '(:locale)', locale: /fr|es/ do

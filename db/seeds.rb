@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+World.create(name: "Forest", description: "Un monde cool", background: "lorem", max_x: 20, max_y: 20)
+
+

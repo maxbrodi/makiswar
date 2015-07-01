@@ -38,7 +38,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :world
   validates :name, presence: true, uniqueness: true
-  before_save { |user| user.lowername = user.name.downcase }
+  before_create { |user| user.lowername = user.name.downcase }
+
+  after_create :born
 
   scope :in_area, ->(user) do
     where.not(id: user.id).
@@ -48,4 +50,31 @@ class User < ActiveRecord::Base
         min_y: user.y - 2, max_y: user.y + 2
       )
   end
+
+  def born
+    world = World.where('usercount < 50').order(usercount: :asc).limit(1).first
+    self.world_id = world.id
+    if world.users.empty?
+      self.x = world.max_x / 2
+      self.y = world.max_y / 2
+    else
+      set_position(world)
+      while User.where(world_id: world.id, x: x, y: y).exists? && x >= world.max_x && x <= 0 && y >= world.max_y && y <= 0 do
+        set_position(world)
+      end
+    end
+    self.save
+    world.usercount += 1
+    world.save
+  end
+
+  private
+
+  def set_position(world)
+    others = User.where(world_id: world.id)
+    n      = others.sample
+    self.x = rand((n.x - 2)..(n.x + 2))
+    self.y = rand((n.y - 2)..(n.y + 2))
+  end
+
 end
