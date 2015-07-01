@@ -21,7 +21,7 @@
         <!-- third row -->
         <div class="cell" data-cell="31"></div>
         <div class="cell" data-cell="32"></div>
-        <div class="cell" data-cell="33" id='player'></div>
+        <div class="cell" data-cell="33" id='player' data-playercrew="<%= current_user.crew %>"></div>
         <div class="cell" data-cell="34"></div>
         <div class="cell" data-cell="35"></div>
         <!-- fourth row -->
@@ -44,7 +44,7 @@
       <div class="">
         <% @players_on_map.each do |cell, player| %>
 
-          <div class="cell-info" id="cell-info-<%= cell %>" data-x="<%= player.x - @x_shift %>" data-y="<%= player.y - @y_shift%>">
+          <div class="cell-info" id="cell-info-<%= cell %>" data-x="<%= player.x - @x_shift %>" data-y="<%= player.y - @y_shift%>" data-crew="<%= player.crew %>">
                 <%= player.name %>
                 <%= player.crew %>
                Attack !

@@ -4,25 +4,21 @@ $( document ).ready(function() {
   $('.cell').css("height", cellwidth);
   $('.worldmap').css("height", cellwidth*5);
 
-  // affichage des autres makis
+  // affichage du maki du joueur
+  // on recupere son crew
+  var player_crew = $('#player').data('playercrew');
+  // on l'affiche
+  $('#player').addClass(player_crew);
 
+  // affichage des autres makis
   $('.cell-info').each(function( index ) {
+    // coordonnees
     var x = $( this ).data('x');
     var y = $( this ).data('y');
-    console.log(x);
-    console.log(y);
-    console.log(x + y);
-    $('*[data-cell="'+ x + y + '"]').addClass("salmon");
-//     if ($( this ).is(':empty')){
-//     //do something
-// }
+    // differents crews
+    var crew = $( this ).data('crew');
+    // affichage
+    $('*[data-cell="'+ x + y + '"]').addClass(crew);
   });
 
-
-
-
-  // .cell onclick
-  //   cell_nb = $(this).data("cell");
-
-  //   $('#cell-info-' + cell_nb)
 });
