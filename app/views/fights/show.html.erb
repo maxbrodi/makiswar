@@ -4,8 +4,8 @@
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
       <div class="fight-display">
         <!-- life and soy sauce jauges -->
-        <%= image_tag "salmon.png", class: "attacker" %>
-        <%= image_tag "avocado.png", class: "defender" %>
+        <%= image_tag "fight/#{@attacker.crew}.png", class: "attacker" %>
+        <%= image_tag "fight/#{@defender.crew}.png", class: "defender" %>
         <div id="life">
           Life <%= @life %>
         </div>

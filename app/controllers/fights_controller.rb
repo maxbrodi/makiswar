@@ -3,9 +3,13 @@ class FightsController < ApplicationController
 
     # Get attacker and defender
 
-    @attacker = session['attacker']
-    @defender
+    # A REMETTRE
+    # @attacker = session['attacker']
+    # @defender = session['defender']
 
+    # COMBAT TEST - A CHANGER
+    @attacker = User.find(2)
+    @defender = User.find(3)
 
 
     # Infos top
