@@ -20,5 +20,22 @@ class WorldsController < ApplicationController
     @life = current_user.life
     @soja = current_user.soja
 
+    # ennemies
+
+    case current_user.crew
+    when "avocado"
+      @ennemies = "salmons"
+    when "salmon"
+      @ennemies = "avocados"
+    when "bastardo"
+      @ennemies = "everyone, you bastard"
+    when "babyrice"
+      @ennemies = "everyone"
+    end
+
+    # info
+
+    @info = ".info" + (rand(5) + 1).to_s
+
   end
 end

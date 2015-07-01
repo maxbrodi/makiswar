@@ -48,7 +48,7 @@
         <div class="">
         <!-- news info -->
           <div class="news-info">
-            Salut les petits makis, ça farte ?
+            <%= t(@info, ennemies: @ennemies) %>
           </div>
           <!-- players infos -->
           <% @players_on_map.each do |cell, player| %>
