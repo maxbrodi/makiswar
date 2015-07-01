@@ -10,6 +10,7 @@
 #  max_y       :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  usercount   :integer          default(0)
 #
 
 class World < ActiveRecord::Base

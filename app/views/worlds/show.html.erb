@@ -1,5 +1,10 @@
 <h1>Worlds#show</h1>
+<% if current_user %>
+  <%= link_to t('.profile'), user_path, class:'btn btn-warning' %>
+  <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
+<% end %>
 <p>Salut les nobos</p>
+
 
 
 <div class="container">

@@ -33,4 +33,8 @@ fr:
       collection: 'Ma Collection'
       stats: 'Mes Stats'
       account: 'Mon Compte'
+  worlds:
+    show:
+      sign_out: "Adios"
+      profile: "Mon profil"
 
