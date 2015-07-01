@@ -1,0 +1,20 @@
+.fight-display{
+  text-align: center;
+  background: #CACC62;
+  width: 100%;
+  height: 100px;
+}
+
+.attacker {
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  height: 50%;
+}
+
+.defender {
+  position: absolute;
+  top: 87px;
+  right: 23px;
+  height: 35%;
+}

@@ -1,8 +1,11 @@
 $( document ).ready(function() {
   // ajustement de la hauteur des divs
   var cellwidth = $('.cell').width();
+  var worldSize = cellwidth*5;
+  var infoHeight = $(window).innerHeight() - worldSize;
   $('.cell').css("height", cellwidth);
-  $('.worldmap').css("height", cellwidth*5);
+  $('.worldmap').css("height", worldSize);
+  $('.info-bottom').css("height", infoHeight);
 
   // affichage du maki du joueur
   // on recupere son crew

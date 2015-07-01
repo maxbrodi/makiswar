@@ -1,2 +1,24 @@
-<h1>Fights#show</h1>
-<p>C'est la guerre !</p>
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 col-md-6">
+      <div class="fight-display">
+        <!-- life and soy sauce jauges -->
+        <%= image_tag "salmon.png", class: "attacker" %>
+        <%= image_tag "avocado.png", class: "defender" %>
+        <div id="life">
+          Life <%= @life %>
+        </div>
+        <div id="soja">
+          Soy Sauce <%= @soja %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+      <div class="info-bottom">
+      </div>
+
+    </div>
+  </div>
+</div>
