@@ -1,13 +1,21 @@
 .worldmap{
   text-align: center;
-  background: #4BCC65;
+  // background: #4BCC65;
+  background: image-url('grass.png');
 }
+
+// .flower {
+//   text-align: center;
+//   background: image-url('flower.png'), image-url('grass.png');
+//   background-size: cover;
+// }
+
 
 .cell{
   width: 20%;
   height: 40px;
   float:left;
-  border: 1px solid #47C663;
+  border: 1px solid #52A20E;
   &.selected {
     background: image-url('selected-nothing.png');
     background-size: cover;

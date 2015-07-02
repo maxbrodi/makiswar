@@ -28,9 +28,24 @@ $(function() {
     $('.cell').each(function() {
       var x_math = parseInt($(this).data('cell').toString().split('')[0]) + x_shift
       var y_math = parseInt($(this).data('cell').toString().split('')[1]) + y_shift
-        if ( x_math <= 0 || x_math > 20 || y_math <= 0 || y_math > 20) {
+      if ( x_math <= 0 || x_math > 20 || y_math <= 0 || y_math > 20) {
         $(this).addClass('outta-world');
       };
+      if (x_math % 2 == 0 && y_math % 2 == 0) {
+        $(this).addClass('flower');
+      }
+
+      // if (x_math % 2 != 0 && y_math % 2 == 0) {
+      //   $(this).addClass('grass');
+      // }
+
+      // if (x_math % 2 == 0 && y_math % 2 != 0) {
+      //   $(this).addClass('NEW??');
+      // }
+
+      // if (x_math % 2 != 0 && y_math % 2 != 0) {
+      //   $(this).addClass('wood');
+      // }
     });
 
     // interaction du joueur avec la map
