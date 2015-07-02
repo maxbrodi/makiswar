@@ -4,7 +4,7 @@ class FightsController < ApplicationController
     # Get attacker and defender
 
     # A REMETTRE
-    # @attacker = session['attacker']
+    @attacker = current_user
     # @defender = session['defender']
 
     # COMBAT TEST - A CHANGER
