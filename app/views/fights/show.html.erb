@@ -1,2 +1,40 @@
-<h1>Fights#show</h1>
-<p>C'est la guerre !</p>
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="fight-display">
+        <!-- life and soy sauce jauges -->
+        <%= image_tag "fight/#{@attacker.crew}.png", class: "attacker" %>
+        <%= image_tag "fight/#{@defender.crew}.png", class: "defender" %>
+        <div id="soja">
+          Soy Sauce <%= @soja %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="weapon-selection scrolls">
+        <div class="item-selection-box consumption-4cl">
+          <h2>Chopsticks</h2>
+          <%= image_tag "chopsticks.jpg", class: "item-attack-display" %>
+          <% if @attacker.soja >= 40 %>
+            <div class="power"><h3>H</h3></div>
+            <div class="consumption"><h3>4cl</h3></div>
+          <% else %>
+            <p class="consumption needs">Needs 4 cl</p>
+          <% end %>
+        </div>
+        <div class="item-selection-box consumption-1cl">
+          <h2>Other item</h2>
+        </div>
+        <div class="item-selection-box consumption-3cl">
+          <h2>Third item</h2>
+        </div>
+        <div class="item-selection-box consumption-2cl">
+          <h2>4th item</h2>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,11 +1,11 @@
 <% if current_user %>
-  <%= link_to t('.profile'), user_path, class:'btn btn-warning' %>
-  <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
+  <% link_to t('.profile'), user_path, class:'btn btn-warning' %>
+  <% link_to t('.sign_out'), destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
 <% end %>
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
       <div class="worldmap">
         <!-- first row -->
         <div class="cell" data-cell="11"></div>
@@ -44,10 +44,7 @@
         <div id="soja">
           Soy Sauce <%= @soja %>
         </div>
-
       </div>
-    </div>
-    <div class="col-xs-12 col-md-6">
       <div class="info-bottom">
 
         <div class="">
@@ -77,5 +74,4 @@
     </div>
   </div>
 </div>
-
 

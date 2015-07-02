@@ -1,0 +1,101 @@
+.fight-display{
+  text-align: center;
+  background: #CACC62;
+  width: 100%;
+}
+
+.attacker {
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  height: 50%;
+}
+
+.defender {
+  position: absolute;
+  top: 87px;
+  right: 23px;
+  height: 35%;
+}
+
+// class of attacker and defender
+
+
+
+.weapon-selection {
+  background: #282828;
+  max-height: 300px;
+}
+
+.item-selection-box {
+  position: relative;
+  background: white;
+  width: 10em;
+  margin-top: 4px;
+  border-radius: 0px;
+  text-align: center;
+  padding-top: 9px;
+  cursor: pointer;
+  display:inline-block;
+  *display:inline;/* For IE7*/
+  *zoom:1;/* For IE7*/
+  vertical-align:top;
+  h2 {
+    font-size: 1.4em;
+  }
+  h3 {
+    font-size: 1.2em;
+  }
+}
+
+.scrolls {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 80px;
+  white-space:nowrap
+}
+
+.item-attack-display {
+  width: 119px;
+  padding-top: 41px;
+}
+
+.power {
+  position: absolute;
+  bottom: 2px;
+  left: 14px;
+}
+
+.consumption {
+  position: absolute;
+  bottom: 2px;
+  right: 14px;
+}
+
+.smalldevice {
+  margin-top: 9px;
+}
+
+.needs {
+  color: white;
+  padding: 5px 17%;
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.consumption-4cl {
+  background: #e74c3c;
+}
+
+.consumption-3cl {
+  background: #e67e22;
+}
+
+.consumption-2cl {
+  background: #9b59b6;
+}
+
+.consumption-1cl {
+  background: #3498db;
+}
