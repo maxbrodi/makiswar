@@ -42,6 +42,14 @@ en:
       info3: "Beware of %{ennemies}!"
       info4: "I\'m not wearing pants today."
       info5: "Is there any girl in the room?"
+    worldmap:
+      sign_out: "Sign Out"
+      profile: "My Profile"
+      info1: "Hello makis! Welcome on MakiOne, your best source of information."
+      info2: "Life is beautiful. Shrimps are amazing."
+      info3: "Beware of %{ennemies}!"
+      info4: "I\'m not wearing pants today."
+      info5: "Is there any girl in the room?"
   fights:
     show:
       nosoy: "%{missing_cl} cl missing"
