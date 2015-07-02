@@ -7,10 +7,10 @@
   $('.weapon-selection').css("height", infoHeight);
 
   infoHeight = $('.weapon-selection').height();
-  var itemSelectionHeight = infoHeight - 70;
+  var itemSelectionHeight = infoHeight - 4;
 
   $('.item-selection-box').css("height", itemSelectionHeight);
-  if (itemSelectionHeight < 150 ){
+  if (itemSelectionHeight < 170 ){
     $('.item-attack-display').addClass('hidden')
     $('h2').addClass('smalldevice')
   };

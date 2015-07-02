@@ -31,8 +31,8 @@
   position: relative;
   background: white;
   width: 10em;
-  margin: 2.3em 1em 1em 1em;
-  border-radius: 3px;
+  margin-top: 4px;
+  border-radius: 0px;
   text-align: center;
   padding-top: 9px;
   cursor: pointer;
@@ -46,12 +46,6 @@
   h3 {
     font-size: 1.2em;
   }
-  &:first-child{
-    margin-left: 2em;
-  }
-  &:last-child{
-    margin-right: 2em;
-  }
 }
 
 .scrolls {
@@ -63,7 +57,7 @@
 
 .item-attack-display {
   width: 119px;
-  padding-top: 12px;
+  padding-top: 41px;
 }
 
 .power {
@@ -80,4 +74,28 @@
 
 .smalldevice {
   margin-top: 9px;
+}
+
+.needs {
+  color: white;
+  padding: 5px 17%;
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.consumption-4cl {
+  background: #e74c3c;
+}
+
+.consumption-3cl {
+  background: #e67e22;
+}
+
+.consumption-2cl {
+  background: #9b59b6;
+}
+
+.consumption-1cl {
+  background: #3498db;
 }
