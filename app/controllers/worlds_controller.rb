@@ -8,7 +8,6 @@ class WorldsController < ApplicationController
     @y_shift = @y_player - 3
 
     @players = User.in_area(current_user)
-
     @players_on_map = {}
 
     @players.each do |player|
