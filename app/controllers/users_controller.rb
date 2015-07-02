@@ -12,6 +12,8 @@ class UsersController < ApplicationController
     redirect_to worlds_show_path
   end
 
+
+
   def collection
   end
 

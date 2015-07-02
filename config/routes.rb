@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'fights/show'
+  # get 'fights/show'
+  # get 'fights/update'
+  resources 'fights'
+
   get 'worlds/show'
   scope '(:locale)', locale: /fr|es/ do
     root 'high_voltage/pages#show', id: 'home', as: :root_with_locale

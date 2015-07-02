@@ -42,3 +42,12 @@ en:
       info3: "Beware of %{ennemies}!"
       info4: "I\'m not wearing pants today."
       info5: "Is there any girl in the room?"
+  fights:
+    show:
+      nosoy: "%{missing_cl} cl missing"
+      confirm_attack: "Attack!"
+    update:
+      hearts_attack:
+        zero:  'You missed your target!'
+        one:   'Ennemy lost one heart!'
+        other: "Ennemy lost %{count} hearts!"
