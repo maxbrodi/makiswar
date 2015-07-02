@@ -5,37 +5,54 @@ $( document ).ready(function() {
   $('.worldmap').css("height", cellwidth*5);
 
   // affichage du maki du joueur
-  // on recupere son crew
   var player_crew = $('#player').data('playercrew');
-  // on l'affiche
   $('#player').addClass(player_crew);
 
   // affichage des autres makis
-  $('.cell-info').each(function( index ) {
-    // coordonnees
+  $('.cell-info').each(function(index) {
     var x = $( this ).data('x');
     var y = $( this ).data('y');
-    // differents crews
     var crew = $( this ).data('crew');
-    // affichage
     $('*[data-cell="'+ x + y + '"]').addClass(crew);
+    $('*[data-cell="'+ x + y + '"]').addClass('maki');
   });
 
-  // click sur un maki
-  $('.cell').click(function() {
-    // get cell coord
-    var cell_coord = $( this ).data('cell');
-    // hide previous cell info
-    $('.cell-info').addClass( "hidden" );
-    // show or hide clicked cell info
-    $('#cell-info-' + cell_coord).removeClass( "hidden" );
-    // show or hide news info
-    if( $('#cell-info-' + cell_coord).is(":visible")) {
-      $('.news-info').addClass( "hidden" );
-    }
-    else {
-      $('.news-info').removeClass( "hidden" );
+  // afficher les limites du monde
+  var x_shift = $('#player').data('shift-x');
+  var y_shift = $('#player').data('shift-y');
+  $('.cell').each(function() {
+    var x_math = parseInt($(this).data('cell').toString().split('')[0]) + x_shift
+    var y_math = parseInt($(this).data('cell').toString().split('')[1]) + y_shift
+      if ( x_math <= 0 || x_math > 20 || y_math <= 0 || y_math > 20) {
+      $(this).addClass('outta-world');
     };
   });
 
+  // interaction du joueur avec la map
+  $('.cell').click(function() {
+    var cell = $(this)
+    var cell_coord = $(this).data('cell');
+    $('.cell').removeClass('selected');
+    cell.addClass('selected');
+
+    if (cell.hasClass('maki')) {
+      $('#new_position').removeAttr('value');
+      $('.cell-info').addClass("hidden");
+      $('.new-move').addClass("hidden");
+      $('.news-info').addClass("hidden");
+      $('#cell-info-' + cell_coord).removeClass("hidden");
+    }
+    else if (cell.not('.outta-world').hasClass('welcome')) {
+      $('.cell-info').addClass("hidden");
+      $('.news-info').addClass("hidden");
+      $('.new-move').removeClass("hidden");
+      $('#new_position').val(cell_coord);
+    }
+    else {
+      $('#new_position').removeAttr('value');
+      $('.cell-info').addClass("hidden");
+      $('.new-move').addClass("hidden");
+      $('.news-info').removeClass("hidden");
+    };
+  });
 });

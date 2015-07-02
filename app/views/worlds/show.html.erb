@@ -9,33 +9,33 @@
       <div class="worldmap">
         <!-- first row -->
         <div class="cell" data-cell="11"></div>
-        <div class="cell" data-cell="12"></div>
-        <div class="cell" data-cell="13"></div>
-        <div class="cell" data-cell="14"></div>
-        <div class="cell" data-cell="15"></div>
-        <!-- second row -->
         <div class="cell" data-cell="21"></div>
-        <div class="cell" data-cell="22"></div>
-        <div class="cell" data-cell="23"></div>
-        <div class="cell" data-cell="24"></div>
-        <div class="cell" data-cell="25"></div>
-        <!-- third row -->
         <div class="cell" data-cell="31"></div>
-        <div class="cell" data-cell="32"></div>
-        <div class="cell" data-cell="33" id='player' data-playercrew="<%= current_user.crew %>"></div>
-        <div class="cell" data-cell="34"></div>
-        <div class="cell" data-cell="35"></div>
-        <!-- fourth row -->
         <div class="cell" data-cell="41"></div>
-        <div class="cell" data-cell="42"></div>
-        <div class="cell" data-cell="43"></div>
-        <div class="cell" data-cell="44"></div>
-        <div class="cell" data-cell="45"></div>
-        <!-- fifth row -->
         <div class="cell" data-cell="51"></div>
+        <!-- second row -->
+        <div class="cell" data-cell="12"></div>
+        <div class="cell welcome" data-cell="22"></div>
+        <div class="cell welcome" data-cell="32"></div>
+        <div class="cell welcome" data-cell="42"></div>
         <div class="cell" data-cell="52"></div>
+        <!-- third row -->
+        <div class="cell" data-cell="13"></div>
+        <div class="cell welcome" data-cell="23"></div>
+        <div class="cell" id='player' data-cell="33" data-shift-x="<%= @x_shift %>" data-shift-y="<%= @y_shift %>" data-playercrew="<%= current_user.crew %>"></div>
+        <div class="cell welcome" data-cell="43"></div>
         <div class="cell" data-cell="53"></div>
+        <!-- fourth row -->
+        <div class="cell" data-cell="14"></div>
+        <div class="cell welcome" data-cell="24"></div>
+        <div class="cell welcome" data-cell="34"></div>
+        <div class="cell welcome" data-cell="44"></div>
         <div class="cell" data-cell="54"></div>
+        <!-- fifth row -->
+        <div class="cell" data-cell="15"></div>
+        <div class="cell" data-cell="25"></div>
+        <div class="cell" data-cell="35"></div>
+        <div class="cell" data-cell="45"></div>
         <div class="cell" data-cell="55"></div>
         <!-- life and soy sauce jauges -->
         <div id="life">
@@ -51,25 +51,29 @@
       <div class="info-bottom">
 
         <div class="">
-        <!-- news info -->
+          <!-- news info -->
           <div class="news-info">
             <%= t(@info, ennemies: @ennemies) %>
           </div>
+
+          <!-- player moves -->
+          <div class='new-move hidden'>
+            <%= form_tag user_path, method: :put do %>
+              <%= hidden_field_tag :new_position %>
+              <%= submit_tag "Go", class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+
           <!-- players infos -->
           <% @players_on_map.each do |cell, player| %>
-
-            <div class="cell-info hidden" id="cell-info-<%= cell %>" data-x="<%= player.x - @x_shift %>" data-y="<%= player.y - @y_shift%>" data-crew="<%= player.crew %>">
+            <div class="cell-info hidden" id="cell-info-<%= cell %>" data-x="<%= player.x - @x_shift %>" data-y="<%= player.y - @y_shift%>" data-crew="<%= player.crew %>" >
                 <p><%= player.name %></p>
                 <p><%= player.crew %></p>
                 <p>Attack !</p>
             </div>
-
           <% end%>
-
         </div>
-
       </div>
-
     </div>
   </div>
 </div>
