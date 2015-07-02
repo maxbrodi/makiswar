@@ -1,8 +1,9 @@
-<%= render partial: 'fights/fights_actions', locals: {
+$('.fights-container').replaceWith("<%= j render partial: 'fights/fights_actions', locals: {
   attacker: @attacker,
   defender: @defender,
   soja: @soja,
   success: @success,
   message: @message,
   defender_id: @defender_id
-} %>
+} %>");
+fight_display();

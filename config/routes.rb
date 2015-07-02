@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'fights/show'
+  # get 'fights/show'
+  # get 'fights/update'
+  resources 'fights'
+
   get 'worlds/show'
   put 'worlds/update', to: 'worlds#update'
   scope '(:locale)', locale: /fr|es/ do

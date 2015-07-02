@@ -1,0 +1,48 @@
+<div class="fights-container">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class="fight-display">
+          <!-- life and soy sauce jauges -->
+          <%= image_tag "fight/#{attacker.crew}.png", class: "attacker" %>
+          <%= image_tag "fight/#{defender.crew}.png", class: "defender" %>
+          <div id="soja">
+            Soy Sauce <%= soja %>
+          </div>
+          <% if success %>
+            <div id="after-attack-message">
+              <%= message %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class="weapon-selection scrolls">
+          <div class="item-selection-box consumption-4cl" >
+            <h2>Chopsticks</h2>
+            <%= image_tag "chopsticks.png", class: "item-attack-display" %>
+            <div class="power"><h3>H</h3></div>
+            <div class="consumption"><h3>4cl</h3></div>
+            <% if attacker.soja >= 4 %>
+               <%= button_to t("fights.show.confirm_attack"), { action: 'update' }, method: :patch, params: { defender: defender_id }, remote: true, class: "confirm-attack" %>
+            <% else %>
+              <p class="needs"><%= t(".nosoy", missing_cl: 4) %></p>
+            <% end %>
+          </div>
+          <div class="item-selection-box consumption-1cl">
+            <h2>Other item</h2>
+          </div>
+          <div class="item-selection-box consumption-3cl">
+            <h2>Third item</h2>
+          </div>
+          <div class="item-selection-box consumption-2cl">
+            <h2>4th item</h2>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
