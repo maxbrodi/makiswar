@@ -7,7 +7,7 @@
   width: 20%;
   height: 40px;
   float:left;
-  border-width:1px solid #47C663;
+  border: 1px solid #47C663;
   &.selected {
     background: image-url('selected-nothing.png');
     background-size: cover;
@@ -22,8 +22,14 @@
 }
 
 .outta-world {
-  border: 1px solid white;
-  background: #5E5F66;
+  // border: 1px solid white;
+  // background: #5E5F66;
+
+  // border: 1px solid #47C663;
+  // background: image-url('orangetrees.png'), #4BCC65;
+  border: none;
+  background: image-url('water3.gif');
+  background-size: cover;
   &.selected {
     background: image-url('selected-border.png'), #5E5F66;
     background-size: cover;
