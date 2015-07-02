@@ -31,8 +31,10 @@ $(function() {
       if ( x_math <= 0 || x_math > 20 || y_math <= 0 || y_math > 20) {
         $(this).addClass('outta-world');
       };
-      if (x_math % 2 == 0 && y_math % 2 == 0) {
+      if (x_math % 3 == 0 && y_math % 3 == 0) {
         $(this).addClass('flower');
+      } else {
+        $(this).not('#player').addClass('grass');
       }
 
       // if (x_math % 2 != 0 && y_math % 2 == 0) {
