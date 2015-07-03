@@ -34,7 +34,6 @@ class WorldsController < ApplicationController
     @players = User.in_area(current_user)
     @players_on_map = {}
 
-    # binding.pry
     @players.each do |player|
      @players_on_map[("#{player[:x] - @x_shift}#{player[:y] - @y_shift}").to_sym] = player
     end

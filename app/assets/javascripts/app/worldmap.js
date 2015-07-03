@@ -1,13 +1,31 @@
 $(function() {
 
   function setWorld() {
-    // ajustement de la hauteur des divs
+    // définition des variables utiles
     var cellwidth = $('.cell').width();
     var worldSize = cellwidth*5;
     var infoHeight = $(window).innerHeight() - worldSize;
+    var x_shift = $('#player').data('shift-x');
+    var y_shift = $('#player').data('shift-y');
+    var x_bg = parseInt($('#player').data('cell').toString().split('')[0]) + x_shift
+    var y_bg = parseInt($('#player').data('cell').toString().split('')[1]) + y_shift
+
+    // ajustement de la hauteur des divs + position du joueur sur le background
     $('.cell').css("height", cellwidth);
     $('.worldmap').css("height", worldSize);
+    $('.worldmap').css("background-size", cellwidth * 20);
+    $('.worldmap').css("background-position-x", (-x_bg * cellwidth)+(3*cellwidth));
+    $('.worldmap').css("background-position-y", (-y_bg * cellwidth)+(3*cellwidth));
     $('.info-bottom').css("height", infoHeight);
+
+    // afficher les limites du monde
+    $('.cell').each(function() {
+      var x_math = parseInt($(this).data('cell').toString().split('')[0]) + x_shift
+      var y_math = parseInt($(this).data('cell').toString().split('')[1]) + y_shift
+      if ( x_math <= 0 || x_math > 20 || y_math <= 0 || y_math > 20) {
+        $(this).addClass('outta-world');
+      };
+    });
 
     // affichage du maki du joueur
     var player_crew = $('#player').data('playercrew');
@@ -20,34 +38,6 @@ $(function() {
       var crew = $( this ).data('crew');
       $('*[data-cell="'+ x + y + '"]').addClass(crew);
       $('*[data-cell="'+ x + y + '"]').addClass('maki');
-    });
-
-    // afficher les limites du monde
-    var x_shift = $('#player').data('shift-x');
-    var y_shift = $('#player').data('shift-y');
-    $('.cell').each(function() {
-      var x_math = parseInt($(this).data('cell').toString().split('')[0]) + x_shift
-      var y_math = parseInt($(this).data('cell').toString().split('')[1]) + y_shift
-      if ( x_math <= 0 || x_math > 20 || y_math <= 0 || y_math > 20) {
-        $(this).addClass('outta-world');
-      };
-      if (x_math % 3 == 0 && y_math % 3 == 0) {
-        $(this).addClass('flower');
-      } else {
-        $(this).not('#player').addClass('grass');
-      }
-
-      // if (x_math % 2 != 0 && y_math % 2 == 0) {
-      //   $(this).addClass('grass');
-      // }
-
-      // if (x_math % 2 == 0 && y_math % 2 != 0) {
-      //   $(this).addClass('NEW??');
-      // }
-
-      // if (x_math % 2 != 0 && y_math % 2 != 0) {
-      //   $(this).addClass('wood');
-      // }
     });
 
     // interaction du joueur avec la map
