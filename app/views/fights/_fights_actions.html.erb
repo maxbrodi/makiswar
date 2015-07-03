@@ -20,7 +20,7 @@
           <div id="soja">
             Soy Sauce <%= soja %>
           </div>
-          <% if success %>
+          <% if message %>
             <div id="after-attack-message">
               <%= message %>
             </div>
@@ -53,6 +53,14 @@
         </div>
 
       </div>
+      <% if killed %>
+        <div id="killed">
+          <h1 class="bigEntrance">BOOM!</h1>
+          <h2><%= t(".killed", opponent: defender.name) %></h2>
+          <br>
+          <p><%= link_to "Back to the future", worlds_show_path, class: "confirm-attack" %></p>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

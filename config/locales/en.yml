@@ -54,8 +54,11 @@ en:
     show:
       nosoy: "%{missing_cl} cl missing"
       confirm_attack: "Attack!"
+    fights_actions:
+      killed: "You killed %{opponent}!"
     update:
       hearts_attack:
         zero:  'You missed your target!'
         one:   'Ennemy lost one heart!'
         other: "Ennemy lost %{count} hearts!"
+      kill: "You killed %{opponent}! Congratulations!"
