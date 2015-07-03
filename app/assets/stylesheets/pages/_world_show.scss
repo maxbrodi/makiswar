@@ -1,47 +1,94 @@
 .worldmap{
-  text-align: center;
-  // background: #4BCC65;
-  background: image-url('grass.png');
-  background-size: cover;
+  background: image-url('bg.png');
+  background-repeat: no-repeat;
 }
-
-.flower {
-  text-align: center;
-  background: image-url('flower.png'), image-url('grass.png');
-  background-size: cover;
-}
-
-.grass {
-  text-align: center;
-  background: image-url('grass.png');
-  background-size: cover;
-}
-
 
 .cell{
   width: 20%;
-  height: 40px;
   float:left;
-  border: 1px solid #52A20E;
-  &.selected {
-    background: image-url('selected-nothing.png');
-    background-size: cover;
+  &#player {
+    &.babyrice {
+      background: image-url('baby.png');
+      background-size: cover;
+      &.selected {
+        background: image-url('baby.png'), image-url('selected-nothing.png');
+        background-size: cover;
+      }
+    }
+    &.salmon {
+      background: image-url('salmon.png');
+      background-size: cover;
+      &.selected {
+        background: image-url('salmon.png'), image-url('selected-nothing.png');
+        background-size: cover;
+      }
+    }
+    &.avocado {
+      background: image-url('avocado.png');
+      background-size: cover;
+      &.selected {
+        background: image-url('avocado.png'), image-url('selected-nothing.png');
+        background-size: cover;
+      }
+    }
+    &.bastardo {
+      background: image-url('bastardo.png');
+      background-size: cover;
+      &.selected {
+        background: image-url('bastardo.png'), image-url('selected-nothing.png');
+        background-size: cover;
+      }
+    }
   }
-}
-
-.welcome {
-  &.selected {
+  &.maki {
+    &.babyrice {
+      background: image-url('baby.png');
+      background-size: cover;
+      &.selected {
+        background: image-url('baby.png'), image-url('selected-fight.png');
+        background-size: cover;
+      }
+    }
+    &.salmon {
+      background: image-url('salmon.png');
+      background-size: cover;
+      &.selected {
+        background: image-url('salmon.png'), image-url('selected-fight.png');
+        background-size: cover;
+      }
+    }
+    &.avocado {
+      background: image-url('avocado.png');
+      background-size: cover;
+      &.selected {
+        background: image-url('avocado.png'), image-url('selected-fight.png');
+        background-size: cover;
+      }
+    }
+    &.bastardo {
+      background: image-url('bastardo.png');
+      background-size: cover;
+      &.selected {
+        background: image-url('bastardo.png'), image-url('selected-fight.png');
+        background-size: cover;
+      }
+    }
+  }
+  &.welcome.selected {
     background: image-url('selected-move.png');
     background-size: cover;
   }
-}
-
-.outta-world {
-  border: none;
-  background: image-url('water3.gif');
-  background-size: cover;
+  &.outta-world {
+    border: none;
+    background: image-url('water3.gif');
+    background-size: cover;
+    &.selected {
+      background: image-url('selected-border.png'), #5E5F66;
+      background-size: cover;
+    }
+  }
   &.selected {
-    background: image-url('selected-border.png'), #5E5F66;
+    background: image-url('selected-nothing.png');
     background-size: cover;
   }
 }
@@ -53,58 +100,6 @@
   height: 7em;
   max-height: 300px;
   padding-top: 10%;
-}
-
-.babyrice{
-  background: image-url('baby.png');
-  background-size: cover;
-  &.selected {
-    background: image-url('baby.png'), image-url('selected-fight.png');
-    background-size: cover;
-    &#player {
-      background: image-url('baby.png'), image-url('selected-nothing.png');
-      background-size: cover;
-    }
-  }
-}
-
-.salmon{
-  background: image-url('salmon.png');
-  background-size: cover;
-  &.selected {
-    background: image-url('salmon.png'), image-url('selected-fight.png');
-    background-size: cover;
-    &#player {
-      background: image-url('salmon.png'), image-url('selected-nothing.png');
-      background-size: cover;
-    }
-  }
-}
-
-.avocado{
-  background: image-url('avocado.png');
-  background-size: cover;
-  &.selected {
-    background: image-url('avocado.png'), image-url('selected-fight.png');
-    background-size: cover;
-    &#player {
-      background: image-url('avocado.png'), image-url('selected-nothing.png');
-      background-size: cover;
-    }
-  }
-}
-
-.bastardo{
-  background: image-url('bastardo.png');
-  background-size: cover;
-  &.selected {
-    background: image-url('bastardo.png'), image-url('selected-fight.png');
-    background-size: cover;
-    &#player {
-      background: image-url('bastardo.png'), image-url('selected-nothing.png');
-      background-size: cover;
-    }
-  }
 }
 
 #life{

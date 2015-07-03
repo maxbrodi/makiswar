@@ -1,6 +1,9 @@
+<!-- remettre les '=' dans les link_to pour afficher les boutons -->
 <% if current_user %>
   <% link_to t('.profile'), user_path, class:'btn btn-warning' %>
   <% link_to t('.sign_out'), destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
 <% end %>
+<!---->
+
 
 <%= render 'worldmap', x_shift: @x_shift, y_shift: @y_shift, life: @life, soja: @soja, info: @info, ennemies: @ennemies, players_on_map: @players_on_map  %>
