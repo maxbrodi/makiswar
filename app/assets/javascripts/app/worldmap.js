@@ -16,7 +16,16 @@ $(function() {
     $('.worldmap').css("background-size", cellwidth * 20);
     $('.worldmap').css("background-position-x", (-x_bg * cellwidth)+(3*cellwidth));
     $('.worldmap').css("background-position-y", (-y_bg * cellwidth)+(3*cellwidth));
+    $('.new-move').css("height", infoHeight);
+    $('.transportation-options').css("height", infoHeight);
     $('.info-bottom').css("height", infoHeight);
+    $('.info-bottom').css("width", worldSize);
+
+  if (infoHeight < 170 ){
+    $('.transportation-options-display').addClass('hidden');
+    $('.transportation-options h2').css('margin-top', '20px');
+    $('.confirm-move').css('margin-top', '0.5em');
+  };
 
     // afficher les limites du monde
     $('.cell').each(function() {
