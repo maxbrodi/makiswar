@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  # get 'fights/show'
-  # get 'fights/update'
-  resources 'fights'
+  get 'fights/show'
+  post 'fights/show'
+  get 'fights/update'
+  patch 'fights/update'
 
   get 'worlds/show'
   put 'worlds/update', to: 'worlds#update'

@@ -63,6 +63,10 @@ $(function() {
         $('.new-move').addClass("hidden");
         $('.news-info').addClass("hidden");
         $('#cell-info-' + cell_coord).removeClass("hidden");
+        if (cell.hasClass('welcome')) {
+          console.log('trouve');
+          $('#cell-info-' + cell_coord + ' input').removeClass("hidden");
+        }
       }
       else if (cell.not('.outta-world').hasClass('welcome')) {
         $('.cell-info').addClass("hidden");

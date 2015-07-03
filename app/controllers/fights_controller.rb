@@ -9,7 +9,7 @@ class FightsController < ApplicationController
     # @defender = session['defender']
 
     # COMBAT TEST - A CHANGER
-    @defender_id = 2
+    @defender_id = params[:defender]
     @defender = User.find(@defender_id)
 
     # Infos top
