@@ -130,3 +130,34 @@
   top: 39%;
   left: 17%;
 }
+
+#defender-name {
+  position: absolute;
+  right: 18%;
+  top: 10%;
+}
+
+#defender-pv {
+  position: absolute;
+  right: 19%;
+  top: 16%;
+}
+
+#attacker-name {
+  position: absolute;
+  left: 23%;
+  top: 41%;
+}
+
+#killed {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #363737;
+  color: white;
+  text-align:center;
+  padding-top: 20%;
+  h1{
+    font-size: 129px;
+  }
+}

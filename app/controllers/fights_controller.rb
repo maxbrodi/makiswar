@@ -9,7 +9,7 @@ class FightsController < ApplicationController
     # @defender = session['defender']
 
     # COMBAT TEST - A CHANGER
-    @defender_id = 2
+    @defender_id = params[:defender]
     @defender = User.find(@defender_id)
 
     # Infos top
@@ -25,6 +25,8 @@ class FightsController < ApplicationController
 
     @defender = User.find(params[:defender])
     success =  rand(10) + 1
+    @killed = false
+
     if @attacker.soja > 3
       if success > 1
         @defender.life -= 1
@@ -39,6 +41,16 @@ class FightsController < ApplicationController
         @success = false
         @message = t(".hearts_attack", count: 0)
       end
+    end
+
+    # After attack. See if opponent died
+
+    if @defender.life < 1
+      @killed = true
+      @defender.world_id = nil
+      @defender.x = nil
+      @defender.y = nil
+      @defender.save
     end
 
     show
