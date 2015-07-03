@@ -1,6 +1,6 @@
 en:
   component:
-    back: 'Retour'
+    back: 'Back'
   devise:
     registrations:
       new:
