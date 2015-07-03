@@ -37,11 +37,6 @@ en:
     show:
       sign_out: "Sign Out"
       profile: "My Profile"
-      info1: "Hello makis! Welcome on MakiOne, your best source of information."
-      info2: "Life is beautiful. Shrimps are amazing."
-      info3: "Beware of %{ennemies}!"
-      info4: "I\'m not wearing pants today."
-      info5: "Is there any girl in the room?"
     worldmap:
       sign_out: "Sign Out"
       profile: "My Profile"
@@ -50,12 +45,13 @@ en:
       info3: "Beware of %{ennemies}!"
       info4: "I\'m not wearing pants today."
       info5: "Is there any girl in the room?"
+      confirm_attack: "Attack!"
   fights:
     show:
-      nosoy: "%{missing_cl} cl missing"
       confirm_attack: "Attack!"
     fights_actions:
       killed: "You killed %{opponent}!"
+      nosoy: "%{missing_cl} cl missing"
     update:
       hearts_attack:
         zero:  'You missed your target!'

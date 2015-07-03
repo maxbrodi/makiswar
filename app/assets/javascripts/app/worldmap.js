@@ -63,7 +63,6 @@ $(function() {
         $('.news-info').addClass("hidden");
         $('#cell-info-' + cell_coord).removeClass("hidden");
         if (cell.hasClass('welcome')) {
-          console.log('trouve');
           $('#cell-info-' + cell_coord + ' input').removeClass("hidden");
         }
       }
