@@ -41,21 +41,45 @@
             Soy Sauce <%= soja %>
           </div>
         </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
 
         <div class="info-bottom">
-          <div class="">
+
             <!-- news info -->
-            <div class="news-info">
+            <div class="news-info text-center">
               <%= t(info, ennemies: ennemies) %>
             </div>
+
             <!-- player moves -->
-            <div class='new-move hidden'>
-              <%= form_tag worlds_update_path, method: :put, remote: true do %>
-                <%= hidden_field_tag :new_position %>
-                <%= submit_tag "Go", class: 'btn btn-primary' %>
-              <% end %>
+            <div class='new-move scrolls text-center hidden'>
+
+              <div class="transportation-options item-1" >
+                <h2>Bounce</h2>
+                <%= image_tag "bounce.png", class:'transportation-options-display' %>
+                <div class="consumption"><h3>4cl</h3></div>
+                <%= form_tag worlds_update_path, method: :put, remote: true do %>
+                  <%= hidden_field_tag :new_position %>
+                  <%= submit_tag "Go", class: "confirm-move" %>
+                <% end %>
+              </div>
+
+              <div class="transportation-options item-2">
+                <h2>2nd item</h2>
+              </div>
+
+              <div class="transportation-options item-3">
+                <h2>3rd item</h2>
+              </div>
+
+              <div class="transportation-options item-4">
+                <h2>4th item</h2>
+              </div>
+
             </div>
             <!-- players infos -->
+
             <% players_on_map.each do |cell, player| %>
               <div class="cell-info hidden" id="cell-info-<%= cell %>" data-x="<%= player.x - x_shift %>" data-y="<%= player.y - y_shift%>" data-crew="<%= player.crew %>" >
                   <p><%= player.name %></p>
@@ -63,9 +87,13 @@
                   <%= button_to "Attack!", fights_show_path, params: {"defender" => player.id }, class: "confirm-attack hidden" %>
               </div>
             <% end%>
-          </div>
+
         </div>
+
       </div>
+
     </div>
   </div>
 </div>
+
+
