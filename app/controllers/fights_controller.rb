@@ -11,6 +11,18 @@ class FightsController < ApplicationController
     # COMBAT TEST - A CHANGER
     @defender_id = params[:defender]
     @defender = User.find(@defender_id)
+    case @defender.life
+    when 10
+      @lifebar = "full"
+    when 6..10
+      @lifebar = "almostfull"
+    when 5
+      @lifebar = "half"
+    when 2..5
+      @lifebar = "low"
+    when 1
+      @lifebar = "verylow"
+    end
 
     # Infos top
 

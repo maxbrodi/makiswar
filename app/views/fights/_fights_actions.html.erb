@@ -11,17 +11,15 @@
           <div id="defender-name">
             <%= defender.name %>
           </div>
-          <div id="defender-pv">
-            <%= defender.life %>
-          </div>
 
           <%= link_to t('component.back'), worlds_show_path, class: "btn btn-primary back-button" %>
 
-          <%= image_tag "fight/#{attacker.crew}.png", class: "attacker" %>
+          <%= image_tag "fight/lifebar/lifebar_#{lifebar}.png", class: "lifebar" %>
+          <%= image_tag "fight/attacker/#{attacker.crew}.png", class: "attacker" %>
           <% if success %>
-            <%= image_tag "fight/#{defender.crew}.png", class: "defender hatch" %>
+            <%= image_tag "fight/defender/#{defender.crew}.png", class: "defender hatch" %>
           <% else %>
-            <%= image_tag "fight/#{defender.crew}.png", class: "defender" %>
+            <%= image_tag "fight/defender/#{defender.crew}.png", class: "defender" %>
           <% end %>
           <div id="soja">
             Soy Sauce <%= soja %>

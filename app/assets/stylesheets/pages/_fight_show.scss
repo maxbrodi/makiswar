@@ -1,6 +1,7 @@
 .fight-display{
   text-align: center;
-  background: #CACC62;
+  background: image-url('fight/fightscene.jpg');
+  background-size: cover;
   width: 100%;
 }
 
@@ -13,12 +14,18 @@
 
 .defender {
   position: absolute;
-  top: 87px;
-  right: 23px;
-  height: 35%;
+  top: 26%;
+  right: 30px;
+  height: 38%;
 }
 
-// class of attacker and defender
+
+.lifebar {
+  position: absolute;
+  top: 19%;
+  right: 40px;
+  width: 20%;
+}
 
 
 
@@ -132,20 +139,17 @@
 
 #defender-name {
   position: absolute;
-  right: 18%;
-  top: 10%;
-}
-
-#defender-pv {
-  position: absolute;
-  right: 19%;
-  top: 16%;
+  right: 38%;
+  top: 26%;
+  font-size: 24px;
+  text-align: right;
 }
 
 #attacker-name {
   position: absolute;
-  left: 23%;
-  top: 41%;
+  left: 56%;
+  top: 86%;
+  font-size: 30px;
 }
 
 #killed {
