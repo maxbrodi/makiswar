@@ -20,10 +20,10 @@
   float:left;
   &#player {
     &.babyrice {
-      background: image-url('baby.png');
+      background: image-url('babyrice.gif');
       background-size: cover;
       &.selected {
-        background: image-url('baby.png'), image-url('selected-nothing.png');
+        background: image-url('babyrice.gif'), image-url('selected-nothing.png');
         background-size: cover;
       }
     }
@@ -36,28 +36,28 @@
       }
     }
     &.avocado {
-      background: image-url('avocado.png');
+      background: image-url('avocado.gif');
       background-size: cover;
       &.selected {
-        background: image-url('avocado.png'), image-url('selected-nothing.png');
+        background: image-url('avocado.gif'), image-url('selected-nothing.png');
         background-size: cover;
       }
     }
     &.bastardo {
-      background: image-url('bastardo.png');
+      background: image-url('bastardo.gif');
       background-size: cover;
       &.selected {
-        background: image-url('bastardo.png'), image-url('selected-nothing.png');
+        background: image-url('bastardo.gif'), image-url('selected-nothing.png');
         background-size: cover;
       }
     }
   }
   &.maki {
     &.babyrice {
-      background: image-url('baby.png');
+      background: image-url('babyrice.gif');
       background-size: cover;
       &.selected {
-        background: image-url('baby.png'), image-url('selected-fight.png');
+        background: image-url('babyrice.gif'), image-url('selected-fight.png');
         background-size: cover;
       }
     }
@@ -70,18 +70,18 @@
       }
     }
     &.avocado {
-      background: image-url('avocado.png');
+      background: image-url('avocado.gif');
       background-size: cover;
       &.selected {
-        background: image-url('avocado.png'), image-url('selected-fight.png');
+        background: image-url('avocado.gif'), image-url('selected-fight.png');
         background-size: cover;
       }
     }
     &.bastardo {
-      background: image-url('bastardo.png');
+      background: image-url('bastardo.gif');
       background-size: cover;
       &.selected {
-        background: image-url('bastardo.png'), image-url('selected-fight.png');
+        background: image-url('bastardo.gif'), image-url('selected-fight.png');
         background-size: cover;
       }
     }
