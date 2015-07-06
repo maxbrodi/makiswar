@@ -27,6 +27,7 @@ class FightsController < ApplicationController
     # Infos top
 
     @soja = current_user.soja
+    sojajauge
 
   end
 
@@ -87,6 +88,30 @@ class FightsController < ApplicationController
     #     @message = t(".hearts_attack", count: 0)
     #   end
     # end
+
+
+  end
+
+  private
+
+  def sojajauge
+
+    @soja = current_user.soja
+
+    case @soja
+    when 0
+      @jauge = "empty"
+    when 1...3
+      @jauge = "verylow"
+    when 3...12
+      @jauge = "low"
+    when 12
+      @jauge = "half"
+    when 13...24
+      @jauge = "almostfull"
+    when 24
+      @jauge = "full"
+    end
 
 
   end

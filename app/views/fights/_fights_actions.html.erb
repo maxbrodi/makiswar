@@ -21,8 +21,11 @@
           <% else %>
             <%= image_tag "fight/defender/#{defender.crew}.png", class: "defender" %>
           <% end %>
-          <div id="soja">
-            Soy Sauce <%= soja %>
+          <div id="jauge-holder">
+            <%= image_tag "info/soja_" + jauge, id: "jauge" %>
+            <div id="soja" class="text-center">
+              <%= soja %>
+          </div>
           </div>
           <% if message %>
             <div id="after-attack-message">
