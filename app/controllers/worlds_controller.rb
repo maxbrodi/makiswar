@@ -4,15 +4,18 @@ class WorldsController < ApplicationController
   def show
     set_player_position
     position_other_players_in_grid
+    position_items_in_grid
+    kinder_surprise
     set_world_info
     sojajauge
   end
 
   def update
-
     set_player_position
-    translate_player_position
+    check_if_move_or_grab_update
     position_other_players_in_grid
+    position_items_in_grid
+    kinder_surprise
     set_world_info
     sojajauge
 
@@ -48,6 +51,37 @@ class WorldsController < ApplicationController
 
     @players.each do |player|
      @players_on_map[("#{player[:x] - @x_shift}#{player[:y] - @y_shift}").to_sym] = player
+    end
+  end
+
+  def position_items_in_grid
+    @items = Item.in_area(current_user)
+    @items_on_map = {}
+
+    @items.each do |item|
+      @items_on_map[("#{item[:x] - @x_shift}#{item[:y] - @y_shift}").to_sym] = item
+    end
+
+  end
+
+  def kinder_surprise
+    @kinder = Item.where(world_id: current_user.world_id, x: current_user.x, y: current_user.y)
+  end
+
+  def add_item_to_user
+    item_id = params[:item_id]
+    new_item = kinder_surprise.find(item_id)
+    new_item.world_id = nil
+    new_item.x = nil
+    new_item.y = nil
+    new_item.user_id = current_user.id
+    new_item.save
+  end
+
+  def check_if_move_or_grab_update
+    case params[:choice]
+      when "move" then translate_player_position
+      when "grab" then add_item_to_user
     end
   end
 

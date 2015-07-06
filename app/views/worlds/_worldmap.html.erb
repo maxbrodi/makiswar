@@ -2,6 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+
         <div class="worldmap">
           <!-- first row -->
           <div class="cell" data-cell="11"></div>
@@ -47,58 +48,97 @@
             </div>
           </div>
         </div>
+
+        <div class="items-list <%= 'hidden' unless @power == 'grab' && @kinder.present? %>">
+          <h2 class='text-center'>Items in the box</h2>
+            <table class='item-table'>
+              <% @kinder.each do |item| %>
+                <tr>
+                  <td><%= item.item_type.picture %></td>
+                  <td><%= item.item_type.name %></td>
+                  <td>
+                    <%= form_tag worlds_update_path, method: :put, remote: true do %>
+                      <%= hidden_field_tag :choice, "grab" %>
+                      <%= hidden_field_tag :item_id, item.id %>
+                      <%= submit_tag "Grab", class: "confirm-move" %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </table>
+        </div>
+
       </div>
 
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
 
         <div class="info-bottom">
 
-            <!-- news info -->
-            <div class="news-info text-center">
-              <%= t(info, ennemies: ennemies) %>
+          <!-- news info -->
+          <div class="news-info text-center hidden">
+            <%= t(info, ennemies: ennemies) %>
+          </div>
+
+          <!-- player moves -->
+          <div class='new-move scrolls text-center hidden'>
+
+            <div class="transportation-options item-1" >
+              <%= image_tag "bounce.png", class:'transportation-options-display' %>
+              <div class="consumption"><h3>4cl</h3></div>
+              <%= form_tag worlds_update_path, method: :put, remote: true do %>
+                <%= hidden_field_tag :choice, "move" %>
+                <%= hidden_field_tag :new_position %>
+                <%= submit_tag "Bounce", class: "confirm-move" %>
+              <% end %>
             </div>
 
-            <!-- player moves -->
-            <div class='new-move scrolls text-center hidden'>
-
-              <div class="transportation-options item-1" >
-                <%= image_tag "bounce.png", class:'transportation-options-display' %>
-                <div class="consumption"><h3>4cl</h3></div>
-                <%= form_tag worlds_update_path, method: :put, remote: true do %>
-                  <%= hidden_field_tag :new_position %>
-                  <%= submit_tag "Bounce", class: "confirm-move" %>
-                <% end %>
-              </div>
-
-              <div class="transportation-options item-2">
-                <h2>2nd item</h2>
-              </div>
-
-              <div class="transportation-options item-3">
-                <h2>3rd item</h2>
-              </div>
-
-              <div class="transportation-options item-4">
-                <h2>4th item</h2>
-              </div>
-
+            <div class="transportation-options item-2">
+              <h2>2nd item</h2>
             </div>
-            <!-- players infos -->
 
-            <% players_on_map.each do |cell, player| %>
-              <div class="cell-info text-center hidden" id="cell-info-<%= cell %>" data-x="<%= player.x - x_shift %>" data-y="<%= player.y - y_shift%>" data-crew="<%= player.crew %>" >
-                <%= image_tag "emblems/" + player.crew, id: "emblem" %>
-                <div class="othermaki-info">
-                  <h3><%= player.name %></h3>
-                </div>
-                <%= button_to t('.confirm_attack'), fights_show_path, params: {"defender" => player.id }, class: "attack-opponent hidden" %>
+            <div class="transportation-options item-3">
+              <h2>3rd item</h2>
+            </div>
+
+            <div class="transportation-options item-4">
+              <h2>4th item</h2>
+            </div>
+
+          </div>
+
+          <!-- players infos -->
+          <% players_on_map.each do |cell, player| %>
+            <div class="cell-info text-center hidden" id="cell-info-<%= cell %>" data-x="<%= player.x - x_shift %>" data-y="<%= player.y - y_shift%>" data-crew="<%= player.crew %>" >
+             <%= image_tag "emblems/" + player.crew, id: "emblem" %>
+              <div class="othermaki-info">
+                <h3><%= player.name %></h3>
               </div>
-            <% end %>
+              <%= button_to t('.confirm_attack'), fights_show_path, params: {"defender" => player.id }, class: "attack-opponent hidden" %>
+            </div>
+          <% end %>
 
+          <!-- items infos -->
+          <% items_on_map.each do |cell, item| %>
+            <div class="item-info text-center hidden" id="item-info-<%= cell %>" data-x="<%= item.x - x_shift %>" data-y="<%= item.y - y_shift%>" ></div>
+          <% end %>
+
+          <div class='my-maki hidden'>
+            <div class='my-profile text-center'>
+              <%= form_tag user_path, method: :get do %>
+                <%= submit_tag t('.profile'), class: "confirm-move" %>
+              <% end %>
+            </div>
+            <div class='search-item text-center'>
+              <h2>Where's Wally?</h2>
+            </div>
+            <div class='grab-item text-center hidden'>
+              <input class='confirm-move grab-it' value='Open Box' type='submit'></input>
+            </div>
+            <div class="clear">
+            </div>
+          </div>
         </div>
-
       </div>
-
     </div>
   </div>
 </div>

@@ -37,3 +37,10 @@
   top: 20px;
   left: 20px;
 }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}

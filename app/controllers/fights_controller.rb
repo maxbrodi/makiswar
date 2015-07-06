@@ -60,6 +60,16 @@ class FightsController < ApplicationController
 
     if @defender.life < 1
       @killed = true
+
+      lost_items = @defender.items
+      lost_items.each do |item|
+        item.world_id = @defender.world_id
+        item.x = @defender.x
+        item.y = @defender.y
+        item.user_id = nil
+        item.save
+      end
+
       @defender.world_id = nil
       @defender.x = nil
       @defender.y = nil
