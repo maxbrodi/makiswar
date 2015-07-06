@@ -87,12 +87,11 @@
 
             <% players_on_map.each do |cell, player| %>
               <div class="cell-info text-center hidden" id="cell-info-<%= cell %>" data-x="<%= player.x - x_shift %>" data-y="<%= player.y - y_shift%>" data-crew="<%= player.crew %>" >
+                <%= image_tag "emblems/" + player.crew, id: "emblem" %>
+                <div class="othermaki-info">
                   <h3><%= player.name %></h3>
-                  <p><%= player.crew %></p>
-                    <%= button_to t('.confirm_attack'), fights_show_path, params: {"defender" => player.id }, class: "confirm-attack hidden" %>
-
-
-
+                </div>
+                <%= button_to t('.confirm_attack'), fights_show_path, params: {"defender" => player.id }, class: "attack-opponent hidden" %>
               </div>
             <% end %>
 

@@ -173,7 +173,13 @@
 }
 
 .info-bottom {
-  background-color: #C6C6C6;
+  background-color: #34495e;
+  color: white;
+  text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+   -1px  1px 0 #000,
+    1px  1px 0 #000;
   max-height: 300px;
   & .new-move {
     background: #282828;
@@ -248,4 +254,28 @@
   border-style: solid;
   width: 80%;
   margin-top: -6px;
+}
+
+.othermaki-info {
+  margin-left: 28%;
+  margin-top: 2%;
+}
+
+.attack-opponent {
+  color: black;
+  background: white;
+  padding: 22px 13%;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  width: 80%;
+  margin-top: 0;
+
+}
+
+#emblem {
+  width: 24%;
+  position: absolute;
+  left: 16%;
+  top: 8%;
 }

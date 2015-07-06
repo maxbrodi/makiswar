@@ -66,6 +66,8 @@ class FightsController < ApplicationController
       @defender.save
     end
 
+    # update soja updated at date !
+
     show
 
     respond_to do |format|

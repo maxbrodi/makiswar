@@ -96,4 +96,20 @@ class WorldsController < ApplicationController
 
   end
 
+  def lifebar(player)
+
+    case player.life
+    when 10
+      return "full"
+    when 6..10
+      return "almostfull"
+    when 5
+      return "half"
+    when 2..5
+      return "low"
+    when 1
+      return "verylow"
+    end
+  end
+
 end

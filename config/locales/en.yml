@@ -46,6 +46,7 @@ en:
       info4: "I\'m not wearing pants today."
       info5: "Is there any girl in the room?"
       confirm_attack: "Attack!"
+      babyrice: "Baby"
   fights:
     show:
       confirm_attack: "Attack!"
