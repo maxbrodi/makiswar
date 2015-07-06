@@ -15,11 +15,11 @@
           <%= link_to t('component.back'), worlds_show_path, class: "btn btn-primary back-button" %>
 
           <%= image_tag "fight/lifebar/lifebar_#{lifebar}.png", class: "lifebar" %>
-          <%= image_tag "fight/attacker/#{attacker.crew}.png", class: "attacker" %>
+          <%= image_tag "fight/attacker/#{attacker.crew}.gif", class: "attacker" %>
           <% if success %>
-            <%= image_tag "fight/defender/#{defender.crew}.png", class: "defender hatch" %>
+            <%= image_tag "fight/defender/#{defender.crew}.gif", class: "defender hatch" %>
           <% else %>
-            <%= image_tag "fight/defender/#{defender.crew}.png", class: "defender" %>
+            <%= image_tag "fight/defender/#{defender.crew}.gif", class: "defender" %>
           <% end %>
           <div id="jauge-holder">
             <%= image_tag "info/soja_" + jauge, id: "jauge" %>
