@@ -13,10 +13,12 @@ $(function() {
     // ajustement de la hauteur des divs + position du joueur sur le background
     $('.cell').css("height", cellwidth);
     $('.worldmap').css("height", worldSize);
+    $('.items-list').css("height", worldSize);
     $('.worldmap').css("background-size", cellwidth * 20);
     $('.worldmap').css("background-position-x", (-x_bg * cellwidth)+(3*cellwidth));
     $('.worldmap').css("background-position-y", (-y_bg * cellwidth)+(3*cellwidth));
     $('.new-move').css("height", infoHeight);
+    $('.my-maki').css("height", infoHeight);
     $('.transportation-options').css("height", infoHeight);
     $('.info-bottom').css("height", infoHeight);
     $('.info-bottom').css("width", worldSize);
@@ -49,6 +51,13 @@ $(function() {
       $('*[data-cell="'+ x + y + '"]').addClass('maki');
     });
 
+    // affichage des items
+    $('.item-info').each(function(index) {
+      var x = $( this ).data('x');
+      var y = $( this ).data('y');
+      $('*[data-cell="'+ x + y + '"]').addClass('item');
+    });
+
     // interaction du joueur avec la map
     $('.cell').click(function() {
       var cell = $(this)
@@ -57,6 +66,7 @@ $(function() {
       cell.addClass('selected');
 
       if (cell.hasClass('maki')) {
+        $('.my-maki').addClass("hidden");
         $('#new_position').removeAttr('value');
         $('.cell-info').addClass("hidden");
         $('.new-move').addClass("hidden");
@@ -67,17 +77,39 @@ $(function() {
         }
       }
       else if (cell.not('.outta-world').hasClass('welcome')) {
+        $('.my-maki').addClass("hidden");
         $('.cell-info').addClass("hidden");
         $('.news-info').addClass("hidden");
         $('.new-move').removeClass("hidden");
         $('#new_position').val(cell_coord);
       }
+      else if (cell.is('#player')) {
+        $('.cell-info').addClass("hidden");
+        $('.new-move').addClass("hidden");
+        $('.news-info').addClass("hidden");
+        $('.my-maki').removeClass("hidden");
+        if (cell.hasClass('item')) {
+          $('.search-item').addClass("hidden");
+          $('.grab-item').removeClass("hidden");
+        }
+      }
       else {
+        $('.my-maki').addClass("hidden");
         $('#new_position').removeAttr('value');
         $('.cell-info').addClass("hidden");
         $('.new-move').addClass("hidden");
         $('.news-info').removeClass("hidden");
       };
+    });
+
+    $('.grab-it').click(function() {
+      $('.items-list').toggleClass("hidden");
+      if ($('.grab-it').val() == 'Open Box') {
+        $(this).val("Close Box");
+      }
+      else {
+        $(this).val("Open Box");
+      }
     });
   };
 

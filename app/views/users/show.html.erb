@@ -18,6 +18,10 @@
           <%= link_to t('.account'), edit_user_registration_path, class:'btn btn-primary' %>
         </div>
 
+        <div>
+          <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
+        </div>
+
       </div>
     </div>
   </div>

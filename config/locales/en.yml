@@ -33,6 +33,7 @@ en:
       collection: 'My Collection'
       stats: 'My Stats'
       account: 'My Account'
+      sign_out: "Sign Out"
   worlds:
     show:
       sign_out: "Sign Out"
