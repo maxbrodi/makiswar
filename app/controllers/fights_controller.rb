@@ -95,26 +95,24 @@ class FightsController < ApplicationController
   private
 
   def sojajauge
-
     @soja = current_user.soja
 
     case @soja
     when 0
-      @jauge = "empty"
+      @jauge = "empty.png"
     when 1...3
-      @jauge = "verylow"
+      @jauge = "verylow.png"
     when 3...12
-      @jauge = "low"
+      @jauge = "low.png"
     when 12
-      @jauge = "half"
+      @jauge = "half.png"
     when 13...24
-      @jauge = "almostfull"
+      @jauge = "almostfull.png"
     when 24
-      @jauge = "full"
+      @jauge = "full.png"
+    when 25..48
+      @jauge = "overfull.gif"
     end
-
-
   end
-
 
 end

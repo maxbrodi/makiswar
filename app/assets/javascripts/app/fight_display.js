@@ -19,10 +19,11 @@
       $('.confirm-attack').css('margin-top', '0.5em');
       $('.item-attack-display').css('padding-top', '13px');
       $('.confirm-attack').css('padding', '5px 13%');
+      $('.needs').css('margin-top', '0.5em');
     };
 
     $('.fights-container').click(function() {
-      $('#after-attack-message').toggleClass('hidden');
+      $('#after-attack-message').addClass('hidden');
     });
 
   };

@@ -34,8 +34,11 @@
           <div class="cell" data-cell="45"></div>
           <div class="cell" data-cell="55"></div>
           <!-- life and soy sauce jauges -->
-          <div id="life">
-            Life <%= life %>
+          <div id="life-holder">
+            <%= image_tag "info/heart.png", id: "heart" %>
+            <div id="life" class="text-center">
+              x<%= life %>
+            </div>
           </div>
           <div id="jauge-holder">
             <%= image_tag "info/soja_" + jauge, id: "jauge" %>

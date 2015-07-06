@@ -80,10 +80,21 @@ $(function() {
     });
   };
 
+  function displayHideJauge() {
+    $("#jauge-holder").on("click", function(){
+      $(".cell[data-cell='51']").click();
+    });
+    $("#life-holder").on("click", function(){
+      $(".cell[data-cell='11']").click();
+    });
+  };
+
   setWorld();
+  displayHideJauge();
 
   PubSub.subscribe('setWorld', function(){
     setWorld();
+    displayHideJauge();
   })
 
 });

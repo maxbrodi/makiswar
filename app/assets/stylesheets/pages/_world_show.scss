@@ -3,21 +3,55 @@
   background-repeat: no-repeat;
 }
 
+#life-holder{
+  position: absolute;
+  top: -11px;
+  left: -14px;
+  text-align: right;
+  width: 20%;
+  padding-top: 19px;
+  padding-left: 0%;
+  padding-right: 7%;
+  cursor: default;
+}
+
+#heart{
+  width: 50%;
+}
+
 #life{
-  position: absolute;;
-  top: 7px;
-  left: 14px;
+  color: white;
+  text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+   -1px  1px 0 #000,
+    1px  1px 0 #000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 48%;
+  padding-left: 105%;
+  padding-right: 0;
+  z-index: 3;
+  font-size: 1em;
 }
 
 #soja{
-  color: #dbcec6;
+  color: white;
+  text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+   -1px  1px 0 #000,
+    1px  1px 0 #000;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   font-size: 90%;
-  padding-top: 69%;
+  padding-top: 63%;
   padding-left: 46%;
   z-index: 3;
 
@@ -28,17 +62,16 @@
 }
 
 #jauge-holder{
-  // background-color: yellow;
   position: absolute;
   top: -10px;
   right: 0px;
-  /* width: 216px; */
   text-align: right;
   width: 20%;
   padding-top: 15px;
   padding-left: 5%;
   padding-right: 2%;
   padding-bottom: 5%;
+  cursor: default;
 }
 
 .cell{
@@ -54,10 +87,10 @@
       }
     }
     &.salmon {
-      background: image-url('salmon.png');
+      background: image-url('salmon.gif');
       background-size: cover;
       &.selected {
-        background: image-url('salmon.png'), image-url('selected-nothing.png');
+        background: image-url('salmon.gif'), image-url('selected-nothing.png');
         background-size: cover;
       }
     }
@@ -88,10 +121,10 @@
       }
     }
     &.salmon {
-      background: image-url('salmon.png');
+      background: image-url('salmon.gif');
       background-size: cover;
       &.selected {
-        background: image-url('salmon.png'), image-url('selected-fight.png');
+        background: image-url('salmon.gif'), image-url('selected-fight.png');
         background-size: cover;
       }
     }
