@@ -56,12 +56,11 @@
             <div class='new-move scrolls text-center hidden'>
 
               <div class="transportation-options item-1" >
-                <h2>Bounce</h2>
                 <%= image_tag "bounce.png", class:'transportation-options-display' %>
                 <div class="consumption"><h3>4cl</h3></div>
                 <%= form_tag worlds_update_path, method: :put, remote: true do %>
                   <%= hidden_field_tag :new_position %>
-                  <%= submit_tag "Go", class: "confirm-move" %>
+                  <%= submit_tag "Bounce", class: "confirm-move" %>
                 <% end %>
               </div>
 

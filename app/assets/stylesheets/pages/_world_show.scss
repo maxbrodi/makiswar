@@ -175,7 +175,9 @@
 .transportation-options-display {
   max-width: 100px;
   max-height: 100px;
-  padding-top: 10px;
+  padding-top: 0px;
+  margin-top: 2.5em;
+  margin-bottom: 2em;
 }
 
 .confirm-move {
@@ -186,5 +188,5 @@
   border-width: 2px;
   border-style: solid;
   width: 80%;
-  margin-top: 1.5em;
+  margin-top: -6px;
 }
