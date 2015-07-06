@@ -13,9 +13,12 @@
     var itemSelectionHeight = infoHeight - 4;
 
     $('.item-selection-box').css("height", itemSelectionHeight);
-    if (itemSelectionHeight < 170 ){
-      $('.item-attack-display').addClass('hidden')
-      $('.item-selection-box').addClass('smalldevice')
+    if (itemSelectionHeight < 200 ){
+      // $('.item-attack-display').addClass('hidden')
+      // $('.item-selection-box').addClass('smalldevice')
+      $('.confirm-attack').css('margin-top', '0.5em');
+      $('.item-attack-display').css('padding-top', '13px');
+      $('.confirm-attack').css('padding', '5px 13%');
     };
 
     $('.fights-container').click(function() {
