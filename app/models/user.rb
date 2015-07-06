@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
       self.y = world.max_y / 2
     else
       set_position(world)
-      while User.where(world_id: world.id, x: x, y: y).exists? || x >= world.max_x && x <= 0 && y >= world.max_y && y <= 0 do
+      while User.where(world_id: world.id, x: x, y: y).exists? || x >= world.max_x || x <= 0 || y >= world.max_y || y <= 0 do
         set_position(world)
       end
     end
