@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :world
+  has_many :items
   validates :name, presence: true, uniqueness: true
   before_create { |user| user.lowername = user.name.downcase }
 

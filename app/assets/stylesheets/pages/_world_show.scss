@@ -22,9 +22,17 @@
     &.babyrice {
       background: image-url('babyrice.gif');
       background-size: cover;
+      &.item {
+        background: image-url('babyrice.gif'), image-url('on_item.png');
+        background-size: cover;
+      }
       &.selected {
         background: image-url('babyrice.gif'), image-url('selected-nothing.png');
         background-size: cover;
+        &.item {
+          background: image-url('babyrice.gif'), image-url('on_item.png'), image-url('selected-nothing.png');
+          background-size: cover;
+        }
       }
     }
     &.salmon {
@@ -89,6 +97,10 @@
   &.welcome.selected {
     background: image-url('selected-move.png');
     background-size: cover;
+    &.item {
+      background: image-url('item.png'), image-url('selected-move.png');
+      background-size: cover;
+    }
   }
   &.outta-world {
     border: none;
@@ -102,6 +114,14 @@
   &.selected {
     background: image-url('selected-nothing.png');
     background-size: cover;
+  }
+  &.item {
+    background: image-url('item.png');
+    background-size: cover;
+    &.selected {
+      background: image-url('item.png'), image-url('selected-nothing.png');
+      background-size: cover;
+    }
   }
 }
 
@@ -117,6 +137,10 @@
   background-color: #C6C6C6;
   max-height: 300px;
   & .new-move {
+    background: #282828;
+    max-height: 300px;
+  }
+  & .my-maki {
     background: #282828;
     max-height: 300px;
   }
@@ -188,3 +212,58 @@
   width: 80%;
   margin-top: 1.5em;
 }
+
+.my-maki {
+  position: relative;
+  max-height: 300px;
+  border-radius: 0px;
+  padding-top: 9px;
+  cursor: pointer;
+  *display:inline;/* For IE7*/
+  *zoom:1;/* For IE7*/
+  vertical-align:top;
+  & .my-profile {
+    float: left;
+    background: #3498db;
+    width: 50%;
+    height: 100%;
+  }
+  & .search-item {
+    float: right;
+    background: #e67e22;
+    width: 50%;
+    height: 100%;
+  }
+  & .grab-item {
+    float: right;
+    background: #e67e22;
+    width: 50%;
+    height: 100%;
+  }
+  & .clear {
+    clear: both;
+  }
+}
+
+.items-list {
+  background: rgba(0,0,0,0.4);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  & .item-table {
+    width: 80%;
+    position: relative;
+    margin: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 80px;
+    white-space:nowrap
+  }
+}
+
+
+
+
+

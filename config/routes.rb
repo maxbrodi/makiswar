@@ -16,4 +16,7 @@ Rails.application.routes.draw do
     get '/user/collection', to: 'users#collection'
     get '/user/stats', to: 'users#stats'
   end
+
+  resources :items
+
 end
