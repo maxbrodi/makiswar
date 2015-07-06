@@ -27,6 +27,7 @@ class FightsController < ApplicationController
     # Infos top
 
     @soja = current_user.soja
+    sojajauge
 
   end
 
@@ -65,6 +66,8 @@ class FightsController < ApplicationController
       @defender.save
     end
 
+    # update soja updated at date !
+
     show
 
     respond_to do |format|
@@ -91,5 +94,27 @@ class FightsController < ApplicationController
 
   end
 
+  private
+
+  def sojajauge
+    @soja = current_user.soja
+
+    case @soja
+    when 0
+      @jauge = "empty.png"
+    when 1...3
+      @jauge = "verylow.png"
+    when 3...12
+      @jauge = "low.png"
+    when 12
+      @jauge = "half.png"
+    when 13...24
+      @jauge = "almostfull.png"
+    when 24
+      @jauge = "full.png"
+    when 25..48
+      @jauge = "overfull.gif"
+    end
+  end
 
 end

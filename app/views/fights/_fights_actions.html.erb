@@ -21,8 +21,11 @@
           <% else %>
             <%= image_tag "fight/defender/#{defender.crew}.png", class: "defender" %>
           <% end %>
-          <div id="soja">
-            Soy Sauce <%= soja %>
+          <div id="jauge-holder">
+            <%= image_tag "info/soja_" + jauge, id: "jauge" %>
+            <div id="soja" class="text-center">
+              <%= soja %>
+          </div>
           </div>
           <% if message %>
             <div id="after-attack-message">
@@ -35,12 +38,11 @@
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
         <div class="weapon-selection scrolls">
           <div class="item-selection-box consumption-4cl" >
-            <h2>Chopsticks</h2>
             <%= image_tag "chopsticks.png", class: "item-attack-display" %>
             <div class="power"><h3>H</h3></div>
             <div class="consumption"><h3>4cl</h3></div>
             <% if attacker.soja >= 4 %>
-               <%= button_to t("fights.show.confirm_attack"), { action: 'update' }, method: :patch, params: { defender: defender_id }, remote: true, class: "confirm-attack" %>
+               <%= button_to "Chopsticks!", { action: 'update' }, method: :patch, params: { defender: defender_id }, remote: true, class: "confirm-attack" %>
             <% else %>
               <p class="needs"><%= t(".nosoy", missing_cl: 4) %></p>
             <% end %>

@@ -5,6 +5,7 @@ class WorldsController < ApplicationController
     set_player_position
     position_other_players_in_grid
     set_world_info
+    sojajauge
   end
 
   def update
@@ -13,6 +14,7 @@ class WorldsController < ApplicationController
     translate_player_position
     position_other_players_in_grid
     set_world_info
+    sojajauge
 
     respond_to do |format|
       format.js
@@ -68,6 +70,46 @@ class WorldsController < ApplicationController
 
     # info
     @info = ".info" + (rand(5) + 1).to_s
+  end
+
+  def sojajauge
+
+    @soja = current_user.soja
+
+    case @soja
+    when 0
+      @jauge = "empty.png"
+    when 1...3
+      @jauge = "verylow.png"
+    when 3...12
+      @jauge = "low.png"
+    when 12
+      @jauge = "half.png"
+    when 13...24
+      @jauge = "almostfull.png"
+    when 24
+      @jauge = "full.png"
+    when 25..48
+      @jauge = "overfull.gif"
+    end
+
+
+  end
+
+  def lifebar(player)
+
+    case player.life
+    when 10
+      return "full"
+    when 6..10
+      return "almostfull"
+    when 5
+      return "half"
+    when 2..5
+      return "low"
+    when 1
+      return "verylow"
+    end
   end
 
 end

@@ -23,6 +23,7 @@
 #  y                      :integer
 #  world_id               :integer
 #  lowername              :string
+#  soja_updated_at        :datetime
 #
 # Indexes
 #
@@ -63,6 +64,8 @@ class User < ActiveRecord::Base
         set_position(world)
       end
     end
+    self.soja_updated_at = Time.now.at_beginning_of_hour
+    self.soja = 48
     self.save
     world.usercount += 1
     world.save
