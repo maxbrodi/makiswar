@@ -66,7 +66,7 @@
 .item-attack-display {
   max-width: 119px;
   max-height: 119px;
-  padding-top: 13px;
+  padding-top: 3em;
 }
 
 .power {
@@ -99,7 +99,7 @@
 .confirm-attack {
   color: black;
   background: white;
-  padding: 5px 13%;
+  padding: 22px 13%;
   border-color: black;
   border-width: 2px;
   border-style: solid;
@@ -126,15 +126,15 @@
 
 
 #after-attack-message {
-  padding: 27px 10%;
+  padding: 4px 16%;
   background: white;
   border-color: #929292;
   border-width: 5px;
   border-style: outset;
   color: black;
   position: absolute;
-  top: 39%;
-  left: 17%;
+  top: 84%;
+  left: 3%;
 }
 
 #defender-name {

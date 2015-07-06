@@ -23,10 +23,9 @@ $(function() {
     $('.info-bottom').css("height", infoHeight);
     $('.info-bottom').css("width", worldSize);
 
-  if (infoHeight < 170 ){
-    $('.transportation-options-display').addClass('hidden');
-    $('.transportation-options h2').css('margin-top', '20px');
-    $('.confirm-move').css('margin-top', '0.5em');
+  if (infoHeight < 200 ){
+    $('.transportation-options-display').css('margin-top', '0em');
+    $('.transportation-options-display').css('margin-bottom', '0em');
   };
 
     // afficher les limites du monde
@@ -113,10 +112,21 @@ $(function() {
     });
   };
 
+  function displayHideJauge() {
+    $("#jauge-holder").on("click", function(){
+      $(".cell[data-cell='51']").click();
+    });
+    $("#life-holder").on("click", function(){
+      $(".cell[data-cell='11']").click();
+    });
+  };
+
   setWorld();
+  displayHideJauge();
 
   PubSub.subscribe('setWorld', function(){
     setWorld();
+    displayHideJauge();
   })
 
 });

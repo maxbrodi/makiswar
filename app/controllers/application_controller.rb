@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, unless: :pages_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :get_soja
+
   # after_action :verify_authorized, except:  :index, unless: :devise_or_pages_controller?
   # after_action :verify_policy_scoped, only: :index, unless: :devise_or_pages_controller?
 
@@ -37,6 +39,20 @@ class ApplicationController < ActionController::Base
 
   def pages_controller?
     controller_name == "pages"  # Brought by the `high_voltage` gem
+  end
+
+  def get_soja
+    return unless current_user
+
+    soja_to_add = ((Time.now - current_user.soja_updated_at) / 3600).floor
+    new_soja = current_user.soja + soja_to_add
+    if new_soja > 48
+      current_user.soja = 48
+    else
+      current_user.soja = new_soja
+    end
+    current_user.soja_updated_at = Time.now.at_beginning_of_hour
+    current_user.save
   end
 
   # def user_not_authorized
