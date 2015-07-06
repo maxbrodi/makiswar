@@ -37,8 +37,11 @@
           <div id="life">
             Life <%= life %>
           </div>
-          <div id="soja">
-            Soy Sauce <%= soja %>
+          <div id="jauge-holder">
+            <%= image_tag "info/soja_" + jauge, id: "jauge" %>
+            <div id="soja" class="text-center">
+              <%= soja %>
+            </div>
           </div>
         </div>
       </div>

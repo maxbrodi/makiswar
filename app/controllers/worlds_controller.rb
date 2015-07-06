@@ -5,6 +5,7 @@ class WorldsController < ApplicationController
     set_player_position
     position_other_players_in_grid
     set_world_info
+    sojajauge
   end
 
   def update
@@ -13,6 +14,7 @@ class WorldsController < ApplicationController
     translate_player_position
     position_other_players_in_grid
     set_world_info
+    sojajauge
 
     respond_to do |format|
       format.js
@@ -68,6 +70,28 @@ class WorldsController < ApplicationController
 
     # info
     @info = ".info" + (rand(5) + 1).to_s
+  end
+
+  def sojajauge
+
+    @soja = current_user.soja
+
+    case @soja
+    when 0
+      @jauge = "empty"
+    when 1...3
+      @jauge = "verylow"
+    when 3...12
+      @jauge = "low"
+    when 12
+      @jauge = "half"
+    when 13...24
+      @jauge = "almostfull"
+    when 24
+      @jauge = "full"
+    end
+
+
   end
 
 end
