@@ -69,6 +69,16 @@ class User < ActiveRecord::Base
     self.soja_updated_at = Time.now.at_beginning_of_hour
     self.soja = 48
     self.save
+
+    #event of birth
+    birth = Event.new
+    birth[:name] = "birth"
+    birth[:user_id] = self.id
+    birth[:other_user_id] = self.id
+    birth[:world_id] = self.world_id
+    birth[:read] = true
+    birth.save
+
     world.usercount += 1
     world.save
   end

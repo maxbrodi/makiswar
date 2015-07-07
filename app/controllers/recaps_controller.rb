@@ -16,7 +16,6 @@ class RecapsController < ApplicationController
         event[:read] = true
         event.save
       end
-
     end
 
   end

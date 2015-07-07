@@ -20,10 +20,13 @@
         <div class="recap">
           <h3> Some stuff happened: </h3>
           <% @events.each do |event| %>
-            <% if event[:name] = "attack" %>
+            <% case event[:name] %>
+            <% when "attack" %>
               <%= User.find(event[:other_user_id]).name + " attacked your maki." %>
-            <% elsif event[:name] = "missed" %>
+            <% when "missed" %>
               <%= User.find(event[:other_user_id]).name + " tried to attack your maki but missed." %>
+            <% when "birth" %>
+              <%= current_user.name + " landed on " + World.find(event[:world_id]).name + "!" %>
             <% end %>
           <% end %>
         </div>
