@@ -1,5 +1,7 @@
 class FightsController < ApplicationController
 
+  before_action :check_notif
+
   def show
 
     # Get attacker and defender
@@ -48,11 +50,32 @@ class FightsController < ApplicationController
         @attacker.save
         @success = true
         @message = t(".hearts_attack", count: 1)
+
+        #event attack
+        attack = Event.new
+        attack[:name] = "attack"
+        attack[:world_id] = @attacker.world_id
+        attack[:user_id] = @attacker.id
+        attack[:other_user_id] = @defender.id
+        # AJOUTER l'OBJET DE l'ATTAQUE
+        # attack[:item_id] =
+        attack.save
       else
         @attacker.soja -= 4
         @attacker.save
         @success = false
         @message = t(".hearts_attack", count: 0)
+
+        #event missed
+        missed = Event.new
+        missed[:name] = "missed"
+        missed[:world_id] = @attacker.world_id
+        missed[:user_id] = @attacker.id
+        missed[:other_user_id] = @defender.id
+        # AJOUTER l'OBJET DE l'ATTAQUE RATEE
+        # missed[:item_id] =
+        missed.save
+
       end
     end
 
@@ -61,6 +84,7 @@ class FightsController < ApplicationController
     if @defender.life < 1
       @killed = true
 
+      # defender loses all items
       lost_items = @defender.items
       lost_items.each do |item|
         item.world_id = @defender.world_id
@@ -70,13 +94,24 @@ class FightsController < ApplicationController
         item.save
       end
 
+      # defender dies
       @defender.world_id = nil
       @defender.x = nil
       @defender.y = nil
       @defender.save
-    end
 
-    # update soja updated at date !
+      # death event created
+      death = Event.new
+      death[:name] = "death"
+      death[:world_id] = @attacker.world_id
+      death[:user_id] = @attacker.id
+      death[:other_user_id] = @defender.id
+      # AJOUTER l'OBJET DU KILL
+      # death[:item_id] =
+      death.save
+
+
+    end
 
     show
 
@@ -124,6 +159,17 @@ class FightsController < ApplicationController
       @jauge = "full.png"
     when 25..48
       @jauge = "overfull.gif"
+    end
+  end
+
+  def check_notif
+    return unless current_user
+
+    if current_user.life < 1
+      redirect_to recaps_show_path
+    else
+      lastevent = Event.find_by_sql(["SELECT * FROM events WHERE other_user_id = ? ORDER BY id DESC LIMIT 1", current_user.id]).first
+      redirect_to recaps_show_path unless lastevent[:read]
     end
   end
 

@@ -99,12 +99,16 @@
 .confirm-attack {
   color: black;
   background: white;
+  text-shadow: none;
   padding: 22px 13%;
   border-color: black;
   border-width: 2px;
   border-style: solid;
   width: 80%;
   margin-top: 2.5em;
+  a:hover{
+    color: black;
+  }
 
 }
 
@@ -152,15 +156,38 @@
   font-size: 30px;
 }
 
-#killed {
+#ko {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: #363737;
+  background: black;
+  text-align:center;
+  padding-top: 20%;
+  z-index: 4;
+  img {
+    width: 68%;
+  }
+}
+
+#killed {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: $info;
   color: white;
+  text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+   -1px  1px 0 #000,
+    1px  1px 0 #000;
   text-align:center;
   padding-top: 20%;
   h1{
     font-size: 129px;
+  }
+  z-index: 4;
+  a:hover {
+    color:black;
   }
 }
