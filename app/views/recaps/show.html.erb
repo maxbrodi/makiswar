@@ -17,16 +17,21 @@
       <!-- RESUME SI PAS MORT -->
       <% else %>
 
-      Bah t'es pas mort !
-      <br>
+        <div class="recap">
+          <h2> Some stuff happened: </h2>
+          <% @events.each do |event| %>
+            <% if event[:name] = "attack" %>
+              <%= User.find(event[:other_user_id]).name + " attacked your maki." %>
+            <% elsif event[:name] = "missed" %>
+              <%= User.find(event[:other_user_id]).name + " tried to attack your maki but missed." %>
+            <% end %>
+          <% end %>
+        </div>
 
-      <% @events.each do |event| %>
-        <% if event[:name] = "attack" %>
-          <%= User.find(event[:other_user_id]).name + " attacked your maki." %>
-        <% elsif event[:name] = "missed" %>
-          <%= User.find(event[:other_user_id]).name + " tried to attack your maki but missed." %>
-        <% end %>
-      <% end %>
+        <div class="action">
+          <%= button_to "Let\'s fight!", worlds_show_path, method: :get, id: "resurrect" %>
+        </div>
+
       <!-- FIN BOUCLE MORT -->
       <% end %>
     </div>

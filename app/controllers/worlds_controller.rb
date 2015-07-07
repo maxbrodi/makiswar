@@ -1,5 +1,6 @@
 class WorldsController < ApplicationController
   respond_to :js, only: [:update]
+  before_action :check_notif
 
   def show
     set_player_position
@@ -143,6 +144,17 @@ class WorldsController < ApplicationController
       return "low"
     when 1
       return "verylow"
+    end
+  end
+
+  def check_notif
+    return unless current_user
+
+    if current_user.life < 1
+      redirect_to recaps_show_path
+    else
+      lastevent = Event.find_by_sql(["SELECT * FROM events WHERE other_user_id = ? ORDER BY id DESC LIMIT 1", current_user.id]).first
+      redirect_to recaps_show_path unless lastevent[:read]
     end
   end
 
