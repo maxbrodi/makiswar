@@ -1,27 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <div class="text-center">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="profile text-center">
 
         <div class='top-menu'>
           <%= link_to t('component.back'), worlds_show_path, class:'btn btn-default' %>
         </div>
 
-        <div class='user-info'>
-          <%= image_tag 'http://cdn3.volusion.com/jants.petuy/v/vspfiles/photos/19334-1.jpg?1354624869', class: 'img-circle' %>
+        <div class='maki-in-landscape'>
+          <%= image_tag current_user.crew %>
+        </div>
+        <div id="profile-name">
           <h2><%= current_user.name %></h2>
         </div>
 
-        <div class='sub-menu'>
+      </div>
+      <div class="action" id="profile-action">
           <%= link_to t('.collection'), user_collection_path, class:'btn btn-primary' %>
           <%= link_to t('.stats'), user_stats_path, class:'btn btn-primary' %>
           <%= link_to t('.account'), edit_user_registration_path, class:'btn btn-primary' %>
-        </div>
-
-        <div>
           <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
-        </div>
-
+      </div>
       </div>
     </div>
   </div>

@@ -18,7 +18,7 @@
       <% else %>
 
         <div class="recap">
-          <h2> Some stuff happened: </h2>
+          <h3> Some stuff happened: </h3>
           <% @events.each do |event| %>
             <% if event[:name] = "attack" %>
               <%= User.find(event[:other_user_id]).name + " attacked your maki." %>
