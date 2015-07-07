@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :world
   has_many :items
+  has_many :item_types, -> { distinct }, through: :items
   validates :name, presence: true, uniqueness: true
   before_create { |user| user.lowername = user.name.downcase }
 

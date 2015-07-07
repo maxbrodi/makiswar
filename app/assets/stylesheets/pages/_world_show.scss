@@ -97,6 +97,10 @@
     &.salmon {
       background: image-url('salmon.gif');
       background-size: cover;
+      &.item {
+        background: image-url('salmon.gif'), image-url('on_item.png');
+        background-size: cover;
+      }
       &.selected {
         background: image-url('salmon.gif'), image-url('selected-nothing.png');
         background-size: cover;
@@ -105,6 +109,10 @@
     &.avocado {
       background: image-url('avocado.gif');
       background-size: cover;
+      &.item {
+        background: image-url('avocado.gif'), image-url('on_item.png');
+        background-size: cover;
+      }
       &.selected {
         background: image-url('avocado.gif'), image-url('selected-nothing.png');
         background-size: cover;
@@ -113,6 +121,10 @@
     &.bastardo {
       background: image-url('bastardo.gif');
       background-size: cover;
+      &.item {
+        background: image-url('bastardo.gif'), image-url('on_item.png');
+        background-size: cover;
+      }
       &.selected {
         background: image-url('bastardo.gif'), image-url('selected-nothing.png');
         background-size: cover;
@@ -204,16 +216,63 @@
   & .new-move {
     background: #282828;
     max-height: 300px;
+    & .transportation-options {
+      position: relative;
+      max-height: 300px;
+      width: 10em;
+      text-align: center;
+      padding-top: 9px;
+      margin-right: -9px;
+      cursor: pointer;
+      display: inline-block;
+      *display:inline;/* For IE7*/
+      *zoom:1;/* For IE7*/
+      vertical-align:top;
+      h2 {
+        font-size: 1.4em;
+        margin-top: 48px;
+      }
+      h3 {
+        font-size: 1.2em;
+      }
+    }
   }
   & .my-maki {
     background: #282828;
     max-height: 300px;
+    position: relative;
+    max-height: 300px;
+    border-radius: 0px;
+    // padding-top: 9px;
+    cursor: pointer;
+    & img {
+      position: relative;
+      margin: auto;
+      width: 50%;
+      padding: 30% 0px 10% 0px;
+    }
+    & .my-profile {
+      float: left;
+      background: #3498db;
+      width: 50%;
+      height: 100%;
+    }
+    & .search-item {
+      float: right;
+      background: #e67e22;
+      width: 50%;
+      height: 100%;
+    }
+    & .grab-item {
+      float: right;
+      background: #e67e22;
+      width: 50%;
+      height: 100%;
+    }
+    & .clear {
+      clear: both;
+    }
   }
-}
-
-.item-selection {
-  background: #282828;
-  max-height: 300px;
 }
 
 .item-1 {
@@ -232,33 +291,12 @@
   background: #e74c3c;
 }
 
-.transportation-options {
-  position: relative;
-  max-height: 300px;
-  width: 10em;
-  margin-top: 6px;
-  border-radius: 0px;
-  text-align: center;
-  padding-top: 9px;
-  cursor: pointer;
-  display:inline-block;
-  *display:inline;/* For IE7*/
-  *zoom:1;/* For IE7*/
-  vertical-align:top;
-  h2 {
-    font-size: 1.4em;
-    margin-top: 48px;
-  }
-  h3 {
-    font-size: 1.2em;
-  }
-}
-
 .scrolls {
   overflow-x: scroll;
   overflow-y: hidden;
   height: 80px;
-  white-space:nowrap
+  white-space:nowrap;
+  word-spacing: -1;
 }
 
 .transportation-options-display {
@@ -269,7 +307,7 @@
   margin-bottom: 2em;
 }
 
-.confirm-move {
+.confirm-action {
   color: black;
   background: white;
   padding: 5px 13%;
@@ -278,6 +316,12 @@
   border-style: solid;
   width: 80%;
   margin-top: -6px;
+  &.nothing {
+    padding-right: 0px;
+    padding-left: 0px;
+    text-decoration: line-through;
+    cursor: default;
+  }
 }
 
 .othermaki-info {
@@ -294,7 +338,6 @@
   border-style: solid;
   width: 80%;
   margin-top: 0;
-
 }
 
 #emblem {
@@ -304,57 +347,37 @@
   top: 8%;
 }
 
-.my-maki {
-  position: relative;
-  max-height: 300px;
-  border-radius: 0px;
-  padding-top: 9px;
-  cursor: pointer;
-  *display:inline;/* For IE7*/
-  *zoom:1;/* For IE7*/
-  vertical-align:top;
-  & .my-profile {
-    float: left;
-    background: #3498db;
-    width: 50%;
-    height: 100%;
-  }
-  & .search-item {
-    float: right;
-    background: #e67e22;
-    width: 50%;
-    height: 100%;
-  }
-  & .grab-item {
-    float: right;
-    background: #e67e22;
-    width: 50%;
-    height: 100%;
-  }
-  & .clear {
-    clear: both;
-  }
-}
-
 .items-list {
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.7);
   position: absolute;
   top: 0px;
   right: 0px;
   left: 0px;
   bottom: 0px;
-  & .item-table {
+  padding-top: 8%;
+  overflow-y: scroll;
+  z-index: 4;
+  & h3 {
+    color: white;
+    text-align: center;
+  }
+  & table.item-table {
     width: 80%;
     position: relative;
     margin: auto;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 80px;
-    white-space:nowrap
+    & tbody>tr>td.vert-align {
+      color: white;
+      vertical-align: middle;
+      border-top: 1px solid white;
+      padding: 8px 0px;
+      & .confirm-grab {
+        color: black;
+        background: white;
+        border-color: black;
+        border-width: 2px;
+        border-style: solid;
+        width: 80%;
+      }
+    }
   }
 }
-
-
-
-
-

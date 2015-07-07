@@ -48,6 +48,7 @@ en:
       info5: "Is there any girl in the room?"
       confirm_attack: "Attack!"
       babyrice: "Baby"
+      nosoy: "%{missing_cl} cl missing"
   fights:
     show:
       confirm_attack: "Attack!"

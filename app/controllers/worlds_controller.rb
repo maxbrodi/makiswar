@@ -8,6 +8,7 @@ class WorldsController < ApplicationController
     kinder_surprise
     set_world_info
     sojajauge
+    available_move_items
   end
 
   def update
@@ -18,10 +19,7 @@ class WorldsController < ApplicationController
     kinder_surprise
     set_world_info
     sojajauge
-
-    respond_to do |format|
-      format.js
-    end
+    available_move_items
   end
 
   private
@@ -39,10 +37,30 @@ class WorldsController < ApplicationController
     @new_position = params[:new_position].split("")
     current_user.x = @new_position[0].to_i + @x_shift
     current_user.y = @new_position[1].to_i + @y_shift
+    @item_types_id = params[:item_types_id]
+
+    if @item_types_id == 'feet'
+      @consumption = 4
+    else
+      item = current_user.items.where(item_types_id: @item_types_id).first
+      # item. # decrement life
+      @consumption = item.consumption
+    end
+
+    current_user.soja -= @consumption
     current_user.save
 
     @x_shift = current_user.x - 3
     @y_shift = current_user.y - 3
+  end
+
+  def available_move_items
+    # @move_items = current_user.items.where(item_type_id: 2)
+    @move_item_types = current_user.item_types.where(kind: 'Movement')
+    # @move_items.each do |item|
+    #   unless @move_items.include?(item.item_type.name)
+    #     @move_items << item
+    # end
   end
 
   def position_other_players_in_grid
@@ -79,7 +97,9 @@ class WorldsController < ApplicationController
   end
 
   def check_if_move_or_grab_update
-    case params[:choice]
+    @choice = params[:choice]
+
+    case @choice
       when "move" then translate_player_position
       when "grab" then add_item_to_user
     end
