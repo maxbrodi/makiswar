@@ -1,6 +1,7 @@
 <div class='the-world'>
   <div class="container">
     <div class="row">
+
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
 
         <div class="worldmap">
@@ -49,37 +50,63 @@
           </div>
         </div>
 
-        <div class="items-list <%= 'hidden' unless @power == 'grab' && @kinder.present? %>">
-          <h2 class='text-center'>Items in the box</h2>
-            <table class='item-table'>
-              <% @kinder.each do |item| %>
-                <tr>
-                  <td><%= item.item_type.picture %></td>
-                  <td><%= item.item_type.name %></td>
-                  <td>
-                    <%= form_tag worlds_update_path, method: :put, remote: true do %>
-                      <%= hidden_field_tag :choice, "grab" %>
-                      <%= hidden_field_tag :item_id, item.id %>
-                      <%= submit_tag "Grab", class: "confirm-move" %>
-                    <% end %>
-                  </td>
-                </tr>
-              <% end %>
-            </table>
+        <!-- box content -->
+        <div class="items-list hidden">
+          <h3>What's in the box</h3>
+          <table class='item-table'>
+            <% kinder.each do |item| %>
+              <tr>
+                <td class='vert-align'><%= item.item_type.picture %></td>
+                <td class='vert-align'><%= item.item_type.name %></td>
+                <td class='vert-align text-center'>
+                  <%= form_tag worlds_update_path, method: :put, remote: true do %>
+                    <%= hidden_field_tag :choice, "grab" %>
+                    <%= hidden_field_tag :item_id, item.id %>
+                    <%= submit_tag "Grab", class: "confirm-grab" %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
         </div>
 
       </div>
 
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-
         <div class="info-bottom">
 
-          <!-- news info -->
+          <!-- funky news -->
           <div class="news-info text-center hidden">
             <%= t(info, ennemies: ennemies) %>
           </div>
 
-          <!-- player moves -->
+          <!-- player self options -->
+          <div class='my-maki hidden'>
+            <div class='my-profile text-center'>
+              <%= form_tag user_path, method: :get do %>
+                <%= %>
+                <%= image_tag current_user.crew + '.png' %>
+                <%= submit_tag t('.profile'), class: "confirm-action" %>
+              <% end %>
+            </div>
+            <div class='search-item text-center'>
+              <%= image_tag 'pin.png' %>
+              <input class='confirm-action nothing' value='Nothing here' type='submit'></input>
+            </div>
+            <div class='grab-item text-center hidden'>
+              <div class='open-close text-center'>
+                <%= image_tag 'item_close.png' %>
+                <input class='confirm-action' value='Open Box' type='submit'></input>
+              </div>
+              <div class='open-close text-center hidden'>
+                <%= image_tag 'item_open.png' %>
+                <input class='confirm-action' value='Close Box' type='submit'></input>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+
+          <!-- player moves options -->
           <div class='new-move scrolls text-center hidden'>
 
             <div class="transportation-options item-1" >
@@ -87,26 +114,35 @@
               <div class="consumption"><h3>4cl</h3></div>
               <%= form_tag worlds_update_path, method: :put, remote: true do %>
                 <%= hidden_field_tag :choice, "move" %>
-                <%= hidden_field_tag :new_position %>
-                <%= submit_tag "Bounce", class: "confirm-move" %>
+                <%= hidden_field_tag :item_type_id, 'feet' %>
+                <%= hidden_field_tag :new_position,'',class:'new_position' %>
+                <% if current_user.soja >= 4 %>
+                  <%= submit_tag "Bounce", class: "confirm-action" %>
+                <% else %>
+                <p class="needs"><%= t(".nosoy", missing_cl: 4 - current_user.soja) %></p>
+                <% end %>
               <% end %>
             </div>
 
-            <div class="transportation-options item-2">
-              <h2>2nd item</h2>
-            </div>
-
-            <div class="transportation-options item-3">
-              <h2>3rd item</h2>
-            </div>
-
-            <div class="transportation-options item-4">
-              <h2>4th item</h2>
-            </div>
-
+            <% move_item_types.each do |item_type| %>
+              <div class="transportation-options item-<%= item_type.consumption %>" >
+                <%= image_tag item_type.picture, class:'transportation-options-display'%>
+                <div class="consumption"><h3><%= item_type.consumption %>cl</h3></div>
+                <%= form_tag worlds_update_path, method: :put, remote: true do %>
+                  <%= hidden_field_tag :choice, "move" %>
+                  <%= hidden_field_tag :item_type_id, item_type.id %>
+                  <%= hidden_field_tag :new_position,'',class:'new_position' %>
+                  <% if current_user.soja >= item_type.consumption %>
+                    <%= submit_tag item_type.name, class: "confirm-action" %>
+                  <% else %>
+                  <p class="needs"><%= t(".nosoy", missing_cl: item_type.consumption - current_user.soja) %></p>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
 
-          <!-- players infos -->
+          <!-- other players infos & position on map -->
           <% players_on_map.each do |cell, player| %>
             <div class="cell-info text-center hidden" id="cell-info-<%= cell %>" data-x="<%= player.x - x_shift %>" data-y="<%= player.y - y_shift%>" data-crew="<%= player.crew %>" >
              <%= image_tag "emblems/" + player.crew, id: "emblem" %>
@@ -117,28 +153,14 @@
             </div>
           <% end %>
 
-          <!-- items infos -->
+          <!-- items position on map -->
           <% items_on_map.each do |cell, item| %>
             <div class="item-info text-center hidden" id="item-info-<%= cell %>" data-x="<%= item.x - x_shift %>" data-y="<%= item.y - y_shift%>" ></div>
           <% end %>
 
-          <div class='my-maki hidden'>
-            <div class='my-profile text-center'>
-              <%= form_tag user_path, method: :get do %>
-                <%= submit_tag t('.profile'), class: "confirm-move" %>
-              <% end %>
-            </div>
-            <div class='search-item text-center'>
-              <h2>Where's Wally?</h2>
-            </div>
-            <div class='grab-item text-center hidden'>
-              <input class='confirm-move grab-it' value='Open Box' type='submit'></input>
-            </div>
-            <div class="clear">
-            </div>
-          </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>

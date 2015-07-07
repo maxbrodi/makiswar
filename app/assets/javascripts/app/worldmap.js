@@ -23,10 +23,12 @@ $(function() {
     $('.info-bottom').css("height", infoHeight);
     $('.info-bottom').css("width", worldSize);
 
-  if (infoHeight < 200 ){
-    $('.transportation-options-display').css('margin-top', '0em');
-    $('.transportation-options-display').css('margin-bottom', '0em');
-  };
+    if (infoHeight < 200 ){
+      $('.transportation-options-display').css('margin-top', '0em');
+      $('.transportation-options-display').css('margin-bottom', '0em');
+      $('.my-maki img').css('width', '70px');
+      $('.my-maki img').css('padding', '10% 0px');
+    };
 
     // afficher les limites du monde
     $('.cell').each(function() {
@@ -59,57 +61,67 @@ $(function() {
 
     // interaction du joueur avec la map
     $('.cell').click(function() {
-      var cell = $(this)
-      var cell_coord = $(this).data('cell');
-      $('.cell').removeClass('selected');
-      cell.addClass('selected');
-
-      if (cell.hasClass('maki')) {
-        $('.my-maki').addClass("hidden");
-        $('#new_position').removeAttr('value');
-        $('.cell-info').addClass("hidden");
-        $('.new-move').addClass("hidden");
-        $('.news-info').addClass("hidden");
-        $('#cell-info-' + cell_coord).removeClass("hidden");
-        if (cell.hasClass('welcome')) {
-          $('#cell-info-' + cell_coord + ' input').removeClass("hidden");
-        }
-      }
-      else if (cell.not('.outta-world').hasClass('welcome')) {
-        $('.my-maki').addClass("hidden");
-        $('.cell-info').addClass("hidden");
-        $('.news-info').addClass("hidden");
-        $('.new-move').removeClass("hidden");
-        $('#new_position').val(cell_coord);
-      }
-      else if (cell.is('#player')) {
-        $('.cell-info').addClass("hidden");
-        $('.new-move').addClass("hidden");
-        $('.news-info').addClass("hidden");
-        $('.my-maki').removeClass("hidden");
-        if (cell.hasClass('item')) {
-          $('.search-item').addClass("hidden");
-          $('.grab-item').removeClass("hidden");
-        }
-      }
-      else {
-        $('.my-maki').addClass("hidden");
-        $('#new_position').removeAttr('value');
-        $('.cell-info').addClass("hidden");
-        $('.new-move').addClass("hidden");
-        $('.news-info').removeClass("hidden");
-      };
+      var cell = $(this);
+      showCell(cell);
     });
 
-    $('.grab-it').click(function() {
-      $('.items-list').toggleClass("hidden");
-      if ($('.grab-it').val() == 'Open Box') {
-        $(this).val("Close Box");
-      }
-      else {
-        $(this).val("Open Box");
-      }
+    $('.open-close').click(function() {
+      openCloseItemsList();
     });
+  };
+
+  function showCell(cell) {
+    var cell_coord = cell.data('cell');
+    $('.cell').removeClass('selected');
+    cell.addClass('selected');
+
+    if (cell.hasClass('maki')) {
+      $('.my-maki').addClass("hidden");
+      $('.new_position').removeAttr('value');
+      $('.cell-info').addClass("hidden");
+      $('.new-move').addClass("hidden");
+      $('.news-info').addClass("hidden");
+      $('#cell-info-' + cell_coord).removeClass("hidden");
+      if (cell.hasClass('welcome')) {
+        $('#cell-info-' + cell_coord + ' input').removeClass("hidden");
+      }
+    }
+    else if (cell.not('.outta-world').hasClass('welcome')) {
+      $('.my-maki').addClass("hidden");
+      $('.cell-info').addClass("hidden");
+      $('.news-info').addClass("hidden");
+      $('.new-move').removeClass("hidden");
+      $('.new_position').val(cell_coord);
+    }
+    else if (cell.is('#player')) {
+      $('.cell-info').addClass("hidden");
+      $('.new-move').addClass("hidden");
+      $('.news-info').addClass("hidden");
+      $('.my-maki').removeClass("hidden");
+      if (cell.hasClass('item')) {
+        $('.search-item').addClass("hidden");
+        $('.grab-item').removeClass("hidden");
+      }
+    }
+    else {
+      $('.my-maki').addClass("hidden");
+      $('.new_position').removeAttr('value');
+      $('.cell-info').addClass("hidden");
+      $('.new-move').addClass("hidden");
+      $('.news-info').removeClass("hidden");
+    };
+  }
+
+  function openCloseItemsList() {
+    $('.items-list').toggleClass("hidden");
+    $('.open-close').toggleClass('hidden');
+  };
+
+  function afterGrab() {
+    if ($('#player').hasClass('item')) {
+      openCloseItemsList();
+    }
+    showCell($('#player'));
   };
 
   function displayHideJauge() {
@@ -127,6 +139,10 @@ $(function() {
   PubSub.subscribe('setWorld', function(){
     setWorld();
     displayHideJauge();
-  })
+  });
+
+  PubSub.subscribe('afterGrab', function(){
+    afterGrab();
+  });
 
 });
