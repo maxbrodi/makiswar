@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+
+      <!-- EN CAS DE MORT DU USER -->
+      <% if @dead %>
+
+        <div class="recap">
+          <h1><%= current_user.name %> died!</h1>
+          <p><%= @killer.name %> (<%= @killer.crew %> maki) killed him with a banana launcher.</p>
+        </div>
+
+        <div class="action">
+          <%= button_to "Resurrect!", { action: 'update' }, method: :patch, id: "resurrect" %>
+        </div>
+
+      <!-- RESUME SI PAS MORT -->
+      <% else %>
+
+      Bah t'es pas mort !
+      <br>
+
+      <% @events.each do |event| %>
+        <% if event[:name] = "attack" %>
+          <%= User.find(event[:other_user_id]).name + " attacked your maki." %>
+        <% elsif event[:name] = "missed" %>
+          <%= User.find(event[:other_user_id]).name + " tried to attack your maki but missed." %>
+        <% end %>
+      <% end %>
+      <!-- FIN BOUCLE MORT -->
+      <% end %>
+    </div>
+  </div>
+</div>

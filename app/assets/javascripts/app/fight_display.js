@@ -20,6 +20,7 @@
       $('.item-attack-display').css('padding-top', '13px');
       $('.confirm-attack').css('padding', '5px 13%');
       $('.needs').css('margin-top', '0.5em');
+      $('#killed').css('padding-top', '0%');
     };
 
     $('.fights-container').click(function() {

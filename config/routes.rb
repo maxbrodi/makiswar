@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'recaps/show'
+  patch 'recaps/update'
+
   get 'fights/show'
   post 'fights/show'
   get 'fights/update'
