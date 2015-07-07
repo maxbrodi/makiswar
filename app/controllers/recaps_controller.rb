@@ -30,4 +30,18 @@ class RecapsController < ApplicationController
 
     redirect_to worlds_show_path
   end
+
+  private
+
+  def custom_format(date)
+    if date == Time.zone.now
+      "Today"
+    elsif date == Time.zone.now - 1.day
+      "Yesterday"
+    else
+      "A long time ago"
+    end
+  end
+
+
 end

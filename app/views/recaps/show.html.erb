@@ -20,6 +20,14 @@
         <div class="recap">
           <h3> Some stuff happened: </h3>
           <% @events.each do |event| %>
+            <% if ((Time.zone.now - event[:updated_at])/3600) < 24  %>
+              Today
+            <% elsif ((Time.zone.now - event[:updated_at])/3600) < 48 %>
+              Yesterday
+            <% else %>
+              A long time time ago
+            <% end %>
+            <br>
             <% case event[:name] %>
             <% when "attack" %>
               <%= User.find(event[:other_user_id]).name + " attacked your maki." %>
