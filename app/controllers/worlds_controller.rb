@@ -37,12 +37,12 @@ class WorldsController < ApplicationController
     @new_position = params[:new_position].split("")
     current_user.x = @new_position[0].to_i + @x_shift
     current_user.y = @new_position[1].to_i + @y_shift
-    @item_types_id = params[:item_types_id]
+    @item_type_id = params[:item_type_id]
 
-    if @item_types_id == 'feet'
+    if @item_type_id == 'feet'
       @consumption = 4
     else
-      item = current_user.items.where(item_types_id: @item_types_id).first
+      item = current_user.items.where(item_type_id: @item_type_id).first
       # item. # decrement life
       @consumption = item.consumption
     end
@@ -55,12 +55,7 @@ class WorldsController < ApplicationController
   end
 
   def available_move_items
-    # @move_items = current_user.items.where(item_type_id: 2)
     @move_item_types = current_user.item_types.where(kind: 'Movement')
-    # @move_items.each do |item|
-    #   unless @move_items.include?(item.item_type.name)
-    #     @move_items << item
-    # end
   end
 
   def position_other_players_in_grid
