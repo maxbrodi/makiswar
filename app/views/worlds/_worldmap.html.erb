@@ -56,7 +56,7 @@
           <table class='item-table'>
             <% kinder.each do |item| %>
               <tr>
-                <td class='vert-align'><%= item.item_type.picture %></td>
+                <td class='vert-align'><%= image_tag "items/" + item.item_type.picture, class:'thumb' %></td>
                 <td class='vert-align'><%= item.item_type.name %></td>
                 <td class='vert-align text-center'>
                   <%= form_tag worlds_update_path, method: :put, remote: true do %>
@@ -91,7 +91,7 @@
             </div>
             <div class='search-item text-center'>
               <%= image_tag 'pin.png' %>
-              <input class='confirm-action nothing' value='Nothing here' type='submit'></input>
+              <p class='text-white-shadow text-center' type='submit'>Nothing here</p>
             </div>
             <div class='grab-item text-center hidden'>
               <div class='open-close text-center'>
@@ -111,6 +111,7 @@
 
             <div class="transportation-options item-1" >
               <%= image_tag "bounce.png", class:'transportation-options-display' %>
+              <div class="items_count"><h3>∞</h3></div>
               <div class="consumption"><h3>4cl</h3></div>
               <%= form_tag worlds_update_path, method: :put, remote: true do %>
                 <%= hidden_field_tag :choice, "move" %>
@@ -119,25 +120,34 @@
                 <% if current_user.soja >= 4 %>
                   <%= submit_tag "Bounce", class: "confirm-action" %>
                 <% else %>
-                <p class="needs"><%= t(".nosoy", missing_cl: 4 - current_user.soja) %></p>
+                <p class="not-possible"><%= t(".nosoy", missing_cl: 4 - current_user.soja) %></p>
                 <% end %>
               <% end %>
             </div>
 
-            <% move_item_types.each do |item_type| %>
-              <div class="transportation-options item-<%= item_type.consumption %>" >
-                <%= image_tag item_type.picture, class:'transportation-options-display'%>
-                <div class="consumption"><h3><%= item_type.consumption %>cl</h3></div>
-                <%= form_tag worlds_update_path, method: :put, remote: true do %>
-                  <%= hidden_field_tag :choice, "move" %>
-                  <%= hidden_field_tag :item_type_id, item_type.id %>
-                  <%= hidden_field_tag :new_position,'',class:'new_position' %>
-                  <% if current_user.soja >= item_type.consumption %>
-                    <%= submit_tag item_type.name, class: "confirm-action" %>
-                  <% else %>
-                  <p class="needs"><%= t(".nosoy", missing_cl: item_type.consumption - current_user.soja) %></p>
+            <% if move_item_types.count > 0 %>
+              <% move_item_types.each do |item_type| %>
+                <div class="transportation-options item-<%= item_type.consumption %>" >
+                  <%= image_tag "items/" + item_type.picture, class:'transportation-options-display'%>
+                  <div class="items_count"><h3>x<%= current_user.items.where(item_type: item_type.id).count%></h3></div>
+                  <div class="consumption"><h3><%= item_type.consumption %>cl</h3></div>
+                  <%= form_tag worlds_update_path, method: :put, remote: true do %>
+                    <%= hidden_field_tag :choice, "move" %>
+                    <%= hidden_field_tag :item_type_id, item_type.id %>
+                    <%= hidden_field_tag :new_position,'',class:'new_position' %>
+                    <% if current_user.soja >= item_type.consumption %>
+                      <%= submit_tag item_type.name, class: "confirm-action" %>
+                    <% else %>
+                    <p class="not-possible"><%= t(".nosoy", missing_cl: item_type.consumption - current_user.soja) %></p>
+                    <% end %>
                   <% end %>
-                <% end %>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="transportation-options item-2" >
+                <%= image_tag "superheroes/#{rand(5)}.png", class:'transportation-options-display' %>
+                <br>
+                <p class='text-white-shadow text-center' type='submit'>You Wish!!</p>
               </div>
             <% end %>
           </div>
