@@ -56,8 +56,12 @@ class User < ActiveRecord::Base
       )
   end
 
-  def all_events
-    Event.where("user_id = :user_id OR other_user_id = :user_id", user_id: self.id)
+  def all_unread_events
+    Event.where("(user_id = :user_id AND read = :unread)
+      OR (other_user_id = :user_id AND read_other_user = :unread)",
+      user_id:  self.id,
+      unread:   false
+    )
   end
 
   def born

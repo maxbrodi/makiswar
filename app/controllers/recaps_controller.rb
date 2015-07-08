@@ -10,7 +10,7 @@ class RecapsController < ApplicationController
       # @weapon =
     else
       # @events = Event.find_by_sql(["SELECT * FROM events WHERE other_user_id = ? OR user_id > ? LIMIT 5", current_user.id, current_user.id])
-      @events = current_user.all_events.unread.last(5)
+      @events = current_user.all_unread_events
       @events = @events.flatten.reverse
       @events.each do |event|
         # check if change of crew

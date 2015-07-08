@@ -24,14 +24,11 @@
 class Event < ActiveRecord::Base
   belongs_to :event_type
   belongs_to :world
-  belongs_to :user, class_name: "User"
+  belongs_to :user
   belongs_to :other_user, class_name: "User"
   belongs_to :item
 
   validates :name, presence: true
   validates :user_id, presence: true
   validates :world_id, presence: true
-
-  scope :read,    -> { where(read: true) }
-  scope :unread,  -> { where(read: false) }
 end

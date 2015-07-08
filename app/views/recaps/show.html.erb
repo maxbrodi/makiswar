@@ -29,16 +29,19 @@
         <div class="recap">
           <h3> Some stuff happened: </h3>
           <% @events.each do |event| %>
-            <%= l(event[:updated_at], format: :event) %>
-            <br>
-            <% case event[:name] %>
-            <% when "attack" %>
-              <%= User.find(event[:other_user_id]).name + " attacked your maki." %>
-            <% when "missed" %>
-              <%= User.find(event[:other_user_id]).name + " tried to attack your maki but missed." %>
-            <% when "birth" %>
-              <%= current_user.name + " landed on " + World.find(event[:world_id]).name + "!" %>
-            <% end %>
+
+                <%= image_tag "events/island.png", class: "event-logo" %>
+                <%= l(event[:updated_at], format: :event) %>
+                <br>
+                 <% case event[:name] %>
+                <% when "attack" %>
+                  <%= event.user.name + " attacked your maki." %>
+                <% when "missed" %>
+                  <%= event.user.name + " tried to attack your maki but missed." %>
+                <% when "birth" %>
+                <%= current_user.name + " landed on " + World.find(event[:world_id]).name + "!" %>
+                <% end %>
+
           <% end %>
         </div>
 
