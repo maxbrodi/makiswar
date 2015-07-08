@@ -213,6 +213,7 @@
    -1px  1px 0 #000,
     1px  1px 0 #000;
   max-height: 300px;
+  box-shadow: 0px -6px 5px 0px rgba(0, 0, 0, 0.21);
   & .new-move {
     background: #282828;
     max-height: 300px;
@@ -235,11 +236,6 @@
       h3 {
         font-size: 1.2em;
       }
-      & .items_count {
-        position: absolute;
-        top: -14px;
-        left: 14px;
-      }
     }
   }
   & .my-maki {
@@ -247,8 +243,6 @@
     max-height: 300px;
     position: relative;
     max-height: 300px;
-    border-radius: 0px;
-    // padding-top: 9px;
     cursor: pointer;
     & img {
       position: relative;
@@ -278,61 +272,6 @@
       clear: both;
     }
   }
-}
-
-.item-1 {
-  background: #3498db;
-}
-
-.item-2 {
-  background: #e67e22;
-}
-
-.item-3 {
-  background: #9b59b6;
-}
-
-.item-4 {
-  background: #e74c3c;
-}
-
-.scrolls {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  height: 80px;
-  white-space:nowrap;
-  word-spacing: -1;
-}
-
-.transportation-options-display {
-  max-width: 100px;
-  max-height: 100px;
-  padding-top: 0px;
-  margin-top: 2.5em;
-  margin-bottom: 2em;
-}
-
-.confirm-action {
-  color: black;
-  background: white;
-  padding: 5px 13%;
-  border-color: black;
-  border-width: 2px;
-  border-style: solid;
-  width: 80%;
-  margin-top: -6px;
-}
-
-.not-possible {
-  color: white;
-  padding: 5px 13%;
-  border-color: white;
-  border-width: 1px;
-  border-style: solid;
-  width: 80%;
-  margin-left: 10%;
-  margin-top: -6px;
-  cursor: default;
 }
 
 .othermaki-info {

@@ -31,6 +31,8 @@ class FightsController < ApplicationController
     @soja = current_user.soja
     sojajauge
 
+    available_fight_items
+
   end
 
   def update
@@ -119,7 +121,7 @@ class FightsController < ApplicationController
       format.js
     end
 
-
+    available_fight_items
 
     # version items
     # @soja_needed
@@ -171,6 +173,10 @@ class FightsController < ApplicationController
       lastevent = Event.find_by_sql(["SELECT * FROM events WHERE other_user_id = ? ORDER BY id DESC LIMIT 1", current_user.id]).first
       redirect_to recaps_show_path unless lastevent[:read]
     end
+  end
+
+  def available_fight_items
+    @fight_item_types = current_user.item_types.where(kind: 'Attack')
   end
 
 end

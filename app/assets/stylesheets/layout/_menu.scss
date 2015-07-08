@@ -1,0 +1,59 @@
+.img-options-display {
+  max-width: 100px;
+  max-height: 100px;
+  padding-top: 0px;
+  margin-top: 2.5em;
+  margin-bottom: 2em;
+}
+
+.items_count {
+  position: absolute;
+  top: -14px;
+  left: 14px;
+}
+
+.power {
+  position: absolute;
+  margin: 22px auto 11px auto;
+  top: -14px;
+  .mini {
+    width: 8%;
+    margin: -3px;
+  }
+}
+
+.consumption {
+  position: absolute;
+  top: -14px;
+  right: 14px;
+}
+
+.scrolls {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 80px;
+  white-space:nowrap;
+}
+
+.confirm-action {
+  color: black;
+  background: white;
+  padding: 5px 13%;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  width: 80%;
+  margin-top: -6px;
+}
+
+.not-possible {
+  color: white;
+  padding: 5px 13%;
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: -6px;
+  cursor: default;
+}
