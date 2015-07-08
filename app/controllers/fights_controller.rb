@@ -7,6 +7,7 @@ class FightsController < ApplicationController
     @attacker = current_user
     @defender_id = params[:defender]
     @defender = User.find(@defender_id)
+    # display lifebar of defender
     case @defender.life
     when 10 then @lifebar = "full"
     when 6..10 then @lifebar = "almostfull"
@@ -84,7 +85,7 @@ class FightsController < ApplicationController
           attack[:user_id] = @attacker.id
           attack[:other_user_id] = @defender.id
           attack[:read] = true
-          # attack[:item_type_id] = item.item_type.id -> TO DO MAXIME
+          attack[:item_type_id] = item.item_type.id
           attack.save
         else
           @success = false
@@ -95,6 +96,7 @@ class FightsController < ApplicationController
           missed[:world_id] = @attacker.world_id
           missed[:user_id] = @attacker.id
           missed[:other_user_id] = @defender.id
+          missed[:item_type_id] = item.item_type.id
           missed[:read] = true
           # missed[:item_type_id] = item.item_type.id -> TO DO MAXIME
           missed.save

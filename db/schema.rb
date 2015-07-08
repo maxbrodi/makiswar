@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708083811) do
+ActiveRecord::Schema.define(version: 20150708182443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,12 @@ ActiveRecord::Schema.define(version: 20150708083811) do
     t.integer  "world_id"
     t.integer  "user_id"
     t.integer  "other_user_id"
-    t.integer  "item_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.boolean  "read_other_user", default: false
+    t.integer  "item_type_id"
   end
 
-  add_index "events", ["item_id"], name: "index_events_on_item_id", using: :btree
   add_index "events", ["other_user_id"], name: "index_events_on_other_user_id", using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
   add_index "events", ["world_id"], name: "index_events_on_world_id", using: :btree
@@ -51,9 +50,9 @@ ActiveRecord::Schema.define(version: 20150708083811) do
     t.integer  "world_id"
     t.integer  "user_id"
     t.integer  "item_type_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "broken_count", default: 0
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "broken_count"
   end
 
   add_index "items", ["item_type_id"], name: "index_items_on_item_type_id", using: :btree
@@ -99,7 +98,6 @@ ActiveRecord::Schema.define(version: 20150708083811) do
     t.integer  "usercount",   default: 0
   end
 
-  add_foreign_key "events", "items"
   add_foreign_key "events", "users"
   add_foreign_key "events", "users", column: "other_user_id"
   add_foreign_key "events", "worlds"
