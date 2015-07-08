@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   def check_notif
     return unless current_user
 
-    if current_user.life < 1 || current_user.all_events.unread.exists?
+    if current_user.life < 1 || current_user.all_unread_events.exists?
       redirect_to recaps_show_path
     end
   end
