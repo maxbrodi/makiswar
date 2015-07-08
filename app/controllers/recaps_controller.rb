@@ -5,18 +5,26 @@ class RecapsController < ApplicationController
       @dead = true
       death_event = Event.where(other_user_id:  current_user.id).last
       @killer = User.find(death_event[:user_id])
-      death_event[:read] = true
+      death_event[:read_other_user] = true
       death_event.save
       # @weapon =
     else
       # @events = Event.find_by_sql(["SELECT * FROM events WHERE other_user_id = ? OR user_id > ? LIMIT 5", current_user.id, current_user.id])
-      @events = Event.find_by_sql(["SELECT * FROM events WHERE other_user_id = ? ORDER BY id DESC LIMIT 5", current_user.id])
+      @events = current_user.all_events.unread.last(5)
       @events = @events.flatten.reverse
       @events.each do |event|
-        event[:read] = true
+        # check if change of crew
+        if event[:name] == "salmon" || event[:name] == "avocado" || event[:name] == "bastardo"
+          @change_crew = true
+        end
+        # mark all events as read
+        if event[:user_id] == current_user.id
+          event[:read] = true
+        else
+          event[:read_other_user] = true
+        end
         event.save
       end
-
     end
 
   end
@@ -31,4 +39,18 @@ class RecapsController < ApplicationController
 
     redirect_to worlds_show_path
   end
+
+  private
+
+  def custom_format(date)
+    if date == Time.zone.now
+      "Today"
+    elsif date == Time.zone.now - 1.day
+      "Yesterday"
+    else
+      "A long time ago"
+    end
+  end
+
+
 end

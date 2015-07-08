@@ -38,6 +38,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :world
+  has_many :events
+  has_many :received_events, class_name: 'Event', foreign_key: :other_user_id
   has_many :items
   has_many :item_types, -> { distinct }, through: :items
   validates :name, presence: true, uniqueness: true
@@ -52,6 +54,10 @@ class User < ActiveRecord::Base
         min_x: user.x - 2, max_x: user.x + 2,
         min_y: user.y - 2, max_y: user.y + 2
       )
+  end
+
+  def all_events
+    Event.where("user_id = :user_id OR other_user_id = :user_id", user_id: self.id)
   end
 
   def born
@@ -69,6 +75,14 @@ class User < ActiveRecord::Base
     self.soja_updated_at = Time.now.at_beginning_of_hour
     self.soja = 48
     self.save
+
+    #event of birth
+    birth = Event.new
+    birth[:name] = "birth"
+    birth[:user_id] = self.id
+    birth[:world_id] = self.world_id
+    birth.save
+
     world.usercount += 1
     world.save
   end

@@ -23,6 +23,14 @@ class ApplicationController < ActionController::Base
     worlds_show_path
   end
 
+  def check_notif
+    return unless current_user
+
+    if current_user.life < 1 || current_user.all_events.unread.exists?
+      redirect_to recaps_show_path
+    end
+  end
+
   private
 
   def set_locale

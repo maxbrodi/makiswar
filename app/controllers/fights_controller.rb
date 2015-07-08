@@ -1,6 +1,5 @@
 class FightsController < ApplicationController
-
-  before_action :check_notif
+  before_action :check_notif, except: [:update]
 
   def show
 
@@ -57,6 +56,7 @@ class FightsController < ApplicationController
         attack[:world_id] = @attacker.world_id
         attack[:user_id] = @attacker.id
         attack[:other_user_id] = @defender.id
+        attack[:read] = true
         # AJOUTER l'OBJET DE l'ATTAQUE
         # attack[:item_id] =
         attack.save
@@ -72,12 +72,66 @@ class FightsController < ApplicationController
         missed[:world_id] = @attacker.world_id
         missed[:user_id] = @attacker.id
         missed[:other_user_id] = @defender.id
+        missed[:read] = true
         # AJOUTER l'OBJET DE l'ATTAQUE RATEE
         # missed[:item_id] =
         missed.save
 
       end
     end
+
+    # Avocado/Salmon attribution
+
+    case @attacker.crew
+    when "babyrice"
+      case @defender.crew
+      when "avocado"
+        @attacker.crew = "salmon"
+        @attacker.save
+      when "salmon"
+        @attacker.crew = "avocado"
+        @attacker.save
+      else
+        @attacker.crew = ["salmon", "avocado"].sample
+        @attacker.save
+      end
+
+    change_crew_event(@attacker)
+
+    when "salmon"
+      if @defender.crew =="salmon"
+        @attacker.crew = "bastardo"
+        @attacker.save
+        change_crew_event(@attacker)
+      end
+    when "avocado"
+      if @defender.crew =="avocado"
+        @attacker.crew = "bastardo"
+        @attacker.save
+        change_crew_event(@attacker)
+      end
+    when "bastardo"
+      last_three_kills = @attacker.events.where(user_id: @attacker.id).where(name:"kill").last(3)
+      three_crews = []
+      last_three_kills.each do |event|
+        three_crews << User.find(event[:other_user_id]).crew
+      end
+      if three_crews.uniq.length == 1
+        new_opponent = three_crews.first
+        case new_opponent
+        when "salmon"
+          @attacker.crew = "avocado"
+          @attacker.save
+          change_crew_event(@attacker)
+        when "avocado"
+          @attacker.crew = "salmon"
+          @attacker.save
+          change_crew_event(@attacker)
+        end
+      end
+
+    end
+
 
     # After attack. See if opponent died
 
@@ -100,15 +154,17 @@ class FightsController < ApplicationController
       @defender.y = nil
       @defender.save
 
-      # death event created
-      death = Event.new
-      death[:name] = "death"
-      death[:world_id] = @attacker.world_id
-      death[:user_id] = @attacker.id
-      death[:other_user_id] = @defender.id
+      # kill event created
+      kill = Event.new
+      kill[:name] = "kill"
+      kill[:world_id] = @attacker.world_id
+      kill[:user_id] = @attacker.id
+      kill[:other_user_id] = @defender.id
+      kill[:read] = true
+      kill[:other_user_id] = true
       # AJOUTER l'OBJET DU KILL
-      # death[:item_id] =
-      death.save
+      # kill[:item_id] =
+      kill.save
 
 
     end
@@ -162,15 +218,12 @@ class FightsController < ApplicationController
     end
   end
 
-  def check_notif
-    return unless current_user
-
-    if current_user.life < 1
-      redirect_to recaps_show_path
-    else
-      lastevent = Event.find_by_sql(["SELECT * FROM events WHERE other_user_id = ? ORDER BY id DESC LIMIT 1", current_user.id]).first
-      redirect_to recaps_show_path unless lastevent[:read]
-    end
+  def change_crew_event(user)
+    crew_event = Event.new
+    crew_event[:name] = user.crew
+    crew_event[:user_id] = user.id
+    crew_event[:world_id] = user.world_id
+    crew_event.save
   end
 
 end
