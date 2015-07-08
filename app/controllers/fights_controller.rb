@@ -57,6 +57,7 @@ class FightsController < ApplicationController
         attack[:world_id] = @attacker.world_id
         attack[:user_id] = @attacker.id
         attack[:other_user_id] = @defender.id
+        attack[:read] = true
         # AJOUTER l'OBJET DE l'ATTAQUE
         # attack[:item_id] =
         attack.save
@@ -78,6 +79,32 @@ class FightsController < ApplicationController
 
       end
     end
+
+    # Avocado/Salmon attribution
+
+    case @attacker.crew
+    when "babyrice"
+      case @defender.crew
+      when "avocado"
+        @attacker.crew = "salmon"
+        @attacker.save
+      when "salmon"
+        @attacker.crew = "avocado"
+        @attacker.save
+      else
+        @attacker.crew = ["salmon", "avocado"][rand(2)]
+        @attacker.save
+      end
+    crew_event = Event.new
+    crew_event[:name] = "#{@attacker.crew}"
+    crew_event[:user_id] = @attacker.id
+    crew_event[:world_id] = @attacker.world_id
+    crew_event.save
+    # when "salmon"
+    # when "avocado"
+    # when "bastardo"
+    end
+
 
     # After attack. See if opponent died
 
@@ -168,8 +195,11 @@ class FightsController < ApplicationController
     if current_user.life < 1
       redirect_to recaps_show_path
     else
-      lastevent = Event.find_by_sql(["SELECT * FROM events WHERE other_user_id = ? ORDER BY id DESC LIMIT 1", current_user.id]).first
-      redirect_to recaps_show_path unless lastevent[:read]
+      lastevent_user = Event.find_by_sql(["SELECT * FROM events WHERE user_id = ? ORDER BY id DESC LIMIT 1", current_user.id]).first
+      lastevent_otheruser = Event.find_by_sql(["SELECT * FROM events WHERE other_user_id = ? ORDER BY id DESC LIMIT 1", current_user.id]).first
+      if (lastevent_user && lastevent_otheruser)
+        redirect_to recaps_show_path unless (lastevent_user[:read] && lastevent_otheruser[:read])
+      end
     end
   end
 

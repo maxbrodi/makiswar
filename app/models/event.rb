@@ -2,15 +2,16 @@
 #
 # Table name: events
 #
-#  id            :integer          not null, primary key
-#  read          :boolean          default(FALSE)
-#  name          :string
-#  world_id      :integer
-#  user_id       :integer
-#  other_user_id :integer
-#  item_id       :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id              :integer          not null, primary key
+#  read            :boolean          default(FALSE)
+#  name            :string
+#  world_id        :integer
+#  user_id         :integer
+#  other_user_id   :integer
+#  item_id         :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  read_other_user :boolean          default(FALSE)
 #
 # Indexes
 #

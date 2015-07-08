@@ -10,10 +10,14 @@ class RecapsController < ApplicationController
       # @weapon =
     else
       # @events = Event.find_by_sql(["SELECT * FROM events WHERE other_user_id = ? OR user_id > ? LIMIT 5", current_user.id, current_user.id])
-      @events = Event.find_by_sql(["SELECT * FROM events WHERE other_user_id = ? ORDER BY id DESC LIMIT 5", current_user.id])
+      @events = Event.find_by_sql(["SELECT * FROM events WHERE user_id = ? AND other_user_id = ? ORDER BY id DESC LIMIT 5", current_user.id, current_user.id])
       @events = @events.flatten.reverse
       @events.each do |event|
-        event[:read] = true
+        if event.user_id = current_user.id
+          event[:read] = true
+        else
+          event[:read_other_user] = true
+        end
         event.save
       end
     end

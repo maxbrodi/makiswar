@@ -74,9 +74,7 @@ class User < ActiveRecord::Base
     birth = Event.new
     birth[:name] = "birth"
     birth[:user_id] = self.id
-    birth[:other_user_id] = self.id
     birth[:world_id] = self.world_id
-    birth[:read] = true
     birth.save
 
     world.usercount += 1
