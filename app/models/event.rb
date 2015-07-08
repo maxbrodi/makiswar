@@ -31,4 +31,7 @@ class Event < ActiveRecord::Base
   validates :name, presence: true
   validates :user_id, presence: true
   validates :world_id, presence: true
+
+  scope :read,    -> { where(read: true) }
+  scope :unread,  -> { where(read: false) }
 end

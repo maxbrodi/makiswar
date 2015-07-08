@@ -161,19 +161,4 @@ class WorldsController < ApplicationController
       return "verylow"
     end
   end
-
-  def check_notif
-    return unless current_user
-
-    if current_user.life < 1
-      redirect_to recaps_show_path
-    else
-      lastevent_user = Event.find_by_sql(["SELECT * FROM events WHERE user_id = ? ORDER BY id DESC LIMIT 1", current_user.id]).first
-      lastevent_otheruser = Event.find_by_sql(["SELECT * FROM events WHERE other_user_id = ? ORDER BY id DESC LIMIT 1", current_user.id]).first
-      if (lastevent_user && lastevent_otheruser)
-        redirect_to recaps_show_path unless (lastevent_user[:read] && lastevent_otheruser[:read])
-      end
-    end
-  end
-
 end

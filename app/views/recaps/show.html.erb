@@ -14,13 +14,22 @@
           <%= button_to "Resurrect!", { action: 'update' }, method: :patch, id: "resurrect" %>
         </div>
 
-      <!-- RESUME SI PAS MORT -->
+      <% elsif @change_crew %>
+        <div class="recap">
+          <h2>You are now part of #team<%= current_user.crew %> !</h2>
+          <%= image_tag "emblems/#{current_user.crew}", class: "emblem-change" %>
+        </div>
+
+        <div class="action">
+          <%= button_to "Go #{current_user.crew}s!", worlds_show_path, method: :get, id: "resurrect" %>
+        </div>
+      <!-- RESUME SI PAS MORT NI CHANGEMENT DE CREW-->
       <% else %>
 
         <div class="recap">
           <h3> Some stuff happened: </h3>
           <% @events.each do |event| %>
-            <%= event[:updated_at].strftime("%_m %b - %k:%M")  %>
+            <%= l(event[:updated_at], format: :event) %>
             <br>
             <% case event[:name] %>
             <% when "attack" %>
