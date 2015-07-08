@@ -30,17 +30,27 @@
           <h3> Some stuff happened: </h3>
           <% @events.each do |event| %>
 
-                <%= image_tag "events/island.png", class: "event-logo" %>
-                <%= l(event[:updated_at], format: :event) %>
-                <br>
-                 <% case event[:name] %>
-                <% when "attack" %>
-                  <%= event.user.name + " attacked your maki." %>
-                <% when "missed" %>
-                  <%= event.user.name + " tried to attack your maki but missed." %>
-                <% when "birth" %>
-                <%= current_user.name + " landed on " + World.find(event[:world_id]).name + "!" %>
-                <% end %>
+            <%= image_tag "events/island.png", class: "event-logo" %>
+            <%= l(event[:updated_at], format: :event) %>
+            <br>
+
+             <% case event[:name] %>
+            <% when "attack" %>
+              <% if event[:item_type_id] %>
+                <%= event.user.name + " (" + event.user.crew + ")" + " attacked your maki with a " + ItemType.find(event[:item_type_id]).name + "!" %>
+              <% else %>
+                <%= event.user.name + " (" + event.user.crew + ")" + " attacked your maki with a chopstick." %>
+              <% end %>
+            <% when "missed" %>
+              <%= event.user.name + " tried to attack your maki but missed." %>
+            <% when "broken" %>
+            <%= current_user.name + " broke his " + ItemType.find(event[:item_type_id]).name + "!" %>
+            <% when "birth" %>
+            <%= current_user.name + " landed on " + World.find(event[:world_id]).name + "!" %>
+            <% end %>
+
+            <br>
+            <br>
 
           <% end %>
         </div>

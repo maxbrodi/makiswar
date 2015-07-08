@@ -7,6 +7,7 @@ class FightsController < ApplicationController
     @attacker = current_user
     @defender_id = params[:defender]
     @defender = User.find(@defender_id)
+    # display lifebar of defender
     case @defender.life
     when 10 then @lifebar = "full"
     when 6..10 then @lifebar = "almostfull"
@@ -69,13 +70,24 @@ class FightsController < ApplicationController
 
           item.broken_count += 1
           item.save
+          # bris d'objet
           if item.broken_count >= item.item_type.lifetime
             item.user_id = nil
             item.world_id = current_user.world_id
+            # A FAIRE: exclure les cases ou il y a des joueurs
             item.x = rand(1..current_user.world.max_x)
             item.y = rand(1..current_user.world.max_y)
             item.broken_count = 0
             item.save
+
+            # event d'objet casse
+            broken = Event.new
+            broken[:name] = "broken"
+            broken[:world_id] = @attacker.world_id
+            broken[:user_id] = @attacker.id
+            broken[:item_type_id] = item.item_type.id
+            broken.save
+
           end
 
           attack = Event.new
@@ -84,7 +96,7 @@ class FightsController < ApplicationController
           attack[:user_id] = @attacker.id
           attack[:other_user_id] = @defender.id
           attack[:read] = true
-          # attack[:item_type_id] = item.item_type.id -> TO DO MAXIME
+          attack[:item_type_id] = item.item_type.id
           attack.save
         else
           @success = false
@@ -95,6 +107,7 @@ class FightsController < ApplicationController
           missed[:world_id] = @attacker.world_id
           missed[:user_id] = @attacker.id
           missed[:other_user_id] = @defender.id
+          missed[:item_type_id] = item.item_type.id
           missed[:read] = true
           # missed[:item_type_id] = item.item_type.id -> TO DO MAXIME
           missed.save
