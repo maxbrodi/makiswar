@@ -1,84 +1,106 @@
 class FightsController < ApplicationController
+  respond_to :js, only: [:update]
   before_action :check_notif, except: [:update]
 
   def show
-
     # Get attacker and defender
-
-    # A REMETTRE
     @attacker = current_user
-    # @defender = session['defender']
-
-    # COMBAT TEST - A CHANGER
     @defender_id = params[:defender]
     @defender = User.find(@defender_id)
     case @defender.life
-    when 10
-      @lifebar = "full"
-    when 6..10
-      @lifebar = "almostfull"
-    when 5
-      @lifebar = "half"
-    when 2..5
-      @lifebar = "low"
-    when 1
-      @lifebar = "verylow"
+    when 10 then @lifebar = "full"
+    when 6..10 then @lifebar = "almostfull"
+    when 5 then @lifebar = "half"
+    when 2..5 then @lifebar = "low"
+    when 1 then @lifebar = "verylow"
     end
-
     # Infos top
-
     @soja = current_user.soja
     sojajauge
-
     available_fight_items
-
   end
 
   def update
 
-    # Attaque à la baguette
     @attacker = current_user
-
     @defender = User.find(params[:defender])
+    @item_type_id = params[:item_type_id]
+    item = current_user.items.where(item_type_id: @item_type_id).first
     success =  rand(10) + 1
     @killed = false
 
-    if @attacker.soja > 3
-      if success > 1
-        @defender.life -= 1
-        @defender.save
+    if @item_type_id == 'chopsticks'
+      if @attacker.soja >= 4
+        if success > 1
+          @defender.life -= 1
+          @defender.save
+          @success = true
+          @message = t(".hearts_attack", count: 1)
+          attack = Event.new
+          attack[:name] = "attack"
+          attack[:world_id] = @attacker.world_id
+          attack[:user_id] = @attacker.id
+          attack[:other_user_id] = @defender.id
+          attack[:read] = true
+          # attack[:item_type_id] = 'chopsticks' -> TO DO MAXIME
+          attack.save
+        else
+          @success = false
+          @message = t(".hearts_attack", count: 0)
+          missed = Event.new
+          missed[:name] = "missed"
+          missed[:world_id] = @attacker.world_id
+          missed[:user_id] = @attacker.id
+          missed[:other_user_id] = @defender.id
+          missed[:read] = true
+          # attack[:item_type_id] = 'chopsticks' -> TO DO MAXIME
+          missed.save
+        end
         @attacker.soja -= 4
         @attacker.save
-        @success = true
-        @message = t(".hearts_attack", count: 1)
+      end
+    else
+      if @attacker.soja >= item.item_type.consumption
+        if success > 1
+          @defender.life -= item.item_type.life_impact
+          @defender.save
+          @success = true
+          @message = t(".hearts_attack", count: item.item_type.life_impact)
 
-        #event attack
-        attack = Event.new
-        attack[:name] = "attack"
-        attack[:world_id] = @attacker.world_id
-        attack[:user_id] = @attacker.id
-        attack[:other_user_id] = @defender.id
-        attack[:read] = true
-        # AJOUTER l'OBJET DE l'ATTAQUE
-        # attack[:item_id] =
-        attack.save
-      else
-        @attacker.soja -= 4
+          item.broken_count += 1
+          item.save
+          if item.broken_count >= item.item_type.lifetime
+            item.user_id = nil
+            item.world_id = current_user.world_id
+            item.x = rand(1..current_user.world.max_x)
+            item.y = rand(1..current_user.world.max_y)
+            item.broken_count = 0
+            item.save
+          end
+
+          attack = Event.new
+          attack[:name] = "attack"
+          attack[:world_id] = @attacker.world_id
+          attack[:user_id] = @attacker.id
+          attack[:other_user_id] = @defender.id
+          attack[:read] = true
+          # attack[:item_type_id] = item.item_type.id -> TO DO MAXIME
+          attack.save
+        else
+          @success = false
+          @message = t(".hearts_attack", count: 0)
+
+          missed = Event.new
+          missed[:name] = "missed"
+          missed[:world_id] = @attacker.world_id
+          missed[:user_id] = @attacker.id
+          missed[:other_user_id] = @defender.id
+          missed[:read] = true
+          # missed[:item_type_id] = item.item_type.id -> TO DO MAXIME
+          missed.save
+        end
+        @attacker.soja -= item.item_type.consumption
         @attacker.save
-        @success = false
-        @message = t(".hearts_attack", count: 0)
-
-        #event missed
-        missed = Event.new
-        missed[:name] = "missed"
-        missed[:world_id] = @attacker.world_id
-        missed[:user_id] = @attacker.id
-        missed[:other_user_id] = @defender.id
-        missed[:read] = true
-        # AJOUTER l'OBJET DE l'ATTAQUE RATEE
-        # missed[:item_id] =
-        missed.save
-
       end
     end
 
@@ -101,13 +123,13 @@ class FightsController < ApplicationController
     change_crew_event(@attacker)
 
     when "salmon"
-      if @defender.crew =="salmon"
+      if @defender.crew == "salmon"
         @attacker.crew = "bastardo"
         @attacker.save
         change_crew_event(@attacker)
       end
     when "avocado"
-      if @defender.crew =="avocado"
+      if @defender.crew == "avocado"
         @attacker.crew = "bastardo"
         @attacker.save
         change_crew_event(@attacker)
@@ -131,15 +153,11 @@ class FightsController < ApplicationController
           change_crew_event(@attacker)
         end
       end
-
     end
 
-
     # After attack. See if opponent died
-
     if @defender.life < 1
       @killed = true
-
       # defender loses all items
       lost_items = @defender.items
       lost_items.each do |item|
@@ -149,13 +167,11 @@ class FightsController < ApplicationController
         item.user_id = nil
         item.save
       end
-
       # defender dies
       @defender.world_id = nil
       @defender.x = nil
       @defender.y = nil
       @defender.save
-
       # kill event created
       kill = Event.new
       kill[:name] = "kill"
@@ -164,59 +180,26 @@ class FightsController < ApplicationController
       kill[:other_user_id] = @defender.id
       kill[:read] = true
       kill[:other_user_id] = true
-      # AJOUTER l'OBJET DU KILL
-      # kill[:item_id] =
+      # kill[:item_type_id] = item.item_type.id -> TO DO MAXIME
       kill.save
-
-
     end
 
     show
-
-    respond_to do |format|
-      format.js
-    end
-
     available_fight_items
-
-    # version items
-    # @soja_needed
-    # @dammage_infliged
-
-    # if @attacker.soja > @soja_needed
-    #   success = rand(10) + 1
-    #   if success > 1
-    #     @defender.life -= @dammage_infliged
-    #     @attacker.soja -= @soja_needed
-    #     @message = t(".hearts_attack", count: 1)
-    #   else
-    #     @message = t(".hearts_attack", count: 0)
-    #   end
-    # end
-
-
   end
 
   private
 
   def sojajauge
     @soja = current_user.soja
-
     case @soja
-    when 0
-      @jauge = "empty.png"
-    when 1...3
-      @jauge = "verylow.png"
-    when 3...12
-      @jauge = "low.png"
-    when 12
-      @jauge = "half.png"
-    when 13...24
-      @jauge = "almostfull.png"
-    when 24
-      @jauge = "full.png"
-    when 25..48
-      @jauge = "overfull.gif"
+    when 0 then @jauge = "empty.png"
+    when 1...3 then @jauge = "verylow.png"
+    when 3...12 then @jauge = "low.png"
+    when 12 then @jauge = "half.png"
+    when 13...24 then @jauge = "almostfull.png"
+    when 24 then @jauge = "full.png"
+    when 25..48 then @jauge = "overfull.gif"
     end
   end
 

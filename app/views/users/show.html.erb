@@ -1,23 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-      <div class="profile text-center">
+      <div class="profile">
 
-        <div class='top-menu'>
-          <%= link_to t('component.back'), worlds_show_path, class:'btn btn-default' %>
-        </div>
+        <%= link_to t('component.back'), worlds_show_path, class: "btn btn-primary back-button" %>
 
         <div class='maki-in-landscape'>
-          <%= image_tag current_user.crew %>
-        </div>
-        <div id="profile-name">
           <h2><%= current_user.name %></h2>
+          <%= image_tag current_user.crew, class:'img-options-display' %>
         </div>
 
       </div>
+
       <div class="action" id="profile-action">
           <%= link_to t('.collection'), user_collection_path, class:'btn btn-primary' %>
-          <%= link_to t('.stats'), user_stats_path, class:'btn btn-primary' %>
+          <% link_to t('.stats'), user_stats_path, class:'btn btn-primary' %>
           <%= link_to t('.account'), edit_user_registration_path, class:'btn btn-primary' %>
           <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
       </div>

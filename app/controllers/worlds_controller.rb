@@ -45,7 +45,12 @@ class WorldsController < ApplicationController
       item.broken_count += 1
       item.save
       if item.broken_count >= item.item_type.lifetime
-        item.destroy
+        item.user_id = nil
+        item.world_id = current_user.world_id
+        item.x = rand(1..current_user.world.max_x)
+        item.y = rand(1..current_user.world.max_y)
+        item.broken_count = 0
+        item.save
       end
     end
     current_user.soja -= @consumption
@@ -91,8 +96,8 @@ class WorldsController < ApplicationController
   def check_if_move_or_grab_update
     @choice = params[:choice]
     case @choice
-      when "move" then translate_player_position
-      when "grab" then add_item_to_user
+    when "move" then translate_player_position
+    when "grab" then add_item_to_user
     end
   end
 
@@ -100,10 +105,10 @@ class WorldsController < ApplicationController
     @life = current_user.life
     @soja = current_user.soja
     case current_user.crew
-      when "avocado" then @ennemies = "salmons"
-      when "salmon" then @ennemies = "avocados"
-      when "bastardo" then @ennemies = "everyone, you bastard"
-      when "babyrice" then @ennemies = "everyone"
+    when "avocado" then @ennemies = "salmons"
+    when "salmon" then @ennemies = "avocados"
+    when "bastardo" then @ennemies = "everyone, you bastard"
+    when "babyrice" then @ennemies = "everyone"
     end
     @info = ".info" + (rand(5) + 1).to_s
   end
@@ -111,29 +116,23 @@ class WorldsController < ApplicationController
   def sojajauge
     @soja = current_user.soja
     case @soja
-      when 0 then @jauge = "empty.png"
-      when 1...3 then @jauge = "verylow.png"
-      when 3...12 then @jauge = "low.png"
-      when 12 then @jauge = "half.png"
-      when 13...24 then @jauge = "almostfull.png"
-      when 24 then @jauge = "full.png"
-      when 25..48 then @jauge = "overfull.gif"
+    when 0 then @jauge = "empty.png"
+    when 1...3 then @jauge = "verylow.png"
+    when 3...12 then @jauge = "low.png"
+    when 12 then @jauge = "half.png"
+    when 13...24 then @jauge = "almostfull.png"
+    when 24 then @jauge = "full.png"
+    when 25..48 then @jauge = "overfull.gif"
     end
   end
 
   def lifebar(player)
     case player.life
-      when 10
-        return "full"
-      when 6..10
-        return "almostfull"
-      when 5
-        return "half"
-      when 2..5
-        return "low"
-      when 1
-        return "verylow"
+    when 10 then return "full"
+    when 6..10 then return "almostfull"
+    when 5 then return "half"
+    when 2..5 then return "low"
+    when 1 then return "verylow"
     end
   end
-
 end

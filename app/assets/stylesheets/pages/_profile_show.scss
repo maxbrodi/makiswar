@@ -1,33 +1,30 @@
 .profile {
-  background: black;
-  color: white;
-  color: white;
-  text-shadow:
-   -1px -1px 0 #000,
-    1px -1px 0 #000,
-   -1px  1px 0 #000,
-    1px  1px 0 #000;
-}
-
-.maki-in-landscape{
-  text-align: center;
-  background: image-url('fight/fightscene.jpg');
-  background-size: cover;
-  padding: 40% 0;
-  width: 100%;
-  img {
-  width: 39%;
-  position: absolute;
-  bottom: 46%;
-  left: 33%;
+  // color: white;
+  // text-shadow:
+  //  -1px -1px 0 #000,
+  //   1px -1px 0 #000,
+  //  -1px  1px 0 #000,
+  //   1px  1px 0 #000;
+    background: image-url('fight/fightscene.jpg');
+    background-size: cover;
+    width: 100%;
+  & .maki-in-landscape{
+    text-align: center;
+    // & img {
+    // width: 39%;
+    // position: absolute;
+    // bottom: 46%;
+    // left: 33%;
+    // }
+    & h2 {
+     top: 30%;
+     text-align: center;
+    }
   }
 }
+
 
 #profile-action {
   max-height: 300;
 }
 
-#profile-name {
-  top: 14%;
-  left: 42%;
-}
