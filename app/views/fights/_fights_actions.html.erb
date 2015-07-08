@@ -41,26 +41,54 @@
       </div>
 
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-        <div class="weapon-selection scrolls">
-          <div class="item-selection-box consumption-4cl" >
-            <%= image_tag "chopsticks.png", class: "item-attack-display" %>
-            <div class="power"><h3>H</h3></div>
-            <div class="consumption"><h3>4cl</h3></div>
+        <div class="the-fight scrolls">
+
+          <div class="weapon-options bg-1" >
+            <%= image_tag "items/default/chopsticks.png", class:'img-options-display' %>
+            <div class="items_count text-white-shadow"><h3>∞</h3></div>
+            <div class="power"><%= image_tag 'info/heart.png', class:'mini' %></div>
+            <div class="consumption text-white-shadow"><h3>4cl</h3></div>
             <% if attacker.soja >= 4 %>
-               <%= button_to "Chopsticks!", { action: 'update' }, method: :patch, params: { defender: defender_id }, remote: true, class: "confirm-attack" %>
+               <%= button_to "Chopsticks!", { action: 'update' }, method: :patch, params: { defender: defender_id }, remote: true, class: "confirm-action" %>
             <% else %>
-              <p class="needs"><%= t(".nosoy", missing_cl: 4) %></p>
+              <p class="not-possible"><%= t(".nosoy", missing_cl: 4) %></p>
             <% end %>
           </div>
-          <div class="item-selection-box consumption-1cl">
-            <h2>Other item</h2>
-          </div>
-          <div class="item-selection-box consumption-3cl">
-            <h2>Third item</h2>
-          </div>
-          <div class="item-selection-box consumption-2cl">
-            <h2>4th item</h2>
-          </div>
+
+
+          <% if fight_item_types.count > 0 %>
+            <% fight_item_types.each do |item_type| %>
+              <div class="weapon-options bg-<%= item_type.consumption %>" >
+                <%= image_tag "items/" + item_type.picture, class:'img-options-display'%>
+                <div class="items_count text-white-shadow"><h3>x<%= current_user.items.where(item_type: item_type.id).count%></h3></div>
+                <div class="power">
+                  <% item_type.life_impact.times do %>
+                    <%= image_tag 'info/heart.png', class:'mini' %>
+                  <% end %>
+                </div>
+                <div class="consumption text-white-shadow"><h3><%= item_type.consumption %>cl</h3></div>
+                <%= form_tag worlds_update_path, method: :put, remote: true do %>
+                  <%= hidden_field_tag :choice, "fight" %>
+                  <%= hidden_field_tag :item_type_id, item_type.id %>
+                  <%= hidden_field_tag :defender,'',class:'defender_id' %>
+                  <% if current_user.soja >= item_type.consumption %>
+                    <%= submit_tag item_type.name, class: "confirm-action" %>
+                  <% else %>
+                  <p class="not-possible"><%= t(".nosoy", missing_cl: item_type.consumption - current_user.soja) %></p>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="weapon-options bg-2">
+              <%= image_tag "superheroes/#{rand(5)}.png", class:'img-options-display' %>
+              <br>
+              <p class='text-white-shadow text-center' type='submit'>You Wish!!</p>
+            </div>
+          <% end %>
+
+
+
           <% if killed %>
             <div id="killed">
               <h2><%= t(".killed", opponent: defender.name) %></h2>

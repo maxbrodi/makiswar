@@ -1,5 +1,4 @@
 PubSub.publish('fightDisplay');
-
 $('.fights-container').replaceWith("<%= j render partial: 'fights/fights_actions', locals: {
   attacker: @attacker,
   defender: @defender,
@@ -9,5 +8,6 @@ $('.fights-container').replaceWith("<%= j render partial: 'fights/fights_actions
   defender_id: @defender_id,
   killed: @killed,
   lifebar: @lifebar,
-  jauge: @jauge
+  jauge: @jauge,
+  fight_item_types: @fight_item_types
 } %>");

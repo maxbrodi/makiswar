@@ -7,19 +7,13 @@
     var infoHeight = $(window).innerHeight() - fightSize;
 
     $('.fight-display').css("height", fightSize);
-    $('.weapon-selection').css("height", infoHeight);
+    $('.the-fight').css("height", infoHeight);
+    $('.weapon-options').css("height", infoHeight);
 
-    infoHeight = $('.weapon-selection').height();
-    var itemSelectionHeight = infoHeight - 4;
-
-    $('.item-selection-box').css("height", itemSelectionHeight);
-    if (itemSelectionHeight < 200 ){
-      // $('.item-attack-display').addClass('hidden')
-      // $('.item-selection-box').addClass('smalldevice')
-      $('.confirm-attack').css('margin-top', '0.5em');
-      $('.item-attack-display').css('padding-top', '13px');
-      $('.confirm-attack').css('padding', '5px 13%');
-      $('.needs').css('margin-top', '0.5em');
+    if (infoHeight < 200 ){
+      $('.weapon-options .img-options-display').css('margin-top', '1.2em');
+      $('.weapon-options .img-options-display').css('margin-bottom', '0.3em');
+      $('.weapon-options .img-options-display').css('width', '35%');
       $('#killed').css('padding-top', '0%');
     };
 
@@ -28,14 +22,6 @@
     });
 
   };
-
-  // old toggle message
-
-  // $('.item-selection-box').click(function() {
-  //   $('#confirm-attack').toggleClass('hidden');
-  //   var item_number = $( this ).data('number');
-  //   $('#confirm-attack').html( "<p>Tap to use</p><p>" + $('.item-n' + item_number + ' h2').first().text() + "!</p>" );
-  // });
 
   fightDisplay();
 

@@ -30,6 +30,8 @@ class FightsController < ApplicationController
     @soja = current_user.soja
     sojajauge
 
+    available_fight_items
+
   end
 
   def update
@@ -175,7 +177,7 @@ class FightsController < ApplicationController
       format.js
     end
 
-
+    available_fight_items
 
     # version items
     # @soja_needed
@@ -224,6 +226,10 @@ class FightsController < ApplicationController
     crew_event[:user_id] = user.id
     crew_event[:world_id] = user.world_id
     crew_event.save
+  end
+
+  def available_fight_items
+    @fight_item_types = current_user.item_types.where(kind: 'Attack')
   end
 
 end
