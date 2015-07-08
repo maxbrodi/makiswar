@@ -235,6 +235,11 @@
       h3 {
         font-size: 1.2em;
       }
+      & .items_count {
+        position: absolute;
+        top: -14px;
+        left: 14px;
+      }
     }
   }
   & .my-maki {
@@ -316,12 +321,18 @@
   border-style: solid;
   width: 80%;
   margin-top: -6px;
-  &.nothing {
-    padding-right: 0px;
-    padding-left: 0px;
-    text-decoration: line-through;
-    cursor: default;
-  }
+}
+
+.not-possible {
+  color: white;
+  padding: 5px 13%;
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: -6px;
+  cursor: default;
 }
 
 .othermaki-info {
@@ -365,6 +376,9 @@
     width: 80%;
     position: relative;
     margin: auto;
+    & .thumb {
+      height: 30%;
+    }
     & tbody>tr>td.vert-align {
       color: white;
       vertical-align: middle;
