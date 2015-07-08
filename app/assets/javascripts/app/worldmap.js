@@ -23,11 +23,10 @@ $(function() {
     $('.info-bottom').css("height", infoHeight);
     $('.info-bottom').css("width", worldSize);
 
-    if (infoHeight < 200 ){
-      $('.transportation-options .img-options-display').css('margin-top', '1.2em');
-      $('.transportation-options .img-options-display').css('margin-bottom', '0.3em');
+    if (infoHeight < 220 ){
+      $('.transportation-options .img-options-display').css('margin-top', '1em');
+      $('.transportation-options .img-options-display').css('margin-bottom', '0.7em');
       $('.transportation-options .img-options-display').css('width', '35%');
-
       $('.my-maki img').css('width', '70px');
       $('.my-maki img').css('padding', '10% 0px');
     };

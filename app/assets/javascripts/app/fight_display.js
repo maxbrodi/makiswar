@@ -10,7 +10,7 @@
     $('.the-fight').css("height", infoHeight);
     $('.weapon-options').css("height", infoHeight);
 
-    if (infoHeight < 200 ){
+    if (infoHeight < 220 ){
       $('.weapon-options .img-options-display').css('margin-top', '1.2em');
       $('.weapon-options .img-options-display').css('margin-bottom', '0.3em');
       $('.weapon-options .img-options-display').css('width', '35%');
