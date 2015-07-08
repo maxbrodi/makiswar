@@ -37,16 +37,19 @@
              <% case event[:name] %>
             <% when "attack" %>
               <% if event[:item_type_id] %>
-                <%= event.user.name + "(" + event.user.crew + ")" + " attacked your maki with" + ItemType.find(event[:item_type_id]).name + "." %>
+                <%= event.user.name + " (" + event.user.crew + ")" + " attacked your maki with a " + ItemType.find(event[:item_type_id]).name + "!" %>
               <% else %>
-                <%= event.user.name + "(" + event.user.crew + ")" + " attacked your maki with a chopstick." %>
+                <%= event.user.name + " (" + event.user.crew + ")" + " attacked your maki with a chopstick." %>
               <% end %>
             <% when "missed" %>
               <%= event.user.name + " tried to attack your maki but missed." %>
+            <% when "broken" %>
+            <%= current_user.name + " broke his " + ItemType.find(event[:item_type_id]).name + "!" %>
             <% when "birth" %>
             <%= current_user.name + " landed on " + World.find(event[:world_id]).name + "!" %>
             <% end %>
 
+            <br>
             <br>
 
           <% end %>

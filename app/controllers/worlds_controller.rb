@@ -51,6 +51,14 @@ class WorldsController < ApplicationController
         item.y = rand(1..current_user.world.max_y)
         item.broken_count = 0
         item.save
+
+        # event d'objet casse
+        broken = Event.new
+        broken[:name] = "broken"
+        broken[:world_id] = @attacker.world_id
+        broken[:user_id] = @attacker.id
+        broken[:item_type_id] = item.item_type.id
+        broken.save
       end
     end
     current_user.soja -= @consumption
