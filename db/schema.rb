@@ -50,9 +50,9 @@ ActiveRecord::Schema.define(version: 20150708182443) do
     t.integer  "world_id"
     t.integer  "user_id"
     t.integer  "item_type_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "broken_count"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "broken_count", default: 0
   end
 
   add_index "items", ["item_type_id"], name: "index_items_on_item_type_id", using: :btree

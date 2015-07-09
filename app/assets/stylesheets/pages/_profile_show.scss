@@ -3,23 +3,23 @@
   background-size: cover;
   width: 100%;
   & .maki-in-landscape{
-    & #maki-profile {
-      position: relative;
-      top: 30%;
-      width: 40%;
-    }
-    & h2 {
-      position: absolute;
-      top: 40%;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
     & #crew-profile {
       position: absolute;
       width: 15%;
       top: 10px;
       right: 20px;
+    }
+    & #maki-avatar {
+      width: 40%;
+    }
+    & .profile-info-crew {
+      position: relative;
+      top: 25%;
+      list-style: none;
+      padding: 0px;
+      & h2 {
+        margin: 10px;
+      }
     }
   }
   .my-items-list {
@@ -48,13 +48,19 @@
         vertical-align: middle;
         border-top: 1px solid white;
         padding: 8px 0px;
-        & .confirm-grab {
-          color: black;
-          background: white;
-          border-color: black;
-          border-width: 2px;
-          border-style: solid;
-          width: 80%;
+        & .my-items-details {
+          list-style: none;
+          padding: 0px 0px 0px 20px;
+          & .title {
+
+          }
+          & .content {
+            font-size: 16px;
+            & .mini {
+              width: 8%;
+              margin: -2px;
+            }
+          }
         }
       }
     }
@@ -67,6 +73,7 @@
   position: relative;
   max-height: 300px;
   cursor: pointer;
+  box-shadow: 0px -6px 5px 0px rgba(0, 0, 0, 0.21);
   & img {
     position: relative;
     margin: auto;

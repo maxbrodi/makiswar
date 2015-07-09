@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   private
 
   def my_backpack
-    @my_items = current_user.items
+    @my_items_type = current_user.item_types.order(kind: :desc)
   end
 
 end

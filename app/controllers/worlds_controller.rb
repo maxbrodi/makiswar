@@ -40,24 +40,27 @@ class WorldsController < ApplicationController
     if @item_type_id == 'feet'
       @consumption = 4
     else
-      item = current_user.items.where(item_type_id: @item_type_id).first
-      @consumption = item.item_type.consumption
-      item.broken_count += 1
-      item.save
-      if item.broken_count >= item.item_type.lifetime
-        item.user_id = nil
-        item.world_id = current_user.world_id
-        item.x = rand(1..current_user.world.max_x)
-        item.y = rand(1..current_user.world.max_y)
-        item.broken_count = 0
-        item.save
+      @item = current_user.items.where(item_type_id: @item_type_id).first
+      @consumption = @item.item_type.consumption
+      @item.broken_count += 1
+      @item.save
+
+      if @item.broken_count >= @item.item_type.lifetime
+        @item.user_id = nil
+        @item.world_id = current_user.world_id
+        set_item_position_after_broken
+        while User.where(world_id: @item.world_id, x: @item.x, y: @item.y).exists? do
+          set_item_position_after_broken
+        end
+        @item.broken_count = 0
+        @item.save
 
         # event d'objet casse
         broken = Event.new
         broken[:name] = "broken"
-        broken[:world_id] = @attacker.world_id
-        broken[:user_id] = @attacker.id
-        broken[:item_type_id] = item.item_type.id
+        broken[:world_id] = current_user.world_id
+        broken[:user_id] = current_user.id
+        broken[:item_type_id] = @item.item_type.id
         broken.save
       end
     end
@@ -143,4 +146,10 @@ class WorldsController < ApplicationController
     when 1 then return "verylow"
     end
   end
+
+  def set_item_position_after_broken
+    @item.x = rand(1..current_user.world.max_x)
+    @item.y = rand(1..current_user.world.max_y)
+  end
+
 end

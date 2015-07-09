@@ -8,10 +8,11 @@
         <%= link_to t('component.back'), worlds_show_path, class: "btn btn-primary back-button" %>
 
         <%= image_tag "emblems/" + current_user.crew, id:'crew-profile' %>
-        <%= image_tag current_user.crew, id: "maki-profile"  %>
-        <ul>
-        <li><h2 class= 'text-white-shadow'><%= current_user.name %></h2></li>
-        <li><h2 class= 'text-white-shadow'><%= current_user.crew %></h2></li>
+
+        <ul class='profile-info-crew'>
+          <li><%= image_tag current_user.crew, id: "maki-avatar", class:'floating' %></li>
+          <li><h2 class= 'text-white-shadow'><%= current_user.name %></h2></li>
+          <li><h2 class= 'text-white-shadow'>Team <%= current_user.crew %></h2></li>
         </ul>
 
       </div>
@@ -20,16 +21,26 @@
       <div class="my-items-list hidden">
         <h3>What's in my bag</h3>
         <table class='item-table'>
-          <% @my_items.each do |item| %>
+          <% @my_items_type.each do |item_type| %>
             <tr>
-              <td class='vert-align'><%= image_tag "items/" + item.item_type.picture, class:'thumb' %></td>
-              <td class='vert-align'><%= item.item_type.name %></td>
-              <td class='vert-align text-center'>
-                <%= form_tag worlds_update_path, method: :put, remote: true do %>
-                  <%= hidden_field_tag :choice, "grab" %>
-                  <%= hidden_field_tag :item_id, item.id %>
-                  <%= submit_tag "Take", class: "confirm-grab" %>
-                <% end %>
+              <td class='vert-align'><%= image_tag "items/" + item_type.picture, class:'thumb' %></td>
+              <td class='vert-align'>
+                <ul class='my-items-details'>
+                  <li class='title'>
+                    <%= item_type.name %>
+                    (x<%= current_user.items.where(item_type: item_type.id).count %>)
+                  </li>
+                  <li class='content'><%= item_type.joke %></li>
+                  <li class='content'>Kind: <%= item_type.kind %></li>
+                  <li class='content'>Consumption: <%= item_type.consumption %>cl</li>
+                  <% if item_type.life_impact %>
+                    <li class='content'>Life Impact:
+                      <% item_type.life_impact.times do %>
+                        <%= image_tag 'info/heart.png', class:'mini' %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
               </td>
             </tr>
           <% end %>
@@ -41,11 +52,11 @@
       <!-- profile self options -->
       <div class='my-profile-menu'>
         <div class='my-items text-center'>
-          <div class='open-close text-center'>
+          <div class='my-open-close text-center'>
             <%= image_tag 'item_close.png' %>
             <input class='confirm-action' value='My Items' type='submit'></input>
           </div>
-          <div class='open-close text-center hidden'>
+          <div class='my-open-close text-center hidden'>
             <%= image_tag 'item_open.png' %>
             <input class='confirm-action' value='Close Box' type='submit'></input>
           </div>
