@@ -24,7 +24,7 @@ ItemType.create(name: "Rainbow Unicorn", joke: "You look fabulous on it.", pictu
 ItemType.create(name: "Hyperloop", joke: "You\'ve never moved that fast to the next cell.", picture: "hyperloop.png", kind:"Movement", lifetime: 10, consumption: 1)
 
 
-(1...6).each do |i|
+(6...11).each do |i|
 # (14...19).each do |i|
   10.times do
     x_rand = rand(21)
@@ -33,7 +33,7 @@ ItemType.create(name: "Hyperloop", joke: "You\'ve never moved that fast to the n
   end
 end
 
-(7...8).each do |i|
+(12...13).each do |i|
 # (20...21).each do |i|
   2.times do
     x_rand = rand(21)

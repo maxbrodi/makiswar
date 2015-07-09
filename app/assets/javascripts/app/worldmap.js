@@ -24,12 +24,12 @@ $(function() {
     $('.info-bottom').css("width", worldSize);
 
     if (infoHeight < 220 ){
-      $('.transportation-options .img-options-display').css('margin-top', '1em');
-      $('.transportation-options .img-options-display').css('margin-bottom', '0.7em');
-      $('.info-holder').css('margin-top', '0em');
-      $('.transportation-options .img-options-display').css('width', '35%');
-      $('.my-maki img').css('width', '70px');
-      $('.my-maki img').css('padding', '10% 0px');
+      $('.transportation-options .img-options-display').css('width', '30%');
+      $('.transportation-options .img-options-display').css('margin-top', '0.5em');
+      $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
+      $('.my-maki .img-options-display').css('width', '30%');
+      $('.my-maki .img-options-display').css('margin-top', '0.8em');
+      $('.my-maki .img-options-display').css('margin-bottom', '0.8em');
     };
 
     // afficher les limites du monde
