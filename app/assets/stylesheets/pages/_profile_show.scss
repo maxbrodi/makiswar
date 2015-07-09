@@ -1,30 +1,98 @@
-.profile {
-  // color: white;
-  // text-shadow:
-  //  -1px -1px 0 #000,
-  //   1px -1px 0 #000,
-  //  -1px  1px 0 #000,
-  //   1px  1px 0 #000;
-    background: image-url('fight/fightscene.jpg');
-    background-size: cover;
-    width: 100%;
+.my-profile-main {
+  background: image-url('fight/fightscene.jpg');
+  background-size: cover;
+  width: 100%;
   & .maki-in-landscape{
-    text-align: center;
-    // & img {
-    // width: 39%;
-    // position: absolute;
-    // bottom: 46%;
-    // left: 33%;
-    // }
+    & #maki-profile {
+      position: relative;
+      top: 30%;
+      width: 40%;
+    }
     & h2 {
-     top: 30%;
-     text-align: center;
+      position: absolute;
+      top: 40%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    & #crew-profile {
+      position: absolute;
+      width: 15%;
+      top: 10px;
+      right: 20px;
+    }
+  }
+  .my-items-list {
+    background: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    padding-top: 8%;
+    overflow-y: scroll;
+    z-index: 4;
+    & h3 {
+      color: white;
+      text-align: center;
+    }
+    & table.item-table {
+      width: 80%;
+      position: relative;
+      margin: auto;
+      & .thumb {
+        height: 30%;
+      }
+      & tbody>tr>td.vert-align {
+        color: white;
+        vertical-align: middle;
+        border-top: 1px solid white;
+        padding: 8px 0px;
+        & .confirm-grab {
+          color: black;
+          background: white;
+          border-color: black;
+          border-width: 2px;
+          border-style: solid;
+          width: 80%;
+        }
+      }
     }
   }
 }
 
-
-#profile-action {
-  max-height: 300;
+.my-profile-menu {
+  background: #282828;
+  max-height: 300px;
+  position: relative;
+  max-height: 300px;
+  cursor: pointer;
+  & img {
+    position: relative;
+    margin: auto;
+    width: 50%;
+    padding: 30% 0px 10% 0px;
+  }
+  & .my-items {
+    float: left;
+    background: #3498db;
+    width: 50%;
+    height: 100%;
+  }
+  & .my-account {
+    float: right;
+    background: #e67e22;
+    width: 50%;
+    height: 100%;
+    & .confirm-action {
+      padding: 10px 13%;
+    }
+  }
+  & .clear {
+    clear: both;
+  }
 }
+
+
+
 

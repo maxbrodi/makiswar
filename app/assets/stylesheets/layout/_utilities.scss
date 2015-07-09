@@ -49,6 +49,7 @@
 }
 
 .back-button {
+  border: 1px solid white;
   position: absolute;
   top: 20px;
   left: 20px;
@@ -77,4 +78,12 @@ button:focus {
 .color-grey {
   color: grey;
 }
+
+.card-white-bg {
+  background: white;
+  padding: 30px;
+  border-radius: 3px;
+  margin-top: 50px;
+}
+
 

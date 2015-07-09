@@ -49,7 +49,7 @@
             <div class="power"><%= image_tag 'info/heart.png', class:'mini' %></div>
             <div class="consumption text-white-shadow"><h3>4cl</h3></div>
             <% if attacker.soja >= 4 %>
-               <%= button_to "Chopsticks!", { action: 'update' }, method: :patch, params: { defender: defender_id, item_type_id: 'chopsticks' }, remote: true, class: "confirm-action" %>
+               <%= button_to "Chopsticks", { action: 'update' }, method: :patch, params: { defender: defender_id, item_type_id: 'chopsticks' }, remote: true, class: "confirm-action" %>
             <% else %>
               <p class="not-possible"><%= t(".nosoy", missing_cl: 4) %></p>
             <% end %>
@@ -67,12 +67,11 @@
                   <% end %>
                 </div>
                 <div class="consumption text-white-shadow"><h3><%= item_type.consumption %>cl</h3></div>
-                  <% if attacker.soja >= item_type.consumption %>
-                     <%= button_to item_type.name, { action: 'update' }, method: :patch, params: { defender: defender_id, item_type_id: item_type.id }, remote: true, class: "confirm-action"%>
-                  <% else %>
-                    <p class="not-possible"><%= t(".nosoy", missing_cl: item_type.consumption - current_user.soja) %></p>
-                  <% end %>
-                </div>
+                <% if attacker.soja >= item_type.consumption %>
+                   <%= button_to item_type.name, { action: 'update' }, method: :patch, params: { defender: defender_id, item_type_id: item_type.id }, remote: true, class: "confirm-action"%>
+                <% else %>
+                  <p class="not-possible"><%= t(".nosoy", missing_cl: item_type.consumption - current_user.soja) %></p>
+                <% end %>
               </div>
             <% end %>
           <% else %>
