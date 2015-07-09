@@ -212,7 +212,7 @@ class FightsController < ApplicationController
   end
 
   def available_fight_items
-    @fight_item_types = current_user.item_types.where(kind: 'Attack')
+    @fight_item_types = current_user.item_types.where(kind: 'Attack').order(life_impact: :asc)
   end
 
 end

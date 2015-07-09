@@ -60,7 +60,7 @@ class WorldsController < ApplicationController
   end
 
   def available_move_items
-    @move_item_types = current_user.item_types.where(kind: 'Movement')
+    @move_item_types = current_user.item_types.where(kind: 'Movement').order(consumption: :desc)
   end
 
   def position_other_players_in_grid

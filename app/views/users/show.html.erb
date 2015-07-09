@@ -1,24 +1,62 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-      <div class="profile">
 
+    <div class='my-profile-main'>
+
+      <div class="maki-in-landscape text-center">
         <%= link_to t('component.back'), worlds_show_path, class: "btn btn-primary back-button" %>
 
-        <div class='maki-in-landscape'>
-          <h2><%= current_user.name %></h2>
-          <%= image_tag current_user.crew, class:'img-options-display' %>
+        <%= image_tag "emblems/" + current_user.crew, id:'crew-profile' %>
+        <%= image_tag current_user.crew, id: "maki-profile"  %>
+        <ul>
+        <li><h2 class= 'text-white-shadow'><%= current_user.name %></h2></li>
+        <li><h2 class= 'text-white-shadow'><%= current_user.crew %></h2></li>
+        </ul>
+
+      </div>
+
+      <!-- box content -->
+      <div class="my-items-list hidden">
+        <h3>What's in my bag</h3>
+        <table class='item-table'>
+          <% @my_items.each do |item| %>
+            <tr>
+              <td class='vert-align'><%= image_tag "items/" + item.item_type.picture, class:'thumb' %></td>
+              <td class='vert-align'><%= item.item_type.name %></td>
+              <td class='vert-align text-center'>
+                <%= form_tag worlds_update_path, method: :put, remote: true do %>
+                  <%= hidden_field_tag :choice, "grab" %>
+                  <%= hidden_field_tag :item_id, item.id %>
+                  <%= submit_tag "Take", class: "confirm-grab" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+
+    </div>
+
+      <!-- profile self options -->
+      <div class='my-profile-menu'>
+        <div class='my-items text-center'>
+          <div class='open-close text-center'>
+            <%= image_tag 'item_close.png' %>
+            <input class='confirm-action' value='My Items' type='submit'></input>
+          </div>
+          <div class='open-close text-center hidden'>
+            <%= image_tag 'item_open.png' %>
+            <input class='confirm-action' value='Close Box' type='submit'></input>
+          </div>
         </div>
-
+        <div class='my-account text-center'>
+          <%= image_tag 'profile/account.png' %><br>
+          <%= link_to t('.account'),edit_user_registration_path, class:'confirm-action' %>
+        </div>
+        <div class="clear"></div>
       </div>
 
-      <div class="action" id="profile-action">
-          <%= link_to t('.collection'), user_collection_path, class:'btn btn-primary' %>
-          <% link_to t('.stats'), user_stats_path, class:'btn btn-primary' %>
-          <%= link_to t('.account'), edit_user_registration_path, class:'btn btn-primary' %>
-          <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
-      </div>
-      </div>
     </div>
   </div>
 </div>
