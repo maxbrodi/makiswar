@@ -89,21 +89,21 @@
             <div class='my-profile text-center'>
               <%= form_tag user_path, method: :get do %>
                 <%= %>
-                <%= image_tag current_user.crew + '.png' %>
+                <%= image_tag current_user.crew + '.png', class:'img-options-display' %>
                 <%= submit_tag t('.profile'), class: "confirm-action" %>
               <% end %>
             </div>
             <div class='search-item text-center'>
-              <%= image_tag 'pin.png' %>
+              <%= image_tag 'pin.png', class:'img-options-display'%>
               <p class='text-white-shadow text-center' type='submit'>Nothing here</p>
             </div>
             <div class='grab-item text-center hidden'>
               <div class='open-close text-center'>
-                <%= image_tag 'item_close.png' %>
+                <%= image_tag 'item_close.png', class:'img-options-display' %>
                 <input class='confirm-action' value='Open Box' type='submit'></input>
               </div>
               <div class='open-close text-center hidden'>
-                <%= image_tag 'item_open.png' %>
+                <%= image_tag 'item_open.png', class:'img-options-display' %>
                 <input class='confirm-action' value='Close Box' type='submit'></input>
               </div>
             </div>

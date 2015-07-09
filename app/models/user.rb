@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
   end
 
   def born
-    world = World.where('usercount < 50').order(usercount: :asc).limit(1).first
+    world = World.where('usercount < 50').order(usercount: :desc).limit(1).first
     self.world_id = world.id
     if world.users.empty?
       self.x = world.max_x / 2

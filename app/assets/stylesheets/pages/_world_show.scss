@@ -292,12 +292,6 @@
     position: relative;
     max-height: 300px;
     cursor: pointer;
-    & img {
-      position: relative;
-      margin: auto;
-      width: 50%;
-      padding: 30% 0px 10% 0px;
-    }
     & .my-profile {
       float: left;
       background: #f1b045;
@@ -327,10 +321,6 @@
   margin-top: 10px;
   margin-bottom: 16px;
   }
-}
-
-.info-holder {
-  margin-top: 3em;
 }
 
 .attack-opponent {
@@ -383,7 +373,6 @@
         border-color: black;
         border-width: 2px;
         border-style: solid;
-        width: 80%;
       }
     }
   }
