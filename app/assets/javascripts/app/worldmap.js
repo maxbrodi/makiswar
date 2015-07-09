@@ -105,6 +105,14 @@ $(function() {
         $('.grab-item').removeClass("hidden");
       }
     }
+    else if (cell.hasClass('.outta-world')) {
+      $('.outta-world').not('.selected').addClass('around-selection');
+      $('.my-maki').addClass("hidden");
+      $('.new_position').removeAttr('value');
+      $('.cell-info').addClass("hidden");
+      $('.new-move').addClass("hidden");
+      $('.news-info').removeClass("hidden");
+    }
     else {
       $('.my-maki').addClass("hidden");
       $('.new_position').removeAttr('value');

@@ -1,0 +1,8 @@
+.makiswar-not-connected {
+  background: image-url('vitrine/bg2.png');
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  & .card-white-bg {
+  }
+}

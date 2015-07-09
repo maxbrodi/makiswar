@@ -4,14 +4,14 @@ en:
   devise:
     registrations:
       new:
-        instruction: "One last step, you're almost done!"
+        instruction: "You're almost done!"
         email: "don't be shy %{username}"
-        password: "a strong and secure one, of course!"
+        password: "a strong and secure one, please"
       edit:
         sign_out: "Sign Out"
     sessions:
       new:
-        instruction: "Welcome back Maki Warrior! You need to sign in to play"
+        instruction: "Welcome back Maki Warrior!"
         email: "your email"
         password: "your password"
   pages:
@@ -31,7 +31,7 @@ en:
           already_taken: "This username has already been taken"
           empty: "Please provide a username"
     new:
-      instruction: "Start by choosing a nickname"
+      instruction: "Start by choosing your Maki's nickname"
       submit: "Validate"
   users:
     show:

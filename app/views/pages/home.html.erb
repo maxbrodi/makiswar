@@ -1,31 +1,15 @@
-<%= content_for(:title) do %>
-  Home
-<% end %>
+<div class="makiswar-not-connected">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 
-<%= content_for(:description) do %>
-  <%# TODO %>
-<% end %>
+        <div class="card-white-bg text-center">
+          <h1><%= t('.title') %></h1>
+          <%= link_to t('.sign_up'), new_username_path, class:'btn btn-primary' %>
+          <%= link_to t('.sign_in'), new_user_session_path, class:'btn btn-success' %>
+        </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <div class="text-center">
-        <h1><%= t('.title') %></h1>
-        <%= link_to t('.sign_up'), new_username_path, class:'btn btn-primary' %>
-        <%= link_to t('.sign_in'), new_user_session_path, class:'btn btn-success' %>
       </div>
-
-      <!-- Utile pour les tests : à supprimer ensuite -->
-      <br>
-
-      <div class="text-center">
-
-        <% if current_user %>
-          <%= link_to t('.profile'), user_path, class:'btn btn-warning' %>
-          <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
-        <% end %>
-      </div>
-      <!-- Fin de la suppression -->
     </div>
   </div>
 </div>

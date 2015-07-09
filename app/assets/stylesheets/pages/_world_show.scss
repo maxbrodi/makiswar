@@ -225,6 +225,10 @@
       background: image-url('shark.gif'), image-url('water3.gif');
       background-size: cover;
     }
+    &.around-selection {
+      background: image-url('water3.gif');
+      background-size: cover;
+    }
   }
   &.selected {
     background: image-url('selected-nothing.png');
