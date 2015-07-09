@@ -159,11 +159,14 @@
           <!-- other players infos & position on map -->
           <% players_on_map.each do |cell, player| %>
             <div class="cell-info text-center hidden" id="cell-info-<%= cell %>" data-x="<%= player.x - x_shift %>" data-y="<%= player.y - y_shift%>" data-crew="<%= player.crew %>" >
-             <%= image_tag "emblems/" + player.crew + ".gif", id: "emblem" %>
-              <div class="othermaki-info">
+             <div class="col-xs-5">
+               <%= image_tag "emblems/" + player.crew + ".gif", id: "emblem" %>
+             </div>
+             <div class="col-xs-7">
                 <h3><%= player.name %></h3>
-              </div>
-              <%= button_to t('.confirm_attack'), fights_show_path, params: {"defender" => player.id }, class: "attack-opponent hidden" %>
+                <%= button_to t('.confirm_attack'), fights_show_path, params: {"defender" => player.id }, class: "attack-opponent hidden" %>
+
+             </div>
             </div>
           <% end %>
 

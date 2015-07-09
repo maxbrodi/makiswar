@@ -49,10 +49,21 @@
 }
 
 .back-button {
-  border: 1px solid white;
+  border: 2px solid white;
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 10px;
+  left: 12px;
+  padding: 0px 9px;
+  color: white;
+  &:hover{
+    color:white;
+  }
+  &:active{
+    color: white;
+  }
+  &:focus{
+    color: white;
+  }
 }
 
 input:focus,
