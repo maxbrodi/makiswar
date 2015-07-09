@@ -7,10 +7,10 @@
       <div class="maki-in-landscape text-center">
         <%= link_to t('component.back'), worlds_show_path, class: "back-button" %>
 
-        <%= image_tag "emblems/" + current_user.crew, id:'crew-profile' %>
+        <%= image_tag "emblems/" + current_user.crew + ".gif", id:'crew-profile' %>
 
         <ul class='profile-info-crew'>
-          <li><%= image_tag current_user.crew, id: "maki-avatar", class:'floating' %></li>
+          <li><%= image_tag current_user.crew + ".gif", id: "maki-avatar", class:'floating' %></li>
           <li><h2 class= 'text-white-shadow'><%= current_user.name %></h2></li>
           <li><h2 class= 'text-white-shadow'>Team <%= current_user.crew %></h2></li>
         </ul>
