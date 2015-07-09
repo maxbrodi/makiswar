@@ -104,6 +104,10 @@
       &.selected {
         background: image-url('salmon.gif'), image-url('selected-nothing.png');
         background-size: cover;
+        &.item {
+          background: image-url('salmon.gif'), image-url('on_item.png'), image-url('selected-nothing.png');
+          background-size: cover;
+        }
       }
     }
     &.avocado {
@@ -116,6 +120,10 @@
       &.selected {
         background: image-url('avocado.gif'), image-url('selected-nothing.png');
         background-size: cover;
+        &.item {
+          background: image-url('avocado.gif'), image-url('on_item.png'), image-url('selected-nothing.png');
+          background-size: cover;
+        }
       }
     }
     &.bastardo {
@@ -128,6 +136,10 @@
       &.selected {
         background: image-url('bastardo.gif'), image-url('selected-nothing.png');
         background-size: cover;
+        &.item {
+          background: image-url('bastardo.gif'), image-url('on_item.png'), image-url('selected-nothing.png');
+          background-size: cover;
+        }
       }
     }
   }
@@ -135,33 +147,65 @@
     &.babyrice {
       background: image-url('babyrice.gif');
       background-size: cover;
+      &.item {
+        background: image-url('babyrice.gif'), image-url('on_item.png');
+        background-size: cover;
+      }
       &.selected {
         background: image-url('babyrice.gif'), image-url('selected-fight.png');
         background-size: cover;
+        &.item {
+          background: image-url('babyrice.gif'), image-url('on_item.png'), image-url('selected-fight.png');
+          background-size: cover;
+        }
       }
     }
     &.salmon {
       background: image-url('salmon.gif');
       background-size: cover;
+      &.item {
+        background: image-url('salmon.gif'), image-url('on_item.png');
+        background-size: cover;
+      }
       &.selected {
         background: image-url('salmon.gif'), image-url('selected-fight.png');
         background-size: cover;
+        &.item {
+          background: image-url('salmon.gif'), image-url('on_item.png'), image-url('selected-fight.png');
+          background-size: cover;
+        }
       }
     }
     &.avocado {
       background: image-url('avocado.gif');
       background-size: cover;
+      &.item {
+        background: image-url('avocado.gif'), image-url('on_item.png');
+        background-size: cover;
+      }
       &.selected {
         background: image-url('avocado.gif'), image-url('selected-fight.png');
         background-size: cover;
+        &.item {
+          background: image-url('avocado.gif'), image-url('on_item.png'), image-url('selected-fight.png');
+          background-size: cover;
+        }
       }
     }
     &.bastardo {
       background: image-url('bastardo.gif');
       background-size: cover;
+      &.item {
+        background: image-url('bastardo.gif'), image-url('on_item.png');
+        background-size: cover;
+      }
       &.selected {
         background: image-url('bastardo.gif'), image-url('selected-fight.png');
         background-size: cover;
+        &.item {
+          background: image-url('bastardo.gif'), image-url('on_item.png'), image-url('selected-fight.png');
+          background-size: cover;
+        }
       }
     }
   }
@@ -178,7 +222,7 @@
     background: image-url('water3.gif');
     background-size: cover;
     &.selected {
-      background: image-url('selected-border.png'), #5E5F66;
+      background: image-url('shark.gif'), image-url('water3.gif');
       background-size: cover;
     }
   }
