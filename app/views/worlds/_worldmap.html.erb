@@ -77,8 +77,10 @@
 
           <!-- funky news -->
           <div class="news-info text-center">
-            <div class="col-xs-5"><%= image_tag "presentateur.gif", id: "anchorman" %></div>
-            <div class="col-xs-6 text-left" id="anchorman-speech"><%= t(info, ennemies: ennemies) %></div>
+            <div id="anchorman-holder">
+              <div class="col-xs-5"><%= image_tag "presentateur.gif", id: "anchorman" %></div>
+              <div class="col-xs-6 text-left" id="anchorman-speech"><%= t(info, ennemies: ennemies) %></div>
+            </div>
           </div>
 
           <!-- player self options -->

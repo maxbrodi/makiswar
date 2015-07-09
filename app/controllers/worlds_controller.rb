@@ -118,7 +118,7 @@ class WorldsController < ApplicationController
     when "bastardo" then @ennemies = "everyone, you bastard"
     when "babyrice" then @ennemies = "everyone"
     end
-    @info = ".info" + (rand(5) + 1).to_s
+    @info = ".info" + (rand(10) + 1).to_s
   end
 
   def sojajauge
