@@ -26,7 +26,7 @@ ItemType.create(name: "Hyperloop", joke: "You\'ve never moved that fast to the n
 
 # (1...6).each do |i|
 (14...19).each do |i|
-  20.times do
+  10.times do
     x_rand = rand(21)
     y_rand = rand(21)
     Item.create(item_type_id: i, world_id: 1, x: x_rand, y: y_rand)
@@ -35,7 +35,7 @@ end
 
 # (7...8).each do |i|
 (20...21).each do |i|
-  5.times do
+  2.times do
     x_rand = rand(21)
     y_rand = rand(21)
     Item.create(item_type_id: i, world_id: 1, x: x_rand, y: y_rand)
