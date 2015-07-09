@@ -33,26 +33,37 @@
 }
 
 .bg-1 {
-  background: #3498db;
+  background: #f2e2b5;
 }
 
 .bg-2 {
-  background: #e67e22;
+  background: #f1b045;
 }
 
 .bg-3 {
-  background: #9b59b6;
+  background: #d77947;
 }
 
 .bg-4 {
-  background: #e74c3c;
+  background: #668da5;
 }
 
 .back-button {
-  border: 1px solid white;
+  border: 2px solid white;
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 10px;
+  left: 12px;
+  padding: 0px 9px;
+  color: white;
+  &:hover{
+    color:white;
+  }
+  &:active{
+    color: white;
+  }
+  &:focus{
+    color: white;
+  }
 }
 
 input:focus,

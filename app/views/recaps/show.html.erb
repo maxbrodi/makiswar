@@ -42,7 +42,7 @@
                 <%= event.user.name + " (" + event.user.crew + ")" + " attacked your maki with a chopstick." %>
               <% end %>
             <% when "missed" %>
-              <%= event.user.name + " tried to attack your maki but missed." %>
+              <%= event.user.name + " (" + event.user.crew + ")" + " tried to attack your maki but missed." %>
             <% when "broken" %>
             <%= current_user.name + " broke his " + ItemType.find(event[:item_type_id]).name + "!" %>
             <% when "birth" %>

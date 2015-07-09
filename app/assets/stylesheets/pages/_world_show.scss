@@ -275,14 +275,20 @@
 }
 
 .othermaki-info {
-  margin-left: 28%;
-  margin-top: 2%;
+  h3{
+  margin-top: 10px;
+  margin-bottom: 16px;
+  }
+}
+
+.info-holder {
+  margin-top: 3em;
 }
 
 .attack-opponent {
   color: black;
   background: white;
-  padding: 22px 13%;
+  padding: 9px;
   border-color: black;
   border-width: 2px;
   border-style: solid;
@@ -291,10 +297,10 @@
 }
 
 #emblem {
-  width: 24%;
+  width: 80%;
   position: absolute;
-  left: 16%;
-  top: 8%;
+  left: 10%;
+  top: 0%;
 }
 
 .items-list {
@@ -335,3 +341,17 @@
   }
 }
 
+#anchorman {
+  width: 103%;
+}
+
+#anchorman-speech {
+  margin-left: 1em;
+}
+
+#pin{
+  position: absolute;
+  top: 32%;
+  left: 47%;
+  height: 24px;
+}

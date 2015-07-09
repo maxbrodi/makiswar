@@ -11,6 +11,7 @@ $( document ).ready(function() {
 
     if (infoHeight < 200 ){
       $('#resurrect').css('margin-top', '-0.5em');
+      $('.emblem-change').css('height', '57%');
     };
 
 
