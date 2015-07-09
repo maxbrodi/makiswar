@@ -133,6 +133,9 @@ $(function() {
     $("#life-holder").on("click", function(){
       $(".cell[data-cell='11']").click();
     });
+    $("#pin").on("click", function(){
+      $(".cell[data-cell='32']").click();
+    });
   };
 
   setWorld();
