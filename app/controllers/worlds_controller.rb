@@ -61,6 +61,7 @@ class WorldsController < ApplicationController
         broken[:world_id] = current_user.world_id
         broken[:user_id] = current_user.id
         broken[:item_type_id] = @item.item_type.id
+        broken[:read] = false
         broken.save
       end
     end
