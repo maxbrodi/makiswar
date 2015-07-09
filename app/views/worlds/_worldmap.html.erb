@@ -78,7 +78,7 @@
 
           <!-- funky news -->
           <div class="news-info text-center">
-            <div id="anchorman-holder">
+            <div class="info-holder">
               <div class="col-xs-5"><%= image_tag "presentateur.gif", id: "anchorman" %></div>
               <div class="col-xs-6 text-left" id="anchorman-speech"><%= t(info, ennemies: ennemies) %></div>
             </div>
@@ -159,13 +159,16 @@
           <!-- other players infos & position on map -->
           <% players_on_map.each do |cell, player| %>
             <div class="cell-info text-center hidden" id="cell-info-<%= cell %>" data-x="<%= player.x - x_shift %>" data-y="<%= player.y - y_shift%>" data-crew="<%= player.crew %>" >
-             <div class="col-xs-5">
-               <%= image_tag "emblems/" + player.crew + ".gif", id: "emblem" %>
-             </div>
-             <div class="col-xs-7">
-                <h3><%= player.name %></h3>
-                <%= button_to t('.confirm_attack'), fights_show_path, params: {"defender" => player.id }, class: "attack-opponent hidden" %>
-
+              <div class="info-holder">
+                <div class="col-xs-5">
+                   <%= image_tag "emblems/" + player.crew + ".gif", id: "emblem" %>
+                </div>
+                <div class="col-xs-7 ">
+                  <div class="othermaki-info">
+                     <h3><%= player.name %></h3>
+                    <%= button_to t('.confirm_attack'), fights_show_path, params: {"defender" => player.id }, class: "attack-opponent hidden" %>
+                </div>
+              </div>
              </div>
             </div>
           <% end %>

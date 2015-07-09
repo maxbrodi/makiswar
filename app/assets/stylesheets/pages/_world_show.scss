@@ -275,8 +275,14 @@
 }
 
 .othermaki-info {
-  margin-left: 28%;
-  margin-top: 2%;
+  h3{
+  margin-top: 10px;
+  margin-bottom: 16px;
+  }
+}
+
+.info-holder {
+  margin-top: 3em;
 }
 
 .attack-opponent {
@@ -341,10 +347,6 @@
 
 #anchorman-speech {
   margin-left: 1em;
-}
-
-#anchorman-holder {
-  margin-top: 3em;
 }
 
 #pin{
