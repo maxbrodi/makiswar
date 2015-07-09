@@ -7,6 +7,8 @@ en:
         instruction: "One last step, you're almost done!"
         email: "don't be shy %{username}"
         password: "a strong and secure one, of course!"
+      edit:
+        sign_out: "Sign Out"
     sessions:
       new:
         instruction: "Welcome back Maki Warrior! You need to sign in to play"
@@ -33,10 +35,9 @@ en:
       submit: "Validate"
   users:
     show:
-      collection: 'My Collection'
+      items: 'My Items'
       stats: 'My Stats'
       account: 'My Account'
-      sign_out: "Sign Out"
   worlds:
     show:
       sign_out: "Sign Out"
