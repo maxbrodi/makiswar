@@ -14,6 +14,8 @@ class FightsController < ApplicationController
     when 5 then @lifebar = "half"
     when 2..5 then @lifebar = "low"
     when 1 then @lifebar = "verylow"
+    else
+      @lifebar = "verylow"
     end
     # Infos top
     @soja = current_user.soja
