@@ -24,21 +24,21 @@ ItemType.create(name: "Rainbow Unicorn", joke: "You look fabulous on it.", pictu
 ItemType.create(name: "Hyperloop", joke: "You\'ve never moved that fast to the next cell.", picture: "hyperloop.png", kind:"Movement", lifetime: 10, consumption: 1)
 
 
-# (1...6).each do |i|
-(14...19).each do |i|
+(1...6).each do |i|
+# (14...19).each do |i|
   10.times do
     x_rand = rand(21)
     y_rand = rand(21)
-    Item.create(item_type_id: i, world_id: 1, x: x_rand, y: y_rand)
+    Item.create(item_type_id: i, world_id: 1, x: x_rand, y: y_rand, broken_count: 0)
   end
 end
 
-# (7...8).each do |i|
-(20...21).each do |i|
+(7...8).each do |i|
+# (20...21).each do |i|
   2.times do
     x_rand = rand(21)
     y_rand = rand(21)
-    Item.create(item_type_id: i, world_id: 1, x: x_rand, y: y_rand)
+    Item.create(item_type_id: i, world_id: 1, x: x_rand, y: y_rand, broken_count: 0)
   end
 end
 
