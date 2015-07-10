@@ -30,7 +30,7 @@ $(document).ready(function() {
     if (infoHeight <= 175 && infoHeight > 165 ){
       $('.my-profile-menu .img-options-display').css('width', '35%');
       $('.my-profile-menu .img-options-display').css('margin-top', '0.8em');
-      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.6em');
+      $('.my-profile-menu .img-options-display').css('margin-bottom', '1em');
       $('#killed').css('padding-top', '0%');
     };
 
@@ -38,7 +38,7 @@ $(document).ready(function() {
     if (infoHeight <= 165 && infoHeight > 125 ){
       $('.my-profile-menu .img-options-display').css('width', '30%');
       $('.my-profile-menu .img-options-display').css('margin-top', '0.6em');
-      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.6em');
+      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.8em');
       $('#killed').css('padding-top', '0%');
     };
 
