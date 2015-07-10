@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) || "MakiWars BETA" %></title>
-  <meta name="description" content="<%= (yield(:description) || "").squish %>">
+  <title><%= yield(:title) || "MakiWars" %></title>
+  <meta name="description" content="Salmon vs Avocado. Choose your side.">
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- SOCIAL -->
+  <meta property="og:title" content="MakiWars" />
+  <meta property="og:description" content="Salmon vs Avocado. Choose your side." />
+  <meta property="og:site_name" content="MakiWars" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://www.makiwars.com/" />
+
+  <meta property="og:image" content="https://pbs.twimg.com/media/CJi7DuBWgAAJr2V.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="756" />
+  <meta property="og:image:height" content="752" />
+
   <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag :application, media: "all" %>
