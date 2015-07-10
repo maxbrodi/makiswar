@@ -74,6 +74,8 @@
   cursor: default;
 }
 
+
+
 .cell{
   width: 20%;
   float:left;
@@ -241,6 +243,12 @@
       background: image-url('item.png'), image-url('selected-nothing.png');
       background-size: cover;
     }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cell {
+    width: 15%;
   }
 }
 
