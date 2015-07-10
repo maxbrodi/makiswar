@@ -32,13 +32,13 @@ $(function() {
     //   $('.my-maki .img-options-display').css('margin-bottom', '0.8em');
     // };
 
-    if (infoHeight <= 200 && infoHeight > 180){
-      $('.transportation-options .img-options-display').css('width', '35%');
-      $('.transportation-options .img-options-display').css('margin-top', '0.7em');
-      $('.transportation-options .img-options-display').css('margin-bottom', '0.7em');
+    if (infoHeight <= 150 && infoHeight > 120 ){
+      $('.transportation-options .img-options-display').css('width', '20%');
+      $('.transportation-options .img-options-display').css('margin-top', '0.5em');
+      $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
       $('.my-maki .img-options-display').css('width', '30%');
-      $('.my-maki .img-options-display').css('margin-top', '0.8em');
-      $('.my-maki .img-options-display').css('margin-bottom', '0.8em');
+      $('.my-maki .img-options-display').css('margin-top', '0.5em');
+      $('.my-maki .img-options-display').css('margin-bottom', '0.5em');
     };
 
     // if (infoHeight <= 180 && infoHeight ){
