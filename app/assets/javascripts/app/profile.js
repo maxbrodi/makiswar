@@ -40,18 +40,13 @@ $(document).ready(function() {
 
     // iphone 4 - all browser
     if (infoHeight <= 125 && infoHeight ){
-      $('.my-profile-menu .my-account').css('position', 'relative');
-      $('.my-profile-menu .my-items').css('position', 'relative');
       $('.my-profile-menu .img-options-display').addClass('hidden');
-      $('.my-profile-menu .confirm-action').css('padding', '2px');
       $('.my-profile-menu .my-account .confirm-action').css('position', 'relative');
-      $('.my-profile-menu .my-account .confirm-action').css('position', 'absolute');
-      $('.my-profile-menu .my-account .confirm-action').css('top', '14px');
-      $('.my-profile-menu .my-account .confirm-action').css('left', '14px');
       $('.my-profile-menu .my-items .confirm-action').css('position', 'relative');
-      $('.my-profile-menu .my-items .confirm-action').css('position', 'absolute');
+
+      $('.my-profile-menu .confirm-action').css('padding', '2px');
+      $('.my-profile-menu .my-account .confirm-action').css('top', '-14px');
       $('.my-profile-menu .my-items .confirm-action').css('top', '14px');
-      $('.my-profile-menu .my-items .confirm-action').css('right', '14px');
     };
 
     // Animation maki

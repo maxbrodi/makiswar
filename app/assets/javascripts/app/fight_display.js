@@ -43,8 +43,7 @@
     };
 
     // iphone 4 - all browser
-    if (infoHeight <= 125 && infoHeight ){
-      $('.weapon-options').css('position', 'relative');
+    if (infoHeight <= 125 ){
       $('.weapon-options .img-options-display').addClass('hidden');
       $('.weapon-options .items_count').addClass('hidden');
       $('.weapon-options .power').addClass('hidden');
@@ -52,14 +51,14 @@
 
       $('.weapon-options .confirm-action').css('padding', '2px');
       $('.weapon-options .confirm-action').css('position', 'relative');
-      $('.weapon-options .confirm-action').css('position', 'absolute');
-      $('.weapon-options .confirm-action').css('top', '14px');
-      $('.weapon-options .confirm-action').css('left', '18px');
+      $('.weapon-options .not-possible').css('position', 'relative');
+      $('.weapon-options .confirm-action').css('top', '4px');
+      $('.weapon-options .not-possible').css('top', '4px');
     };
+
 
     $('.fights-container').click(function() {
       $('#after-attack-message').addClass('hidden');
-
     });
 
   };
