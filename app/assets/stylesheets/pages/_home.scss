@@ -1,5 +1,10 @@
 .home-page {
-  background: image-url('bg-maki.png');
+  background: image-url('bg-home.png');
+  background-size: cover;
   display: flex;
   align-items: center;
+}
+
+.makis-home {
+  width: 100%;
 }

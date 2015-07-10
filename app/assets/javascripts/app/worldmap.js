@@ -23,31 +23,54 @@ $(function() {
     $('.info-bottom').css("height", infoHeight);
     $('.info-bottom').css("width", worldSize);
 
-    if (infoHeight <= 220 && infoHeight > 200){
+    // iphone 6 - Chrome
+    if (infoHeight <= 225 && infoHeight > 200){
+      $('.transportation-options .img-options-display').css('width', '40%');
+      $('.transportation-options .img-options-display').css('margin-top', '1.2em');
+      $('.transportation-options .img-options-display').css('margin-bottom', '1em');
+      $('.my-maki .img-options-display').css('width', '40%');
+      $('.my-maki .img-options-display').css('margin-top', '1.5em');
+      $('.my-maki .img-options-display').css('margin-bottom', '1.5em');
+    };
+
+    // iphone 6 - Safari
+    if (infoHeight <= 200 && infoHeight > 175){
       $('.transportation-options .img-options-display').css('width', '35%');
-      $('.transportation-options .img-options-display').css('margin-top', '0.7em');
+      $('.transportation-options .img-options-display').css('margin-top', '1em');
       $('.transportation-options .img-options-display').css('margin-bottom', '0.7em');
       $('.my-maki .img-options-display').css('width', '35%');
+      $('.my-maki .img-options-display').css('margin-top', '1em');
+      $('.my-maki .img-options-display').css('margin-bottom', '1em');
+    };
+
+    // iphone 5 - Chrome
+    if (infoHeight <= 175 && infoHeight > 165 ){
+      $('.transportation-options .img-options-display').css('width', '35%');
+      $('.transportation-options .img-options-display').css('margin-top', '0.8em');
+      $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
+      $('.my-maki .img-options-display').css('width', '35%');
+      $('.my-maki .img-options-display').css('margin-top', '1em');
+      $('.my-maki .img-options-display').css('margin-bottom', '1em');
+    };
+
+    // iphone 5 - Safari
+    if (infoHeight <= 165 && infoHeight > 125 ){
+      $('.transportation-options .img-options-display').css('width', '25%');
+      $('.transportation-options .img-options-display').css('margin-top', '0.5em');
+      $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
+      $('.my-maki .img-options-display').css('width', '25%');
       $('.my-maki .img-options-display').css('margin-top', '0.8em');
       $('.my-maki .img-options-display').css('margin-bottom', '0.8em');
     };
 
-    if (infoHeight <= 200 && infoHeight > 200){
-      $('.transportation-options .img-options-display').css('width', '30%');
-      $('.transportation-options .img-options-display').css('margin-top', '0.5em');
-      $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
-      $('.my-maki .img-options-display').css('width', '30%');
-      $('.my-maki .img-options-display').css('margin-top', '0.5em');
-      $('.my-maki .img-options-display').css('margin-bottom', '0.5em');
-    };
-
-    if (infoHeight <= 180 && infoHeight > 200 ){
-      $('.transportation-options .img-options-display').css('width', '20%');
-      $('.transportation-options .img-options-display').css('margin-top', '0.2em');
-      $('.transportation-options .img-options-display').css('margin-bottom', '0.2em');
-      $('.my-maki .img-options-display').css('width', '20%');
-      $('.my-maki .img-options-display').css('margin-top', '0.3em');
-      $('.my-maki .img-options-display').css('margin-bottom', '0.3em');
+    // iphone 4 - all browser
+    if (infoHeight <= 125 && infoHeight ){
+      $('.transportation-options .img-options-display').css('width', '10%');
+      $('.transportation-options .img-options-display').css('margin-top', '0.1em');
+      $('.transportation-options .img-options-display').css('margin-bottom', '0.1em');
+      $('.my-maki .img-options-display').css('width', '10%');
+      $('.my-maki .img-options-display').css('margin-top', '0.1em');
+      $('.my-maki .img-options-display').css('margin-bottom', '0.1em');
     };
 
     // afficher les limites du monde
