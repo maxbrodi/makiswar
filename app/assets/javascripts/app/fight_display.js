@@ -14,7 +14,7 @@
     if (infoHeight <= 225 && infoHeight > 200){
       $('.weapon-options .img-options-display').css('width', '40%');
       $('.weapon-options .img-options-display').css('margin-top', '1.2em');
-      $('.weapon-options .img-options-display').css('margin-bottom', '1em');
+      $('.weapon-options .img-options-display').css('margin-bottom', '1.2em');
       $('#killed').css('padding-top', '0%');
     };
 
@@ -22,23 +22,23 @@
     if (infoHeight <= 200 && infoHeight > 175){
       $('.weapon-options .img-options-display').css('width', '35%');
       $('.weapon-options .img-options-display').css('margin-top', '1em');
-      $('.weapon-options .img-options-display').css('margin-bottom', '0.7em');
+      $('.weapon-options .img-options-display').css('margin-bottom', '1em');
       $('#killed').css('padding-top', '0%');
     };
 
     // iphone 5 - Chrome
     if (infoHeight <= 175 && infoHeight > 165 ){
       $('.weapon-options .img-options-display').css('width', '35%');
-      $('.weapon-options .img-options-display').css('margin-top', '0.8em');
-      $('.weapon-options .img-options-display').css('margin-bottom', '0.5em');
+      $('.weapon-options .img-options-display').css('margin-top', '1em');
+      $('.weapon-options .img-options-display').css('margin-bottom', '0.3em');
       $('#killed').css('padding-top', '0%');
     };
 
     // iphone 5 - Safari
     if (infoHeight <= 165 && infoHeight > 125 ){
       $('.weapon-options .img-options-display').css('width', '25%');
-      $('.weapon-options .img-options-display').css('margin-top', '0.5em');
-      $('.weapon-options .img-options-display').css('margin-bottom', '0.5em');
+      $('.weapon-options .img-options-display').css('margin-top', '0.8em');
+      $('.weapon-options .img-options-display').css('margin-bottom', '0.3em');
       $('#killed').css('padding-top', '0%');
     };
 

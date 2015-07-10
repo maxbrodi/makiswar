@@ -14,7 +14,7 @@ $(document).ready(function() {
     if (infoHeight <= 225 && infoHeight > 200){
       $('.my-profile-menu .img-options-display').css('width', '40%');
       $('.my-profile-menu .img-options-display').css('margin-top', '1.2em');
-      $('.my-profile-menu .img-options-display').css('margin-bottom', '1em');
+      $('.my-profile-menu .img-options-display').css('margin-bottom', '1.2em');
       $('#killed').css('padding-top', '0%');
     };
 
@@ -22,14 +22,14 @@ $(document).ready(function() {
     if (infoHeight <= 200 && infoHeight > 175){
       $('.my-profile-menu .img-options-display').css('width', '35%');
       $('.my-profile-menu .img-options-display').css('margin-top', '1em');
-      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.7em');
+      $('.my-profile-menu .img-options-display').css('margin-bottom', '1em');
       $('#killed').css('padding-top', '0%');
     };
 
     // iphone 5 - Chrome
     if (infoHeight <= 175 && infoHeight > 165 ){
       $('.my-profile-menu .img-options-display').css('width', '35%');
-      $('.my-profile-menu .img-options-display').css('margin-top', '0.8em');
+      $('.my-profile-menu .img-options-display').css('margin-top', '1em');
       $('.my-profile-menu .img-options-display').css('margin-bottom', '1em');
       $('#killed').css('padding-top', '0%');
     };
