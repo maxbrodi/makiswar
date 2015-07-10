@@ -4,12 +4,20 @@
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 
       <div class='top-button'>
-        <%= link_to t('.sign_up'), new_username_path, class:'btn btn-primary' %>
-        <%= link_to t('.sign_in'), new_user_session_path, class:'btn btn-success' %>
+        <% link_to t('.sign_up'), new_username_path, class:'btn btn-primary' %>
+        <% link_to t('.sign_in'), new_user_session_path, class:'btn btn-success' %>
       </div>
 
         <div class="text-center text-white-shadow">
           <h1><%= t('.title') %></h1>
+        </div>
+
+        <div>
+          <ul class='makis-home list-inline'>
+            <li><%= image_tag 'salmon.gif'%></li>
+            <li><%= image_tag 'bastardo.gif'%></li>
+            <li><%= image_tag 'avocado.gif'%></li>
+          </ul>
         </div>
 
       </div>
