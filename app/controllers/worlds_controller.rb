@@ -69,6 +69,8 @@ class WorldsController < ApplicationController
     current_user.save
     @x_shift = current_user.x - 3
     @y_shift = current_user.y - 3
+
+    Pusher['all'].trigger('update', {})
   end
 
   def available_move_items

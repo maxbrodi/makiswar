@@ -1,0 +1,21 @@
+PubSub.publish('setWorld');
+$('.the-world').replaceWith("<%= j render 'worldmap',
+  x_shift: @x_shift,
+  y_shift: @y_shift,
+  life: @life,
+  soja: @soja,
+  info: @info,
+  ennemies: @ennemies,
+  players_on_map: @players_on_map,
+  jauge: @jauge,
+  items_on_map: @items_on_map,
+  move_item_types: @move_item_types,
+  choice: @choice,
+  kinder: @kinder
+ %>");
+
+$('#player').addClass('hatch');
+
+<% if @choice == 'grab' %>
+  PubSub.publish('afterGrab');
+<% end %>
