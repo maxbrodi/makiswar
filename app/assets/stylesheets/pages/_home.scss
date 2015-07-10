@@ -3,6 +3,9 @@
   background-size: cover;
   display: flex;
   align-items: center;
+  & .title {
+    font-size: 20px;
+  }
 }
 
 .makis-home {
