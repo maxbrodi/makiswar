@@ -25,7 +25,7 @@ $(function() {
 
     if (infoHeight <= 225 && infoHeight > 175){
       $('.transportation-options .img-options-display').css('width', '35%');
-      $('.transportation-options .img-options-display').css('margin-top', '0.7em');
+      $('.transportation-options .img-options-display').css('margin-top', '1em');
       $('.transportation-options .img-options-display').css('margin-bottom', '0.7em');
       $('.my-maki .img-options-display').css('width', '35%');
       $('.my-maki .img-options-display').css('margin-top', '1em');
@@ -34,7 +34,7 @@ $(function() {
 
     if (infoHeight <= 175 && infoHeight > 125 ){
       $('.transportation-options .img-options-display').css('width', '30%');
-      $('.transportation-options .img-options-display').css('margin-top', '0.5em');
+      $('.transportation-options .img-options-display').css('margin-top', '0.4em');
       $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
       $('.my-maki .img-options-display').css('width', '30%');
       $('.my-maki .img-options-display').css('margin-top', '0.6em');
