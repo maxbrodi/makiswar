@@ -23,7 +23,16 @@ $(function() {
     $('.info-bottom').css("height", infoHeight);
     $('.info-bottom').css("width", worldSize);
 
-    if (infoHeight <= 225 && infoHeight > 175){
+    if (infoHeight <= 225 && infoHeight > 200){
+      $('.transportation-options .img-options-display').css('width', '40%');
+      $('.transportation-options .img-options-display').css('margin-top', '1.2em');
+      $('.transportation-options .img-options-display').css('margin-bottom', '1em');
+      $('.my-maki .img-options-display').css('width', '40%');
+      $('.my-maki .img-options-display').css('margin-top', '1.5em');
+      $('.my-maki .img-options-display').css('margin-bottom', '1.5em');
+    };
+
+    if (infoHeight <= 200 && infoHeight > 175){
       $('.transportation-options .img-options-display').css('width', '35%');
       $('.transportation-options .img-options-display').css('margin-top', '1em');
       $('.transportation-options .img-options-display').css('margin-bottom', '0.7em');
@@ -32,7 +41,7 @@ $(function() {
       $('.my-maki .img-options-display').css('margin-bottom', '1em');
     };
 
-    if (infoHeight <= 175 && infoHeight > 125 ){
+    if (infoHeight <= 175 && infoHeight > 150 ){
       $('.transportation-options .img-options-display').css('width', '30%');
       $('.transportation-options .img-options-display').css('margin-top', '0.4em');
       $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
@@ -41,13 +50,22 @@ $(function() {
       $('.my-maki .img-options-display').css('margin-bottom', '0.9em');
     };
 
+    if (infoHeight <= 150 && infoHeight > 125 ){
+      $('.transportation-options .img-options-display').css('width', '25%');
+      $('.transportation-options .img-options-display').css('margin-top', '0.2em');
+      $('.transportation-options .img-options-display').css('margin-bottom', '0.2em');
+      $('.my-maki .img-options-display').css('width', '25%');
+      $('.my-maki .img-options-display').css('margin-top', '0.4em');
+      $('.my-maki .img-options-display').css('margin-bottom', '0.4em');
+    };
+
     if (infoHeight <= 125 && infoHeight ){
       $('.transportation-options .img-options-display').css('width', '10%');
-      $('.transportation-options .img-options-display').css('margin-top', '0.5em');
-      $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
+      $('.transportation-options .img-options-display').css('margin-top', '0.1em');
+      $('.transportation-options .img-options-display').css('margin-bottom', '0.1em');
       $('.my-maki .img-options-display').css('width', '10%');
-      $('.my-maki .img-options-display').css('margin-top', '0.8em');
-      $('.my-maki .img-options-display').css('margin-bottom', '0.8em');
+      $('.my-maki .img-options-display').css('margin-top', '0.1em');
+      $('.my-maki .img-options-display').css('margin-bottom', '0.1em');
     };
 
     // afficher les limites du monde
