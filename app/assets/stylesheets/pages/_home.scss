@@ -48,8 +48,12 @@
   margin-bottom: 0.5em;
 }
 
-#signin a{
+#signin {
+  margin: 0 0 2px;
+  a{
   color: black;
+  margin-bottom: 5px;
+  }
   &:hover{
     color: #D76241;
   }

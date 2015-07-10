@@ -33,7 +33,8 @@ en:
           already_taken: "This username has already been taken"
           empty: "Please provide a username"
     new:
-      instruction: "Start by choosing your Maki's nickname"
+      instruction: "Here is your baby Maki."
+      instruction2: "Choose a name for him."
       submit: "Validate"
   users:
     show:

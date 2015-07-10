@@ -41,3 +41,47 @@
     color: #d77947;
   }
 }
+
+.makiswar-not-connected{
+  padding-top: 4em;
+}
+
+.card-bg-2 {
+  background: #f1b045;
+  border-radius: 3px;
+  & .back-button {
+    top: 30px;
+    left: 30px;
+  }
+  & .form-control {
+    background: #f2e2b5;
+    border: 2px solid white;
+    font-size: 20px;
+    padding: 30px 10px;
+    margin-bottom: 10px;
+  }
+  // & .confirm-action {
+  //   width: 100%;
+  //   border: 2px solid white;
+  //   padding: 20px 10px;
+  //   background: #d77947;
+  //   color: white;
+  //   font-size: 22px;
+  // }
+}
+
+@media screen and (max-width: 640px) {
+.makiswar-not-connected{
+  padding-top: 1.5em;
+  }
+}
+
+#baby-img {
+  width: 52%;
+  margin: auto;
+  display: block;
+}
+
+#hereisyourmaki{
+  font-size: 27px;
+}
