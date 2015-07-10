@@ -23,6 +23,7 @@ $(function() {
     $('.info-bottom').css("height", infoHeight);
     $('.info-bottom').css("width", worldSize);
 
+    // iphone 6 - Chrome
     if (infoHeight <= 225 && infoHeight > 200){
       $('.transportation-options .img-options-display').css('width', '40%');
       $('.transportation-options .img-options-display').css('margin-top', '1.2em');
@@ -32,6 +33,7 @@ $(function() {
       $('.my-maki .img-options-display').css('margin-bottom', '1.5em');
     };
 
+    // iphone 6 - Safari
     if (infoHeight <= 200 && infoHeight > 175){
       $('.transportation-options .img-options-display').css('width', '35%');
       $('.transportation-options .img-options-display').css('margin-top', '1em');
@@ -41,7 +43,8 @@ $(function() {
       $('.my-maki .img-options-display').css('margin-bottom', '1em');
     };
 
-    if (infoHeight <= 175 && infoHeight > 150 ){
+    // iphone 5 - Chrome
+    if (infoHeight <= 175 && infoHeight > 165 ){
       $('.transportation-options .img-options-display').css('width', '30%');
       $('.transportation-options .img-options-display').css('margin-top', '0.4em');
       $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
@@ -50,7 +53,8 @@ $(function() {
       $('.my-maki .img-options-display').css('margin-bottom', '0.9em');
     };
 
-    if (infoHeight <= 150 && infoHeight > 125 ){
+    // iphone 5 - Safari
+    if (infoHeight <= 165 && infoHeight > 125 ){
       $('.transportation-options .img-options-display').css('width', '25%');
       $('.transportation-options .img-options-display').css('margin-top', '0.2em');
       $('.transportation-options .img-options-display').css('margin-bottom', '0.2em');
@@ -59,6 +63,7 @@ $(function() {
       $('.my-maki .img-options-display').css('margin-bottom', '0.4em');
     };
 
+    // iphone 4 - all browser
     if (infoHeight <= 125 && infoHeight ){
       $('.transportation-options .img-options-display').css('width', '10%');
       $('.transportation-options .img-options-display').css('margin-top', '0.1em');
