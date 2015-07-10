@@ -1,10 +1,62 @@
 .home-page {
-  background: image-url('bg-home.png');
+  background: image-url("home_background.png");
   background-size: cover;
-  display: flex;
   align-items: center;
 }
 
-.makis-home {
-  width: 100%;
+.btn-home{
+  padding: 10px 6%;
+  border-radius: 7px;
+  background-color: #d77947;
+  font-size: 30px;
+  box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
+  color: black;
+  &:hover{
+    background-color: #D76241;
+  }
 }
+
+.home-holder {
+  color: black;
+  border: black;
+  border-size: 2px;
+  text-shadow: none;
+  border-radius: 5px;
+  margin-top: 22%;
+  padding: 12px 0;
+  a{
+    color: white;
+    margin-top: 6em;
+  }
+  a:hover{
+    color: white;
+  }
+  h1 {
+    color: white;
+    font-size: 114px;
+    margin-bottom: -24px;
+  }
+  h3 {
+    color: black;
+    font-size: 27px;
+    margin-top: 0px;
+  }
+}
+
+.home-logo{
+  width: 14em;
+  margin-bottom: 0.5em;
+}
+
+#signin a{
+  color: black;
+  &:hover{
+    color: #D76241;
+  }
+}
+
+// @media screen and (max-width: 640px) {
+//   .home-holder {
+//     margin-top: 0px;
+//   }
+// }
