@@ -86,10 +86,10 @@
         background-size: cover;
       }
       &.selected {
-        background: image-url('babyrice.gif'), image-url('selected-nothing.png');
+        background: image-url('babyrice.gif'), image-url('selected-player.png');
         background-size: cover;
         &.item {
-          background: image-url('babyrice.gif'), image-url('on_item.png'), image-url('selected-nothing.png');
+          background: image-url('babyrice.gif'), image-url('on_item.png'), image-url('selected-player.png');
           background-size: cover;
         }
       }
@@ -102,10 +102,10 @@
         background-size: cover;
       }
       &.selected {
-        background: image-url('salmon.gif'), image-url('selected-nothing.png');
+        background: image-url('salmon.gif'), image-url('selected-player.png');
         background-size: cover;
         &.item {
-          background: image-url('salmon.gif'), image-url('on_item.png'), image-url('selected-nothing.png');
+          background: image-url('salmon.gif'), image-url('on_item.png'), image-url('selected-player.png');
           background-size: cover;
         }
       }
@@ -118,10 +118,10 @@
         background-size: cover;
       }
       &.selected {
-        background: image-url('avocado.gif'), image-url('selected-nothing.png');
+        background: image-url('avocado.gif'), image-url('selected-player.png');
         background-size: cover;
         &.item {
-          background: image-url('avocado.gif'), image-url('on_item.png'), image-url('selected-nothing.png');
+          background: image-url('avocado.gif'), image-url('on_item.png'), image-url('selected-player.png');
           background-size: cover;
         }
       }
@@ -134,10 +134,10 @@
         background-size: cover;
       }
       &.selected {
-        background: image-url('bastardo.gif'), image-url('selected-nothing.png');
+        background: image-url('bastardo.gif'), image-url('selected-player.png');
         background-size: cover;
         &.item {
-          background: image-url('bastardo.gif'), image-url('on_item.png'), image-url('selected-nothing.png');
+          background: image-url('bastardo.gif'), image-url('on_item.png'), image-url('selected-player.png');
           background-size: cover;
         }
       }
@@ -300,13 +300,13 @@
     }
     & .search-item {
       float: right;
-      background: #668da5;
+      background: #d77947;
       width: 50%;
       height: 100%;
     }
     & .grab-item {
       float: right;
-      background: #668da5;
+      background: #d77947;
       width: 50%;
       height: 100%;
     }

@@ -10,9 +10,22 @@ $(document).ready(function() {
     $('.my-items-list').css("height", profileSize);
     $('.my-profile-menu').css("height", infoHeight);
 
-    if (infoHeight < 220 ){
-      $('.my-profile-menu img').css('width', '70px');
-      $('.my-profile-menu img').css('padding', '10% 0px');
+    if (infoHeight <= 220 && infoHeight > 200){
+      $('.my-profile-menu .img-options-display').css('width', '30%');
+      $('.my-profile-menu .img-options-display').css('margin-top', '0.8em');
+      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.8em');
+    };
+
+    if (infoHeight <= 200 && infoHeight > 200){
+      $('.my-profile-menu .img-options-display').css('width', '30%');
+      $('.my-profile-menu .img-options-display').css('margin-top', '0.8em');
+      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.8em');
+    };
+
+    if (infoHeight <= 180 && infoHeight > 200 ){
+      $('.my-profile-menu .img-options-display').css('width', '30%');
+      $('.my-profile-menu .img-options-display').css('margin-top', '0.8em');
+      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.8em');
     };
 
 

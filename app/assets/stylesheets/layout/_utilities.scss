@@ -48,13 +48,23 @@
   background: #668da5;
 }
 
+.confirm-action {
+  border: 2px solid black;
+  color: black;
+  text-shadow: none;
+  background: white;
+  padding: 8px;
+  width: 80%;
+  margin-top: -6px;
+}
+
 .back-button {
   border: 2px solid white;
-  position: absolute;
-  top: 10px;
-  left: 12px;
-  padding: 0px 9px;
   color: white;
+  padding: 3px 8px;
+  position: absolute;
+  top: 15px;
+  left: 12px;
   &:hover{
     color:white;
   }

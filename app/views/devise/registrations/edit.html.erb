@@ -1,39 +1,41 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <div class="card-white-bg">
+<div class='makiswar-devise'>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="card-bg-1">
 
-        <%= link_to t('component.back'), user_path, class:'btn btn-default' %>
-        <br>
-        <div class='text-center'><h2>Edit Account</h2></div>
+          <%= link_to t('component.back'), user_path, class:'back-button' %>
+          <div class='text-center text-white-shadow'>
+            <h2>Edit Account</h2>
+          </div>
 
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-          <%= devise_error_messages! %>
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+            <%= devise_error_messages! %>
 
-          <div><%= f.label :email%><br/>
-          <%= f.email_field :email, class:'form-control' %></div>
+            <div><%= f.label :email, class:'text-white-shadow'%><br/>
+            <%= f.email_field :email, class:'form-control' %></div>
 
-          <%- if devise_mapping.confirmable? && resource.pending_reconfirmation? -%>
-            <p>
-              <%= t('.currently_waiting_confirmation_for_email', :email => resource.unconfirmed_email, :default => "Currently waiting confirmation for: %{email}") %>
-            </p>
-          <%- end -%>
+            <%- if devise_mapping.confirmable? && resource.pending_reconfirmation? -%>
+              <p>
+                <%= t('.currently_waiting_confirmation_for_email', :email => resource.unconfirmed_email, :default => "Currently waiting confirmation for: %{email}") %>
+              </p>
+            <%- end -%>
 
-          <div><%= f.label :new_password  %><br/>
-          <%= f.password_field :password, :autocomplete => "off", placeholder: "Are you feeling insecure maki?", class:'form-control' %></div>
+            <div><%= f.label :new_password, class:'text-white-shadow'  %><br/>
+            <%= f.password_field :password, :autocomplete => "off", placeholder: "Are you feeling insecure?", class:'form-control' %></div>
 
-          <div><%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, placeholder: "Forgotten already?", class:'form-control'  %></div>
+            <div><%= f.label :password_confirmation, class:'text-white-shadow' %><br />
+            <%= f.password_field :password_confirmation, placeholder: "Just in case...", class:'form-control'  %></div>
 
-          <div><%= f.label :current_password %><br/>
-          <%= f.password_field :current_password, placeholder: "We need it to confirm your changes", class:'form-control'  %></div>
-          <br>
-          <div><%= f.submit t('.update', :default => "Update"), class:'btn btn-success form-control'%></div>
-        <% end %>
+            <div><%= f.label :current_password, class:'text-white-shadow' %><br/>
+            <%= f.password_field :current_password, placeholder: "To confirm your changes", class:'form-control'  %></div><br>
+            <div><%= f.submit t('.update', :default => "Update"), class:'confirm-action'%></div>
+          <% end %>
 
-        <div class='text-center'>
-          <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class:'txt txt-danger' %>
-          <p><%= link_to t('.cancel_my_account', :default => "Cancel my account"), registration_path(resource_name), :data => { :confirm => t('.are_you_sure', :default => "Are you sure?") }, :method => :delete %></p>
+          <div class='bad-links text-center'>
+            <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class:'text-white-shadow' %>
+            <p><%= link_to t('.cancel_my_account', :default => "Cancel my account"), registration_path(resource_name), :data => { :confirm => t('.are_you_sure', :default => "Are you sure?") }, :method => :delete, class:'text-white-shadow' %></p>
+          </div>
         </div>
       </div>
     </div>
