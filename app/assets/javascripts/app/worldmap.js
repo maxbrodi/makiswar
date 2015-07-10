@@ -32,7 +32,7 @@ $(function() {
     //   $('.my-maki .img-options-display').css('margin-bottom', '0.8em');
     // };
 
-    if (infoHeight <= 200 && infoHeight > 200){
+    if (infoHeight <= 200 && infoHeight > 180){
       $('.transportation-options .img-options-display').css('width', '35%');
       $('.transportation-options .img-options-display').css('margin-top', '0.7em');
       $('.transportation-options .img-options-display').css('margin-bottom', '0.7em');
@@ -41,7 +41,7 @@ $(function() {
       $('.my-maki .img-options-display').css('margin-bottom', '0.8em');
     };
 
-    // if (infoHeight <= 180 && infoHeight > 200 ){
+    // if (infoHeight <= 180 && infoHeight ){
     //   $('.transportation-options .img-options-display').css('width', '30%');
     //   $('.transportation-options .img-options-display').css('margin-top', '0.5em');
     //   $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
