@@ -9,7 +9,7 @@
 // Please do not put any code in here. Create a new .js file in
 // app/assets/javascripts/app instead, and put your code there
 
-var windowHeight = $(window).innerHeight()
-$('.home-page').css("height", windowHeight);
-$('.makiswar-devise').css("height", windowHeight);
-$('.makiswar-devise .card-bg-1').css("height", windowHeight);
+// var windowHeight = $(window).innerHeight()
+// $('.home-page').css("height", windowHeight);
+// $('.makiswar-devise').css("height", windowHeight);
+// $('.makiswar-devise .card-bg-1').css("height", windowHeight);

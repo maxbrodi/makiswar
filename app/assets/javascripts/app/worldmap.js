@@ -71,7 +71,6 @@ $(function() {
       $('.cell-info img').addClass('hidden');
       $('.othermaki-info h3').addClass('hidden');
 
-
       $('.othermaki-info .attack-opponent').css('position', 'relative');
       $('.othermaki-info .attack-opponent').css('width', '100%');
       $('.othermaki-info .attack-opponent').css('left', '-50px');

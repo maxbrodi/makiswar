@@ -16,9 +16,11 @@ en:
         password: "your password"
   pages:
     home:
-      title: "Welcome on Makiswar"
-      sign_up: "Sign Up"
-      sign_in: "Sign In"
+      title: "MAKI WARS"
+      tagline1: "Salmon vs Avocado"
+      tagline2: "Choose your side."
+      sign_up: "Create a new maki"
+      sign_in: "I already have a maki"
       sign_out: "Sign Out"
       profile: "My Profile"
   time:
@@ -31,7 +33,8 @@ en:
           already_taken: "This username has already been taken"
           empty: "Please provide a username"
     new:
-      instruction: "Start by choosing your Maki's nickname"
+      instruction: "Here is your baby Maki."
+      instruction2: "Choose a name for him."
       submit: "Validate"
   users:
     show:
