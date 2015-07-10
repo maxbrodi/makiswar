@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) || "2minMaki" %></title>
+  <title><%= yield(:title) || "MakiWars BETA" %></title>
   <meta name="description" content="<%= (yield(:description) || "").squish %>">
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
