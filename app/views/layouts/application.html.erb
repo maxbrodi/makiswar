@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class='<%= "#{params[:controller]}-#{params[:action]}".gsub('/', '-') %>'>
 <head>
   <title><%= yield(:title) || "MakiWars" %></title>
   <meta name="description" content="Salmon vs Avocado. Choose your side.">

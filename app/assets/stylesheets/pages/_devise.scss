@@ -2,6 +2,20 @@
   background: image-url('bg-alt.gif');
 }
 
+.devise-registrations-edit, .usernames-new, .devise-registrations-new, .devise-sessions-new {
+  height: 100%;
+
+  body {
+    height: 100%;
+  }
+
+  .makiswar-devise {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
 .card-bg-1 {
   background: #f1b045;
   padding: 30px;
@@ -37,8 +51,11 @@
 .bad-links {
   margin-top: 10px;
   font-size: 16px;
-  & a:hover, a:focus {
+  & a {
+    color: white;
+    & a:hover, a:focus {
     color: #d77947;
+    }
   }
 }
 
@@ -46,20 +63,20 @@
   padding-top: 4em;
 }
 
-.card-bg-2 {
-  background: #f1b045;
-  border-radius: 3px;
-  & .back-button {
-    top: 30px;
-    left: 30px;
-  }
-  & .form-control {
-    background: #f2e2b5;
-    border: 2px solid white;
-    font-size: 20px;
-    padding: 30px 10px;
-    margin-bottom: 10px;
-  }
+// .card-bg-2 {
+//   background: #f1b045;
+//   border-radius: 3px;
+//   & .back-button {
+//     top: 30px;
+//     left: 30px;
+//   }
+//   & .form-control {
+//     background: #f2e2b5;
+//     border: 2px solid white;
+//     font-size: 20px;
+//     padding: 30px 10px;
+//     margin-bottom: 10px;
+//   }
   // & .confirm-action {
   //   width: 100%;
   //   border: 2px solid white;
@@ -68,7 +85,7 @@
   //   color: white;
   //   font-size: 22px;
   // }
-}
+// }
 
 @media screen and (max-width: 640px) {
 .makiswar-not-connected{
@@ -77,7 +94,7 @@
 }
 
 #baby-img {
-  width: 52%;
+  width: 40%;
   margin: auto;
   display: block;
 }

@@ -1,21 +1,22 @@
-<div class="makiswar-not-connected">
+<div class="makiswar-devise">
   <div class="container">
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
-        <div class="card-white-bg">
-          <%= link_to t('component.back'), new_username_path, class:'btn btn-default' %>
-          <h2 class='text-center'><%= t('.instruction') %></h2>
+        <div class="card-bg-1">
+
+          <%= link_to t('component.back'), new_username_path, class:'back-button' %>
+          <h2 class='text-center text-white-shadow'><%= t('.instruction') %></h2>
 
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
 
-            <%= f.input :name, as: :hidden, input_html: { value: session[:username] } %>
-            <%= f.input :email, placeholder: t('.email', username: session[:username]), required: true, autofocus: true %>
-            <%= f.input :password, placeholder: t('.password'), required: true %><br>
-            <%= f.button :submit, t('.sign_up'), class: "btn btn-success form-control" %>
+            <%= f.input :name, as: :hidden, input_html: { value: session[:username] }, class:'form-control'  %>
+            <%= f.input :email, placeholder: t('.email', username: session[:username]), required: true, autofocus: true, class:'form-control'  %>
+            <%= f.input :password, placeholder: t('.password'), required: true, class:'form-control'  %><br>
+            <%= f.button :submit, t('.sign_up'), class:'confirm-action' %>
           <% end %>
 
-           <div class='text-center'><%= render "devise/shared/links" %></div>
+           <div class='text-center bad-links'><%= render "devise/shared/links" %></div>
         </div>
       </div>
     </div>

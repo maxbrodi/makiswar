@@ -1,19 +1,20 @@
-<div class="makiswar-not-connected">
+<div class="makiswar-devise">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div class="card-white-bg">
-          <%= link_to t('component.back'), root_path, class:'btn btn-default' %>
-          <h2 class='text-center'><%= t(".instruction") %></h2>
+        <div class="card-bg-1">
+
+          <%= link_to t('component.back'), root_path, class:'back-button' %>
+          <h2 class='text-center text-white-shadow'><%= t(".instruction") %></h2>
 
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <%= f.input :email, required: false, autofocus: true %>
-              <%= f.input :password, required: false %>
+              <%= f.input :email, required: false, autofocus: true, class:'form-control' %>
+              <%= f.input :password, required: false, class:'form-control' %>
               <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-              <%= f.button :submit, t('.sign_in'), class: "btn btn-success form-control" %>
+              <%= f.button :submit, t('.sign_in'), class:"confirm-action" %>
           <% end %>
 
-          <div class='text-center'><%= render "devise/shared/links" %></div>
+          <div class='text-center bad-links'><%= render "devise/shared/links" %></div>
         </div>
       </div>
     </div>

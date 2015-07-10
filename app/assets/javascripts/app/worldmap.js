@@ -10,6 +10,9 @@ $(function() {
     var x_bg = parseInt($('#player').data('cell').toString().split('')[0]) + x_shift
     var y_bg = parseInt($('#player').data('cell').toString().split('')[1]) + y_shift
 
+    // check if user is on item on load
+
+
     // ajustement de la hauteur des divs + position du joueur sur le background
     $('.cell').css("height", cellwidth);
     $('.worldmap').css("height", worldSize);
@@ -65,12 +68,36 @@ $(function() {
 
     // iphone 4 - all browser
     if (infoHeight <= 125 && infoHeight ){
-      $('.transportation-options .img-options-display').css('width', '10%');
-      $('.transportation-options .img-options-display').css('margin-top', '0.1em');
-      $('.transportation-options .img-options-display').css('margin-bottom', '0.1em');
-      $('.my-maki .img-options-display').css('width', '10%');
-      $('.my-maki .img-options-display').css('margin-top', '0.1em');
-      $('.my-maki .img-options-display').css('margin-bottom', '0.1em');
+      $('.cell-info img').addClass('hidden');
+      $('.othermaki-info h3').addClass('hidden');
+
+      $('.othermaki-info .attack-opponent').css('position', 'relative');
+      $('.othermaki-info .attack-opponent').css('width', '100%');
+      $('.othermaki-info .attack-opponent').css('left', '-50px');
+      $('.othermaki-info .attack-opponent').css('top', '-12px');
+      $('.othermaki-info .attack-opponent').css('padding', '2px');
+
+      $('.transportation-options .img-options-display').addClass('hidden');
+      $('.transportation-options .items_count').addClass('hidden');
+      $('.transportation-options .consumption').addClass('hidden');
+      $('.transportation-options .confirm-action').css('position', 'relative');
+      $('.transportation-options .not-possible').css('position', 'relative');
+      $('.transportation-options .text-white-shadow').css('position', 'relative');
+      $('.transportation-options .confirm-action').css('padding', '2px');
+      $('.transportation-options .confirm-action').css('top', '4px');
+      $('.transportation-options .not-possible').css('padding', '2px');
+      $('.transportation-options .not-possible').css('top', '6px');
+      $('.transportation-options .text-white-shadow').css('padding', '2px');
+      $('.transportation-options .text-white-shadow').css('top', '-26px');
+      $('.transportation-options .text-white-shadow').html('Come on Maki!');
+
+      $('.my-maki .img-options-display').addClass('hidden');
+      $('.my-maki .confirm-action').css('position', 'relative');
+      $('.my-maki .confirm-action').css('padding', '2px');
+      $('.my-maki .confirm-action').css('top', '12px');
+      $('.my-maki .text-white-shadow').css('position', 'relative');
+      $('.my-maki .text-white-shadow').css('padding', '2px');
+      $('.my-maki .text-white-shadow').css('top', '10px');
     };
 
     // afficher les limites du monde
@@ -111,6 +138,19 @@ $(function() {
     $('.open-close').click(function() {
       openCloseItemsList();
     });
+
+    // A enlever si on souhaite afficher le présentateur en intro
+    if ($('#player').hasClass('item')) {
+      console.log('yo')
+      $('.grab-item').removeClass('hidden');
+      $('.search-item').addClass('hidden');
+    }
+    else {
+      console.log('ya')
+      $('.search-item').removeClass('hidden');
+      $('.grab-item').addClass('hidden');
+    };
+    // Fin du code a enlever
   };
 
   function showCell(cell) {

@@ -1,20 +1,20 @@
 <div class="home-page">
+  <div>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-
         <div class="home-holder">
           <div class="text-center">
             <%= image_tag "homelogo.png", class:"home-logo" %>
             <h3><%= t('.tagline2') %></h3>
           </div>
-
            <div class='text-center'>
             <p><%= link_to t('.sign_up'), new_username_path, class:'btn btn-home' %></p>
-            <p id="signin"><%= link_to t('.sign_in'), new_user_session_path %></p>
+            <p id="signin" class="text-white-shadow"><%= link_to t('.sign_in'), new_user_session_path %></p>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
