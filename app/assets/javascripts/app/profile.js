@@ -10,24 +10,45 @@ $(document).ready(function() {
     $('.my-items-list').css("height", profileSize);
     $('.my-profile-menu').css("height", infoHeight);
 
-    if (infoHeight <= 220 && infoHeight > 200){
-      $('.my-profile-menu .img-options-display').css('width', '30%');
-      $('.my-profile-menu .img-options-display').css('margin-top', '0.8em');
-      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.8em');
+    // iphone 6 - Chrome
+    if (infoHeight <= 225 && infoHeight > 200){
+      $('.my-profile-menu .img-options-display').css('width', '40%');
+      $('.my-profile-menu .img-options-display').css('margin-top', '1.2em');
+      $('.my-profile-menu .img-options-display').css('margin-bottom', '1em');
+      $('#killed').css('padding-top', '0%');
     };
 
-    if (infoHeight <= 200 && infoHeight > 200){
-      $('.my-profile-menu .img-options-display').css('width', '30%');
-      $('.my-profile-menu .img-options-display').css('margin-top', '0.8em');
-      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.8em');
+    // iphone 6 - Safari
+    if (infoHeight <= 200 && infoHeight > 175){
+      $('.my-profile-menu .img-options-display').css('width', '35%');
+      $('.my-profile-menu .img-options-display').css('margin-top', '1em');
+      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.7em');
+      $('#killed').css('padding-top', '0%');
     };
 
-    if (infoHeight <= 180 && infoHeight > 200 ){
-      $('.my-profile-menu .img-options-display').css('width', '30%');
+    // iphone 5 - Chrome
+    if (infoHeight <= 175 && infoHeight > 165 ){
+      $('.my-profile-menu .img-options-display').css('width', '35%');
       $('.my-profile-menu .img-options-display').css('margin-top', '0.8em');
-      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.8em');
+      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.5em');
+      $('#killed').css('padding-top', '0%');
     };
 
+    // iphone 5 - Safari
+    if (infoHeight <= 165 && infoHeight > 125 ){
+      $('.my-profile-menu .img-options-display').css('width', '25%');
+      $('.my-profile-menu .img-options-display').css('margin-top', '0.5em');
+      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.5em');
+      $('#killed').css('padding-top', '0%');
+    };
+
+    // iphone 4 - all browser
+    if (infoHeight <= 125 && infoHeight ){
+      $('.my-profile-menu .img-options-display').css('width', '10%');
+      $('.my-profile-menu .img-options-display').css('margin-top', '0.1em');
+      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.1em');
+      $('#killed').css('padding-top', '0%');
+    };
 
     // Animation maki
     $('#maki-avatar').click(function() {
