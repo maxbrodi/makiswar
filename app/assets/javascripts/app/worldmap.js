@@ -10,6 +10,9 @@ $(function() {
     var x_bg = parseInt($('#player').data('cell').toString().split('')[0]) + x_shift
     var y_bg = parseInt($('#player').data('cell').toString().split('')[1]) + y_shift
 
+    // check if user is on item on load
+
+
     // ajustement de la hauteur des divs + position du joueur sur le background
     $('.cell').css("height", cellwidth);
     $('.worldmap').css("height", worldSize);
@@ -111,6 +114,19 @@ $(function() {
     $('.open-close').click(function() {
       openCloseItemsList();
     });
+
+    // A enlever si on souhaite afficher le présentateur en intro
+    if ($('#player').hasClass('item')) {
+      console.log('yo')
+      $('.grab-item').removeClass('hidden');
+      $('.search-item').addClass('hidden');
+    }
+    else {
+      console.log('ya')
+      $('.search-item').removeClass('hidden');
+      $('.grab-item').addClass('hidden');
+    };
+    // Fin du code a enlever
   };
 
   function showCell(cell) {
