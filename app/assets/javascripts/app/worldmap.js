@@ -49,8 +49,8 @@ $(function() {
       $('.transportation-options .img-options-display').css('margin-top', '0.8em');
       $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
       $('.my-maki .img-options-display').css('width', '35%');
-      $('.my-maki .img-options-display').css('margin-top', '0.9em');
-      $('.my-maki .img-options-display').css('margin-bottom', '0.7em');
+      $('.my-maki .img-options-display').css('margin-top', '1em');
+      $('.my-maki .img-options-display').css('margin-bottom', '1em');
     };
 
     // iphone 5 - Safari
@@ -59,8 +59,8 @@ $(function() {
       $('.transportation-options .img-options-display').css('margin-top', '0.5em');
       $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
       $('.my-maki .img-options-display').css('width', '25%');
-      $('.my-maki .img-options-display').css('margin-top', '0.6em');
-      $('.my-maki .img-options-display').css('margin-bottom', '0.6em');
+      $('.my-maki .img-options-display').css('margin-top', '0.8em');
+      $('.my-maki .img-options-display').css('margin-bottom', '0.8em');
     };
 
     // iphone 4 - all browser
