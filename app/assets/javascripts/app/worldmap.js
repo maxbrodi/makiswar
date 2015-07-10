@@ -45,10 +45,10 @@ $(function() {
 
     // iphone 5 - Chrome
     if (infoHeight <= 175 && infoHeight > 165 ){
-      $('.transportation-options .img-options-display').css('width', '30%');
-      $('.transportation-options .img-options-display').css('margin-top', '0.7em');
+      $('.transportation-options .img-options-display').css('width', '35%');
+      $('.transportation-options .img-options-display').css('margin-top', '0.8em');
       $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
-      $('.my-maki .img-options-display').css('width', '30%');
+      $('.my-maki .img-options-display').css('width', '35%');
       $('.my-maki .img-options-display').css('margin-top', '0.9em');
       $('.my-maki .img-options-display').css('margin-bottom', '0.7em');
     };
@@ -57,10 +57,10 @@ $(function() {
     if (infoHeight <= 165 && infoHeight > 125 ){
       $('.transportation-options .img-options-display').css('width', '25%');
       $('.transportation-options .img-options-display').css('margin-top', '0.5em');
-      $('.transportation-options .img-options-display').css('margin-bottom', '0.3em');
+      $('.transportation-options .img-options-display').css('margin-bottom', '0.5em');
       $('.my-maki .img-options-display').css('width', '25%');
       $('.my-maki .img-options-display').css('margin-top', '0.6em');
-      $('.my-maki .img-options-display').css('margin-bottom', '0.4em');
+      $('.my-maki .img-options-display').css('margin-bottom', '0.6em');
     };
 
     // iphone 4 - all browser
