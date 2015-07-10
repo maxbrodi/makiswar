@@ -19,7 +19,7 @@
 
       <!-- box content -->
       <div class="my-items-list hidden">
-        <h3>What's in my bag</h3>
+        <h3>What's in my box</h3>
         <table class='item-table'>
           <% @my_items_type.each do |item_type| %>
             <tr>
@@ -51,21 +51,21 @@
 
       <!-- profile self options -->
       <div class='my-profile-menu'>
-        <div class='my-items text-center'>
-          <div class='my-open-close text-center'>
-            <%= image_tag 'item_close.png' %>
-            <input class='confirm-action' value='My Items' type='submit'></input>
-          </div>
-          <div class='my-open-close text-center hidden'>
-            <%= image_tag 'item_open.png' %>
-            <input class='confirm-action' value='Close Box' type='submit'></input>
-          </div>
-        </div>
         <div class='my-account text-center'>
-          <%= image_tag 'profile/account.png' %><br>
+          <%= image_tag 'profile/account.png', class:'img-options-display' %><br>
           <%= link_to edit_user_registration_path do %>
             <input class='confirm-action' value='My Account' type='submit'></input>
           <% end %>
+        </div>
+        <div class='my-items text-center'>
+          <div class='my-open-close text-center'>
+            <%= image_tag 'item_close.png', class:'img-options-display' %>
+            <input class='confirm-action' value='My Items' type='submit'></input>
+          </div>
+          <div class='my-open-close text-center hidden'>
+            <%= image_tag 'item_open.png', class:'img-options-display' %>
+            <input class='confirm-action' value='Close Box' type='submit'></input>
+          </div>
         </div>
         <div class="clear"></div>
       </div>

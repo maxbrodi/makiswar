@@ -74,26 +74,20 @@
   max-height: 300px;
   cursor: pointer;
   box-shadow: 0px -6px 5px 0px rgba(0, 0, 0, 0.21);
-  & img {
-    position: relative;
-    margin: auto;
-    width: 50%;
-    padding: 30% 0px 10% 0px;
-  }
-  & .my-items {
-    float: left;
-    background: #668da5;
-    width: 50%;
-    height: 100%;
-  }
   & .my-account {
-    float: right;
+    float: left;
     background: #f1b045;
     width: 50%;
     height: 100%;
     & a:hover, a:focus {
       color: inherit;
     }
+  }
+  & .my-items {
+    float: right;
+    background: #d77947;
+    width: 50%;
+    height: 100%;
   }
   & .clear {
     clear: both;
