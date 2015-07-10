@@ -48,8 +48,7 @@ $(document).ready(function() {
       $('.my-profile-menu .img-options-display').css('float', 'left');
       $('.my-profile-menu .img-options-display').css('margin-top', '0.1em');
       $('.my-profile-menu .img-options-display').css('margin-bottom', '0.1em');
-      $('.my-profile-menu .confirm-action').css('padding', '3px');
-
+      $('.my-profile-menu .confirm-action').css('padding', '2px');
       $('#killed').css('padding-top', '0%');
     };
 
