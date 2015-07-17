@@ -26,7 +26,6 @@
   background-color: #d77947;
   border: 2px solid white;
   font-size: 30px;
-  // box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
   color: black;
   &:hover{
     background-color: #D76241;
@@ -79,5 +78,40 @@
       1px  1px 0 #fff;
     }
   }
+}
+
+.beta-content {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  text-align: right;
+  & p {
+    margin: 0px 5px;
+    color: white;
+  }
+  & img {
+    right: 5px;
+    width: 20px;
+  }
+}
+
+.triangle {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 0;
+  height: 0;
+  border-top: 100px solid #d77947;
+  border-left: 100px solid transparent;
+}
+
+.triangle2 {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 0;
+  height: 0;
+  border-top: 102px solid white;
+  border-left: 102px solid transparent;
 }
 
