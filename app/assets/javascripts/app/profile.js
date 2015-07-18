@@ -15,7 +15,6 @@ $(document).ready(function() {
       $('.my-profile-menu .img-options-display').css('width', '40%');
       $('.my-profile-menu .img-options-display').css('margin-top', '1.2em');
       $('.my-profile-menu .img-options-display').css('margin-bottom', '1.2em');
-      $('#killed').css('padding-top', '0%');
     };
 
     // iphone 6 - Safari
@@ -23,7 +22,6 @@ $(document).ready(function() {
       $('.my-profile-menu .img-options-display').css('width', '35%');
       $('.my-profile-menu .img-options-display').css('margin-top', '1em');
       $('.my-profile-menu .img-options-display').css('margin-bottom', '1em');
-      $('#killed').css('padding-top', '0%');
     };
 
     // iphone 5 - Chrome
@@ -31,7 +29,6 @@ $(document).ready(function() {
       $('.my-profile-menu .img-options-display').css('width', '35%');
       $('.my-profile-menu .img-options-display').css('margin-top', '1em');
       $('.my-profile-menu .img-options-display').css('margin-bottom', '1em');
-      $('#killed').css('padding-top', '0%');
     };
 
     // iphone 5 - Safari
@@ -39,15 +36,17 @@ $(document).ready(function() {
       $('.my-profile-menu .img-options-display').css('width', '30%');
       $('.my-profile-menu .img-options-display').css('margin-top', '0.6em');
       $('.my-profile-menu .img-options-display').css('margin-bottom', '0.8em');
-      $('#killed').css('padding-top', '0%');
     };
 
     // iphone 4 - all browser
     if (infoHeight <= 125 && infoHeight ){
-      $('.my-profile-menu .img-options-display').css('width', '10%');
-      $('.my-profile-menu .img-options-display').css('margin-top', '0.1em');
-      $('.my-profile-menu .img-options-display').css('margin-bottom', '0.1em');
-      $('#killed').css('padding-top', '0%');
+      $('.my-profile-menu .img-options-display').addClass('hidden');
+      $('.my-profile-menu .my-account .confirm-action').css('position', 'relative');
+      $('.my-profile-menu .my-items .confirm-action').css('position', 'relative');
+
+      $('.my-profile-menu .confirm-action').css('padding', '2px');
+      $('.my-profile-menu .my-account .confirm-action').css('top', '-14px');
+      $('.my-profile-menu .my-items .confirm-action').css('top', '14px');
     };
 
     // Animation maki

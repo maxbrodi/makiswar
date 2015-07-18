@@ -6,9 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-# World.create(name: "Forest", description: "Un monde cool", background: "lorem", max_x: 20, max_y: 20)
-
 # WEAPONS
 
 ItemType.create(name: "Valyrian Sword", joke: "Careful, Your Grace. Nothing cuts like Valyrian steel.", picture: "sword.png", kind:"Attack", lifetime: 10, consumption: 3, life_impact: 4)
@@ -24,12 +21,12 @@ ItemType.create(name: "Rainbow Unicorn", joke: "You look fabulous on it.", pictu
 ItemType.create(name: "Hyperloop", joke: "You\'ve never moved that fast to the next cell.", picture: "hyperloop.png", kind:"Movement", lifetime: 10, consumption: 1)
 
 
-(6...11).each do |i|
+(1...11).each do |i|
 # (14...19).each do |i|
-  10.times do
+  1.times do
     x_rand = rand(21)
     y_rand = rand(21)
-    Item.create(item_type_id: i, world_id: 1, x: x_rand, y: y_rand, broken_count: 0)
+    Item.create(item_type_id: 8, world_id: 2, x: x_rand, y: y_rand, broken_count: 0)
   end
 end
 

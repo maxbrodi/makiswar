@@ -1,17 +1,18 @@
-<div class="makiswar-not-connected">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div class="card-white-bg">
-          <%= link_to t('component.back'), root_path, class:'btn btn-default' %>
-          <h2 class='text-center'><%= t('.instruction') %></h2>
+<div class='makiswar-devise'>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class="card-bg-1">
 
-          <%= form_tag username_path, method: :post do %>
-            <%= text_field_tag :username, '', placeholder:'your maki deserves the best', class: "form-control" %><br>
-            <%= submit_tag t('.submit'), class: "btn btn-success form-control" %>
-          <% end %>
+            <%= link_to t('component.back'), root_path, class:'back-button' %>
+            <%= image_tag "babyrice.gif", class:"text-center", id:"baby-img" %>
+            <h5 class='text-center text-white-shadow' id="hereisyourmaki"><%= t('.instruction') %><br><%= t('.instruction2') %></h5>
+            <%= form_tag username_path, method: :post do %>
+              <%= text_field_tag :username, '', placeholder:'Pedro', class:'form-control' %><br>
+              <%= submit_tag t('.submit'), class: "btn btn-success form-control", class:'confirm-action' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </div>

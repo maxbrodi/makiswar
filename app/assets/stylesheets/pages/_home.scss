@@ -1,10 +1,117 @@
 .home-page {
-  background: image-url('bg-home.png');
+  background: image-url("home_background.png");
   background-size: cover;
+  align-items: center;
   display: flex;
   align-items: center;
+  justify-content: center;
+  & .title {
+    font-size: 20px;
+  }
 }
 
-.makis-home {
-  width: 100%;
+.high_voltage-pages-show {
+  height: 100%;
+  body {
+    height: 100%;
+  }
+  .home-page {
+    height: 100%;
+  }
 }
+
+.btn-home{
+  padding: 10px 6%;
+  border-radius: 7px;
+  background-color: #d77947;
+  border: 2px solid white;
+  font-size: 30px;
+  color: black;
+  &:hover{
+    background-color: #D76241;
+  }
+}
+
+.home-holder {
+  color: black;
+  border: black;
+  border-size: 2px;
+  text-shadow: none;
+  border-radius: 5px;
+  margin-top: 22%;
+
+  a{
+    color: white;
+    margin-top: 4em;
+  }
+  a:hover{
+    color: white;
+  }
+  h1 {
+    color: white;
+    font-size: 114px;
+    margin-bottom: -24px;
+  }
+  h3 {
+    color: black;
+    font-size: 27px;
+    margin-top: 0px;
+  }
+}
+
+.home-logo{
+  width: 14em;
+  margin-bottom: 0.5em;
+}
+
+#signin {
+  margin: 0 0 2px;
+  a {
+    color: white;
+    margin-bottom: 5px;
+    &:hover {
+    color: #D76241;
+    text-shadow:
+     -1px -1px 0 #fff,
+      1px -1px 0 #fff,
+     -1px  1px 0 #fff,
+      1px  1px 0 #fff;
+    }
+  }
+}
+
+.beta-content {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  text-align: right;
+  & p {
+    margin: 0px 5px;
+    color: white;
+  }
+  & img {
+    right: 5px;
+    width: 20px;
+  }
+}
+
+.triangle {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 0;
+  height: 0;
+  border-top: 100px solid #d77947;
+  border-left: 100px solid transparent;
+}
+
+.triangle2 {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 0;
+  height: 0;
+  border-top: 102px solid white;
+  border-left: 102px solid transparent;
+}
+
