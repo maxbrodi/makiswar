@@ -196,6 +196,10 @@ class FightsController < ApplicationController
       kill[:read_other_user] = false
       # kill[:item_type_id] = item.item_type.id -> TO DO MAXIME
       kill.save
+      # world usercount loses 1
+      world = World.find(current_user.world_id)
+      world.usercount -= 1
+      world.save
     end
 
     show
