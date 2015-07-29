@@ -11,7 +11,7 @@ $( document ).ready(function() {
 
     if (infoHeight < 200 ){
       $('#resurrect').css('margin-top', '-0.5em');
-      $('.emblem-change').css('height', '57%');
+      $('.crew-change').css('height', '45%');
     };
 
     if (infoHeight < 200 ){
@@ -20,6 +20,12 @@ $( document ).ready(function() {
       $('.recap').css("height", mainMessage);
       $('.action').css("height", infoHeight);
     };
+
+    // changing crew
+    $('.makishake').click(function() {
+      $('.makishake').addClass('hidden');
+      $('.new-crew').removeClass('hidden');
+    });
   };
 
   recapDisplay();
