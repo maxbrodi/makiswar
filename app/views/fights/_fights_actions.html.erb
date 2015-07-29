@@ -46,7 +46,7 @@
           <div class="weapon-options bg-4" >
             <%= image_tag "items/default/chopsticks.png", class:'img-options-display' %>
             <div class="items_count text-white-shadow"><h3>∞</h3></div>
-            <div class="power"><%= image_tag 'info/heart.png', class:'mini' %></div>
+            <div class="power"><%= image_tag 'info/fire.png', class:'mini' %></div>
             <div class="consumption text-white-shadow"><h3>4cl</h3></div>
             <% if attacker.soja >= 4 %>
                <%= button_to "Chopsticks", { action: 'update' }, method: :patch, params: { defender: defender_id, item_type_id: 'chopsticks' }, remote: true, class: "confirm-action" %>
@@ -63,7 +63,7 @@
                 <div class="items_count text-white-shadow"><h3>x<%= current_user.items.where(item_type: item_type.id).count%></h3></div>
                 <div class="power">
                   <% item_type.life_impact.times do %>
-                    <%= image_tag 'info/heart.png', class:'mini' %>
+                    <%= image_tag 'info/fire.png', class:'mini' %>
                   <% end %>
                 </div>
                 <div class="consumption text-white-shadow"><h3><%= item_type.consumption %>cl</h3></div>
@@ -76,9 +76,9 @@
             <% end %>
           <% else %>
             <div class="weapon-options bg-2">
-              <%= image_tag "superheroes/#{rand(5)}.png", class:'img-options-display' %>
+              <%= image_tag "full_box.png", class:'img-options-display' %>
               <br>
-              <p class='text-white-shadow text-center' type='submit'>You Wish!!</p>
+              <p class='text-white-shadow text-center' type='submit'>Go get some items!</p>
             </div>
           <% end %>
 
