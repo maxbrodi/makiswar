@@ -52,10 +52,10 @@ class ApplicationController < ActionController::Base
   def get_soja
     return unless current_user
 
-    soja_to_add = ((Time.now - current_user.soja_updated_at) / 1800).floor
+    soja_to_add = ((Time.now - current_user.soja_updated_at) / 3600).floor * 2
     new_soja = current_user.soja + soja_to_add
-    if new_soja > 48
-      current_user.soja = 48
+    if new_soja > 50
+      current_user.soja = 50
     else
       current_user.soja = new_soja
     end
