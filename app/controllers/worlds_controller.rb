@@ -134,7 +134,7 @@ class WorldsController < ApplicationController
     when 12 then @jauge = "half.png"
     when 13...24 then @jauge = "almostfull.png"
     when 24 then @jauge = "full.png"
-    when 25..48 then @jauge = "overfull.gif"
+    when 25..50 then @jauge = "overfull.gif"
     end
   end
 

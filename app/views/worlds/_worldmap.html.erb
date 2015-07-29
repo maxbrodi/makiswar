@@ -77,7 +77,7 @@
         <div class="info-bottom">
 
           <!-- funky news -->
-          <div class="news-info text-center hidden">
+          <div class="news-info text-center">
             <div class="info-holder">
               <div class="col-xs-5"><%= image_tag "presentateur.gif", id: "anchorman" %></div>
               <div class="col-xs-6 text-left" id="anchorman-speech"><%= t(info, ennemies: ennemies) %></div>
@@ -85,7 +85,7 @@
           </div>
 
           <!-- player self options -->
-          <div class='my-maki'>
+          <div class='my-maki hidden'>
             <div class='my-profile text-center'>
               <%= form_tag user_path, method: :get do %>
                 <%= %>
