@@ -5,8 +5,9 @@ en:
     registrations:
       new:
         instruction: "You're almost done!"
-        email: "don't be shy %{username}"
+        email: "don't let %{username} die!"
         password: "a strong and secure one, please"
+        sign_up: "Let's play!"
       edit:
         sign_out: "Sign Out"
     sessions:
@@ -33,8 +34,8 @@ en:
           already_taken: "This username has already been taken"
           empty: "Please provide a username"
     new:
-      instruction: "Here is your baby Maki."
-      instruction2: "Choose a name for him."
+      instruction: "Look! A baby Maki!"
+      instruction2: "Choose a name and it\'s yours."
       submit: "Validate"
   users:
     show:
@@ -55,9 +56,9 @@ en:
       info5: "Is there any girl in the room?"
       info6: "I\'m so tired, I need more soy sauce..."
       info7: "Tips: Give some ginger to chicks, they love it!"
-      info8: "I think my favourite item is the banana launcher."
+      info8: "I think my favourite item is the banana snake."
       info9: "Attack someone of your crew and you\'ll lose your soul..."
-      info10: "1 cl of soy sauce per hour?! But I want to move!"
+      info10: "2 cl of soy sauce per hour?! But I want to move!"
       confirm_attack: "Attack!"
       babyrice: "Baby"
       nosoy: "%{missing_cl} cl missing"
