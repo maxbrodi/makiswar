@@ -18,8 +18,7 @@ $(function() {
     $('.worldmap').css("height", worldSize);
     $('.items-list').css("height", worldSize);
     $('.worldmap').css("background-size", cellwidth * 20);
-    $('.worldmap').css("background-position-x", (-x_bg * cellwidth)+(3*cellwidth));
-    $('.worldmap').css("background-position-y", (-y_bg * cellwidth)+(3*cellwidth));
+    $('.worldmap').css("background-position", ((-x_bg * cellwidth)+(3*cellwidth) +'px ') + ((-y_bg * cellwidth)+(3*cellwidth) +'px'));
     $('.new-move').css("height", infoHeight);
     $('.my-maki').css("height", infoHeight);
     $('.transportation-options').css("height", infoHeight);
