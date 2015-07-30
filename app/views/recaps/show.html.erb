@@ -14,12 +14,17 @@
           <%= button_to "Resurrect!", { action: 'update' }, method: :patch, id: "resurrect" %>
         </div>
 
+      <!-- CHANGEMENT DE CREW -->
       <% elsif @change_crew %>
-        <div class="recap">
-          <h2 class="makishake">WTF is happening?</h2>
-          <p class="makishake">Something is growing inside <%= current_user.name %>...</p>
-          <h2 class="new-crew hidden">WOW! Amazing!</h2>
-          <p class="new-crew hidden">He became a <%= current_user.crew %> maki!</p>
+        <div class="recap" id="grass-bg">
+          <div class="info-text-box text-white-shadow">
+            <h2 class="makishake">WTF is happening?</h2>
+            <p class="makishake">Something is growing</p>
+            <p class="makishake">inside <%= current_user.name %>...</p>
+            <h2 class="new-crew hidden">WOW! Amazing!</h2>
+            <p class="new-crew hidden">He became a <%= current_user.crew %> maki!</p>
+            <p class="new-crew hidden">Better stay away from <%= @ennemies %>.</p>
+          </div>
           <br>
           <%= image_tag "transformation/babyshake.gif", class: "crew-change makishake" %>
           <%= image_tag "#{current_user.crew}.gif", class: "crew-change new-crew hidden" %>

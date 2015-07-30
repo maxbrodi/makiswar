@@ -16,6 +16,7 @@ class RecapsController < ApplicationController
         # check if change of crew
         if event[:name] == "salmon" || event[:name] == "avocado" || event[:name] == "bastardo"
           @change_crew = true
+          set_ennemies
         end
         # mark all events as read
         if event[:user_id] == current_user.id
@@ -49,6 +50,15 @@ class RecapsController < ApplicationController
       "Yesterday"
     else
       "A long time ago"
+    end
+  end
+
+  def set_ennemies
+    case current_user.crew
+    when "avocado" then @ennemies = "salmons"
+    when "salmon" then @ennemies = "avocados"
+    when "bastardo" then @ennemies = "everyone, you bastard"
+    when "babyrice" then @ennemies = "everyone"
     end
   end
 
