@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class='<%= "#{params[:controller]}-#{params[:action]}".gsub('/', '-') %>'>
 <head>
-  <title><%= yield(:title) || "MakiWars" %></title>
+  <title>MakiWars</title>
   <meta name="description" content="Salmon vs Avocado. Choose your side.">
 
   <meta charset="utf-8" />
@@ -19,6 +19,12 @@
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="756" />
   <meta property="og:image:height" content="752" />
+
+  <meta name="twitter:site" content="@makiwars">
+  <meta name="twitter:title" content="MakiWars">
+  <meta name="twitter:description" content="Salmon vs Avocado. Choose your side.">
+  <meta name="twitter:creator" content="@makiwars">
+  <meta name="twitter:image:src" content="https://pbs.twimg.com/media/CJi7DuBWgAAJr2V.png">
 
   <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
   <%= favicon_link_tag 'favicon.ico' %>
