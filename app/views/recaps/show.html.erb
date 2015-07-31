@@ -21,18 +21,23 @@
             <h2 class="makishake">WTF is happening?</h2>
             <p class="makishake">Something is growing</p>
             <p class="makishake">inside <%= current_user.name %>...</p>
-            <h2 class="new-crew hidden">WOW! Amazing!</h2>
-            <p class="new-crew hidden">He became a <%= current_user.crew %> maki!</p>
-            <p class="new-crew hidden">Better stay away from <%= @ennemies %>.</p>
+            <!-- 1 second of animation -->
+            <h2 class="placeholder-new-crew hidden">&nbsp;</h2>
+            <p class="placeholder-new-crew hidden"> &nbsp;</p>
+            <p class="placeholder-new-crew hidden"> &nbsp;</p>
+            <!-- after animation -->
+            <h2 class="new-crew-delay hidden">WOW! Amazing!</h2>
+            <p class="new-crew-delay hidden">He became a <%= current_user.crew %> maki!</p>
+            <p class="new-crew-delay hidden">Stay away from <%= @ennemies %>...</p>
           </div>
           <br>
           <%= image_tag "transformation/babyshake.gif", class: "crew-change makishake" %>
-          <%= image_tag "#{current_user.crew}.gif", class: "crew-change new-crew hidden" %>
+          <%= image_tag "transformation/babyrice_to_salmon.gif", class: "crew-change new-crew hidden" %>
         </div>
 
         <div class="action">
           <p class="makishake text-white-shadow">Maybe you should try touching him...</p>
-          <div class="new-crew hidden"><%= button_to "Go #{current_user.crew}s!", worlds_show_path, method: :get, id: "resurrect" %></div>
+          <div class="new-crew-delay hidden"><%= button_to "Go #{current_user.crew}s!", worlds_show_path, method: :get, id: "resurrect" %></div>
         </div>
       <!-- RESUME SI PAS MORT NI CHANGEMENT DE CREW-->
       <% else %>

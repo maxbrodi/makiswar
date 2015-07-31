@@ -19,11 +19,17 @@ $( document ).ready(function() {
       // $('.recap').css("height", mainMessage);
       // $('.action').css("height", infoHeight);
     };
-
+    $('.crew-change').css('height', '50%');
+    $('.crew-change').css('width', '62%');
     // changing crew
     $('.makishake').click(function() {
       $('.makishake').addClass('hidden');
+      $('.placeholder-new-crew').removeClass('hidden');
       $('.new-crew').removeClass('hidden');
+      setTimeout(function() {
+        $('.placeholder-new-crew').addClass('hidden');
+        $('.new-crew-delay').removeClass('hidden');
+      }, 1200);
     });
   };
 
