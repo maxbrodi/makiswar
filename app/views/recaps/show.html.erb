@@ -31,8 +31,8 @@
             <p class="new-crew-delay hidden">Stay away from <%= @ennemies %>...</p>
           </div>
           <br>
-          <%= image_tag "transformation/babyshake.gif", class: "crew-change makishake" %>
-          <%= image_tag "transformation/babyrice_to_salmon.gif", class: "crew-change new-crew hidden" %>
+          <%= image_tag "transformation/#{@old_crew}_shake.gif", class: "crew-change makishake" %>
+          <%= image_tag "transformation/#{@old_crew}_to_#{@new_crew}.gif", class: "crew-change new-crew hidden" %>
         </div>
 
         <div class="action">

@@ -166,7 +166,7 @@
                 <div class="col-xs-7 ">
                   <div class="othermaki-info">
                     <h3><%= player.name %></h3>
-                    <%= button_to t('.confirm_attack'), fights_show_path, params: {"defender" => player.id }, class: "attack-opponent hidden" %>
+                    <%= button_to t('.confirm_attack'), fights_show_path, params: {"defender" => player.id, "old_crew" => current_user.crew }, class: "attack-opponent hidden" %>
                   </div>
                 </div>
               </div>
