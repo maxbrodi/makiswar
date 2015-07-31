@@ -121,12 +121,8 @@ class FightsController < ApplicationController
     end
 
     # Avocado/Salmon attribution
-      # now change crew
     case @attacker.crew
     when "babyrice"
-
-      # session[:old_crew] = "babyrice"
-
       case @defender.crew
       when "avocado"
         @attacker.crew = "salmon"
@@ -141,18 +137,15 @@ class FightsController < ApplicationController
 
     change_crew_event(@attacker)
 
-
-
     when "salmon"
       if @defender.crew == "salmon"
-        # session[:old_crew] = "salmon"
         @attacker.crew = "bastardo"
+        binding.pry
         @attacker.save
         change_crew_event(@attacker)
       end
     when "avocado"
       if @defender.crew == "avocado"
-        # session[:old_crew] = "avocado"
         @attacker.crew = "bastardo"
         @attacker.save
         change_crew_event(@attacker)
@@ -164,7 +157,6 @@ class FightsController < ApplicationController
         three_crews << User.find(event[:other_user_id]).crew
       end
       if three_crews.uniq.length == 1
-        # session[:old_crew] = "bastardo"
         new_opponent = three_crews.first
         case new_opponent
         when "salmon"
