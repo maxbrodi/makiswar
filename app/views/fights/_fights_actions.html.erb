@@ -15,7 +15,7 @@
           <%= link_to t('component.back'), worlds_show_path, class: "back-button" %>
 
           <%= image_tag "fight/lifebar/lifebar_#{lifebar}.png", class: "lifebar" %>
-          <%= image_tag "fight/attacker/#{attacker.crew}.gif", class: "attacker" %>
+          <%= image_tag "fight/attacker/#{old_crew}.gif", class: "attacker" %>
           <% if success %>
             <%= image_tag "fight/defender/#{defender.crew}.gif", class: "defender hatch" %>
           <% else %>

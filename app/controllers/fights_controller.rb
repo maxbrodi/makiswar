@@ -21,6 +21,8 @@ class FightsController < ApplicationController
     @soja = current_user.soja
     sojajauge
     available_fight_items
+    session[:old_crew] = params[:old_crew] if params[:old_crew]
+    @old_crew = session[:old_crew]
   end
 
   def update
@@ -119,7 +121,6 @@ class FightsController < ApplicationController
     end
 
     # Avocado/Salmon attribution
-
     case @attacker.crew
     when "babyrice"
       case @defender.crew
@@ -136,18 +137,6 @@ class FightsController < ApplicationController
 
     change_crew_event(@attacker)
 
-    when "salmon"
-      if @defender.crew == "salmon"
-        @attacker.crew = "bastardo"
-        @attacker.save
-        change_crew_event(@attacker)
-      end
-    when "avocado"
-      if @defender.crew == "avocado"
-        @attacker.crew = "bastardo"
-        @attacker.save
-        change_crew_event(@attacker)
-      end
     when "bastardo"
       last_three_kills = @attacker.events.where(user_id: @attacker.id).where(name:"kill").last(3)
       three_crews = []
@@ -166,6 +155,18 @@ class FightsController < ApplicationController
           @attacker.save
           change_crew_event(@attacker)
         end
+      end
+    when "salmon"
+      if @defender.crew == "salmon"
+        @attacker.crew = "bastardo"
+        @attacker.save
+        change_crew_event(@attacker)
+      end
+    when "avocado"
+      if @defender.crew == "avocado"
+        @attacker.crew = "bastardo"
+        @attacker.save
+        change_crew_event(@attacker)
       end
     end
 

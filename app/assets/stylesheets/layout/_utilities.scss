@@ -105,3 +105,15 @@ button:focus {
   padding: 30px;
   border-radius: 3px;
 }
+
+.info-text-box  {
+  background: $info;
+  border-radius: 3px;
+  border: 2px solid white;
+}
+
+#grass-bg {
+  background: image-url('fight/fightscene.jpg');
+  background-size: cover;
+  width: 100%;
+}
