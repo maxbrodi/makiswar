@@ -26,7 +26,7 @@ en:
       profile: "My Profile"
   time:
     formats:
-      event: "%_m %b - %k:%M"
+      event: "%e %b - %k:%M"
   usernames:
     create:
       flash:
