@@ -19,7 +19,7 @@
 
       <!-- box content -->
       <div class="my-items-list hidden">
-        <h3>What's in my box</h3>
+        <h3>What's in my bag</h3>
         <table class='item-table'>
           <% @my_items_type.each do |item_type| %>
             <tr>
@@ -59,12 +59,12 @@
         </div>
         <div class='my-items text-center'>
           <div class='my-open-close text-center'>
-            <%= image_tag 'item_close.png', class:'img-options-display' %>
+            <%= image_tag 'bag_close.png', class:'img-options-display' %>
             <input class='confirm-action' value='My Items' type='submit'></input>
           </div>
           <div class='my-open-close text-center hidden'>
-            <%= image_tag 'item_open.png', class:'img-options-display' %>
-            <input class='confirm-action' value='Close Box' type='submit'></input>
+            <%= image_tag 'bag_open.png', class:'img-options-display' %>
+            <input class='confirm-action' value='Close Bag' type='submit'></input>
           </div>
         </div>
         <div class="clear"></div>
