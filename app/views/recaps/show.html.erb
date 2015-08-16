@@ -7,7 +7,7 @@
 
         <div class="recap">
           <h1><%= current_user.name %> died!</h1>
-          <p><%= @killer.name %> (<%= @killer.crew %> maki) killed him with a banana launcher.</p>
+          <p><%= @killer.name %> (<%= @killer.crew %> maki) killed your maki.</p>
         </div>
 
         <div class="action">
@@ -46,8 +46,8 @@
           <h3> Some stuff happened: </h3>
           <% @events.each do |event| %>
 
-            <%= image_tag "events/island.png", class: "event-logo" %>
-            <%= l(event[:updated_at], format: :event) %>
+            <%= image_tag "events/" + event[:name] +".png", class: "event-logo" %>
+            <%= l(event[:created_at], format: :event) %>
             <br>
 
              <% case event[:name] %>

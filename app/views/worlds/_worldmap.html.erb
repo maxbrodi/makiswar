@@ -53,19 +53,25 @@
 
         <!-- box content -->
         <div class="items-list hidden">
-          <h3>What's in the box</h3>
+          <% if current_user.items.count < 9 %>
+            <h3>Items in the box</h3>
+          <% else %>
+            <h3>Your bag is full!</h3>
+          <% end %>
           <table class='item-table'>
             <% kinder.each do |item| %>
               <tr>
                 <td class='vert-align'><%= image_tag "items/" + item.item_type.picture, class:'thumb' %></td>
                 <td class='vert-align'><%= item.item_type.name %></td>
-                <td class='vert-align text-center'>
-                  <%= form_tag worlds_update_path, method: :put, remote: true do %>
-                    <%= hidden_field_tag :choice, "grab" %>
-                    <%= hidden_field_tag :item_id, item.id %>
-                    <%= submit_tag "Grab", class: "confirm-grab" %>
-                  <% end %>
-                </td>
+                <% if current_user.items.count < 9 %>
+                  <td class='vert-align text-center'>
+                    <%= form_tag worlds_update_path, method: :put, remote: true do %>
+                      <%= hidden_field_tag :choice, "grab" %>
+                      <%= hidden_field_tag :item_id, item.id %>
+                      <%= submit_tag "Grab", class: "confirm-grab" %>
+                    <% end %>
+                  </td>
+                <% end %>
               </tr>
             <% end %>
           </table>
