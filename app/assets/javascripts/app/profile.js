@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
 
 
   function profileDisplay() {
@@ -67,5 +67,10 @@ $(document).ready(function() {
   };
 
   profileDisplay();
+
+  PubSub.subscribe('profileDisplay', function(){
+    profileDisplay();
+    openCloseMyItemsList();
+  });
 
  });

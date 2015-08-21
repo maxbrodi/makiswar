@@ -1,0 +1,7 @@
+$('.profile-and-item').replaceWith("<%= j render 'profile',
+  allitems_count: @allitems_count,
+  item_description: @item_description,
+  mybackpack: @mybackpack
+ %>");
+
+PubSub.publish('profileDisplay');

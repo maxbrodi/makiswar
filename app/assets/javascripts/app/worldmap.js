@@ -138,7 +138,6 @@ $(function() {
       openCloseItemsList();
     });
 
-    // A enlever si on souhaite afficher le présentateur en intro
     if ($('#player').hasClass('item')) {
       console.log('yo')
       $('.grab-item').removeClass('hidden');
@@ -149,7 +148,6 @@ $(function() {
       $('.search-item').removeClass('hidden');
       $('.grab-item').addClass('hidden');
     };
-    // Fin du code a enlever
   };
 
   function showCell(cell) {

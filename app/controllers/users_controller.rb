@@ -1,17 +1,23 @@
 class UsersController < ApplicationController
+  respond_to :js, only: [:update]
+
   def show
     my_backpack
   end
 
   def update
 
-    # algo :
-    # item.user_id = nil
-    # item.world_id = current_user.world_id
-    # item.x = current_user.x
-    # item.y = current_user.y
-    # item.save
+    item_type_id = params[:item_type_id]
 
+    item = current_user.items.select{ |item| item.item_type_id = item_type_id}.first
+
+    item.user_id = nil
+    item.world_id = current_user.world_id
+    item.x = current_user.x
+    item.y = current_user.y
+    item.save
+
+    my_backpack
   end
 
   private
