@@ -42,15 +42,17 @@
       margin: auto;
       & .thumb {
         height: 30%;
+        margin-top: -50px;
       }
       & tbody>tr>td.vert-align {
         color: white;
         vertical-align: middle;
         border-top: 1px solid white;
-        padding: 8px 0px;
+        padding: 20px 0px;
         & .my-items-details {
           list-style: none;
           padding: 0px 0px 0px 20px;
+          padding-left: 2em;
           & .title {
 
           }
@@ -95,6 +97,17 @@
   }
 }
 
+.greytitle {
+  color: grey;
+}
 
+.align-items-profile{
+    position: absolute;
+    left: -0.3em;
+}
+
+.drop-holder{
+  position: relative;
+}
 
 

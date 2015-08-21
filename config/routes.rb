@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get '/pages/:id' => 'high_voltage/pages#show', :as => :page, :format => false
     resource :username, only: [:new, :create]
     devise_for :users
-    resource :user, only: [:show]
+    resource :user, only: [:show, :update]
     get '/user/collection', to: 'users#collection'
     get '/user/stats', to: 'users#stats'
   end

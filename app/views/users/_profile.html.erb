@@ -1,0 +1,89 @@
+<div class="profile-and-item">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+
+      <div class='my-profile-main'>
+
+        <div class="maki-in-landscape text-center">
+          <%= link_to t('component.back'), worlds_show_path, class: "back-button" %>
+
+          <%= image_tag "emblems/" + current_user.crew + ".gif", id:'crew-profile' %>
+
+          <ul class='profile-info-crew'>
+            <li><%= image_tag current_user.crew + ".gif", id: "maki-avatar", class:'floating' %></li>
+            <li><h2 class= 'text-white-shadow'><%= current_user.name %></h2></li>
+            <li><h2 class= 'text-white-shadow'>#team<%= current_user.crew %></h2></li>
+          </ul>
+
+        </div>
+
+        <!-- box content -->
+        <div class="my-items-list hidden">
+          <h3>My Bag <span class="greytitle">(<%= allitems_count %>/9)</span></h3>
+          <table class='item-table'>
+            <% mybackpack.each do |item_type, item_count| %>
+              <tr>
+                <td class='vert-align drop-holder'><%= image_tag "items/" + item_type.picture, class:'thumb' %>
+                  <% if item_count > 1 %>
+                      <%= form_tag user_path, method: :put, remote: true do %>
+                        <%= hidden_field_tag :item_type_id, item_t_id[item_type] %>
+                        <%= submit_tag "Drop one", class: "confirm-grab align-items-profile" %>
+                      <% end %>
+                  <% else %>
+                      <%= form_tag user_path, method: :put, remote: true do %>
+                        <%= hidden_field_tag :item_type_id, item_t_id[item_type] %>
+                        <%= submit_tag "Drop it", class: "confirm-grab align-items-profile" %>
+                      <% end %>
+                  <% end %>
+                </td>
+                <td class='vert-align'>
+                  <ul class='my-items-details'>
+                    <li class='title'>
+                      <%= item_type.name %>
+                      (x<%= item_count %>)
+                    </li>
+                    <li class='content greytitle'><%= item_type.joke %></li>
+                    <li class='content greytitle'> <%= item_description[item_type] %></li>
+                    <% if item_type.life_impact %>
+                      <li class='content'><span class="greytitle">Life Impact:</span>
+                        <% item_type.life_impact.times do %>
+                          <%= image_tag 'info/fire.png', class:'mini' %>
+                        <% end %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+
+      </div>
+
+        <!-- profile self options -->
+        <div class='my-profile-menu'>
+          <div class='my-account text-center'>
+            <%= image_tag 'profile/account.png', class:'img-options-display' %><br>
+            <%= link_to edit_user_registration_path do %>
+              <input class='confirm-action' value='My Account' type='submit'></input>
+            <% end %>
+          </div>
+          <div class='my-items text-center'>
+            <div class='my-open-close text-center'>
+              <%= image_tag 'bag_close.png', class:'img-options-display' %>
+              <input class='confirm-action' value='Open Bag' type='submit'></input>
+            </div>
+            <div class='my-open-close text-center hidden'>
+              <%= image_tag 'bag_open.png', class:'img-options-display' %>
+              <input class='confirm-action' value='Close Bag' type='submit'></input>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

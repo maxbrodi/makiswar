@@ -174,12 +174,25 @@ class FightsController < ApplicationController
     if @defender.life < 1
       @killed = true
       # defender loses all items
-      lost_items = @defender.items
+      if @defender.items.count < 5
+        lost_items = @defender.items
+      else
+        lost_items = @defender.items.last(4)
+        random_items = @defender.items.first(@defender.items.count - 4)
+      end
       lost_items.each do |item|
         item.world_id = @defender.world_id
         item.x = @defender.x
         item.y = @defender.y
         item.user_id = nil
+        item.save
+      end
+      random_items.each do |item|
+        item.world_id = @defender.world_id
+        item.x = rand(1..current_user.world.max_x)
+        item.y = rand(1..current_user.world.max_y)
+        item.user_id = nil
+        item.broken_count = 0
         item.save
       end
       # defender dies
