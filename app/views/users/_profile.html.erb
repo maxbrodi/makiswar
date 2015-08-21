@@ -24,7 +24,19 @@
           <table class='item-table'>
             <% mybackpack.each do |item_type, item_count| %>
               <tr>
-                <td class='vert-align'><%= image_tag "items/" + item_type.picture, class:'thumb' %></td>
+                <td class='vert-align drop-holder'><%= image_tag "items/" + item_type.picture, class:'thumb' %>
+                  <% if item_count > 1 %>
+                      <%= form_tag user_path, method: :put, remote: true do %>
+                        <%= hidden_field_tag :item_type_id, item_t_id[item_type] %>
+                        <%= submit_tag "Drop one", class: "confirm-grab align-items-profile" %>
+                      <% end %>
+                  <% else %>
+                      <%= form_tag user_path, method: :put, remote: true do %>
+                        <%= hidden_field_tag :item_type_id, item_t_id[item_type] %>
+                        <%= submit_tag "Drop it", class: "confirm-grab align-items-profile" %>
+                      <% end %>
+                  <% end %>
+                </td>
                 <td class='vert-align'>
                   <ul class='my-items-details'>
                     <li class='title'>
@@ -40,17 +52,6 @@
                         <% end %>
                       </li>
                     <% end %>
-                  <% if item_count > 1 %>
-                      <%= form_tag user_path, method: :put, remote: true do %>
-                      <%= hidden_field_tag :item_type_id, item_t_id[item_type] %>
-                      <%= submit_tag "Drop one", class: "confirm-grab" %>
-                      <% end %>
-                  <% else %>
-                      <%= form_tag user_path, method: :put, remote: true do %>
-                      <%= hidden_field_tag :item_type_id, item_t_id[item_type] %>
-                      <%= submit_tag "Drop it", class: "confirm-grab" %>
-                    <% end %>
-                  <% end %>
                   </ul>
                 </td>
               </tr>
