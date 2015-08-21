@@ -97,12 +97,14 @@ class WorldsController < ApplicationController
 
   def add_item_to_user
     item_id = params[:item_id]
-    new_item = kinder_surprise.find(item_id)
-    new_item.world_id = nil
-    new_item.x = nil
-    new_item.y = nil
-    new_item.user_id = current_user.id
-    new_item.save
+    if current_user.items.count < 9
+      new_item = kinder_surprise.find(item_id)
+      new_item.world_id = nil
+      new_item.x = nil
+      new_item.y = nil
+      new_item.user_id = current_user.id
+      new_item.save
+    end
   end
 
   def check_if_move_or_grab_update
