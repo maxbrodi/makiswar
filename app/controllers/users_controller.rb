@@ -7,9 +7,9 @@ class UsersController < ApplicationController
 
   def update
 
-    item_type_id = params[:item_type_id]
+    typeid = params[:item_type_id]
 
-    item = current_user.items.select{ |item| item.item_type_id = item_type_id}.first
+    item = Item.where(user_id: current_user.id, item_type_id: typeid).first
 
     item.user_id = nil
     item.world_id = current_user.world_id
@@ -27,12 +27,14 @@ class UsersController < ApplicationController
     #variable to display
     @mybackpack = {}
     @item_description = {}
+    @item_t_id = {}
     @allitems_count = 0
     # compute their value
     my_items_type.each do |item_type|
       @mybackpack[item_type] = current_user.items.where(item_type: item_type.id).count
       # count all items
       @allitems_count += @mybackpack[item_type]
+      @item_t_id[item_type] = item_type.id
       case item_type.kind
       when "Attack"
         @item_description[item_type] = "Attacks for " + item_type.consumption.to_s + " cl."

@@ -40,14 +40,16 @@
                         <% end %>
                       </li>
                     <% end %>
-                    <%= form_tag user_path, method: :put, remote: true do %>
-                    <%= hidden_field_tag :item_type_id, item_type.id %>
-                    <%= submit_tag "Drop", class: "confirm-grab" %>
-                    <% end %>
                   <% if item_count > 1 %>
-                    Drop one
+                      <%= form_tag user_path, method: :put, remote: true do %>
+                      <%= hidden_field_tag :item_type_id, item_t_id[item_type] %>
+                      <%= submit_tag "Drop one", class: "confirm-grab" %>
+                      <% end %>
                   <% else %>
-                    Drop it
+                      <%= form_tag user_path, method: :put, remote: true do %>
+                      <%= hidden_field_tag :item_type_id, item_t_id[item_type] %>
+                      <%= submit_tag "Drop it", class: "confirm-grab" %>
+                    <% end %>
                   <% end %>
                   </ul>
                 </td>
