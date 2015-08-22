@@ -116,6 +116,9 @@ class WorldsController < ApplicationController
   end
 
   def set_world_info
+    # background info
+    @world_background = current_user.world.background
+    # user infos
     @life = current_user.life
     @soja = current_user.soja
     case current_user.crew

@@ -1,0 +1,10 @@
+.worldmap{
+    &.default {
+    background: image-url('bg.png');
+    background-repeat: no-repeat;
+    }
+    &.foot {
+    background: image-url('foot.png');
+    background-repeat: no-repeat;
+    }
+}

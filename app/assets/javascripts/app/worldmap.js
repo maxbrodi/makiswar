@@ -13,6 +13,12 @@ $(function() {
     // check if user is on item on load
 
 
+    // set background
+    var worldbg = $( '.worldmap' ).data('bg');
+    $('.worldmap').removeClass( 'default' );
+    $('.worldmap').addClass( worldbg );
+
+
     // ajustement de la hauteur des divs + position du joueur sur le background
     $('.cell').css("height", cellwidth);
     $('.worldmap').css("height", worldSize);
@@ -139,12 +145,10 @@ $(function() {
     });
 
     if ($('#player').hasClass('item')) {
-      console.log('yo')
       $('.grab-item').removeClass('hidden');
       $('.search-item').addClass('hidden');
     }
     else {
-      console.log('ya')
       $('.search-item').removeClass('hidden');
       $('.grab-item').addClass('hidden');
     };
