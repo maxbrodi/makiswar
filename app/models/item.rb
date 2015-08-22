@@ -10,7 +10,7 @@
 #  item_type_id :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  broken_count :integer          default(0)
+#  broken_count :integer
 #
 # Indexes
 #

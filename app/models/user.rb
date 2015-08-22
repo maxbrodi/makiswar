@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   before_create { |user| user.lowername = user.name.downcase }
 
-  after_create :born
+  after_create :preborn
 
   scope :in_area, ->(user) do
     where.not(id: user.id).
@@ -64,8 +64,27 @@ class User < ActiveRecord::Base
     )
   end
 
+  def preborn
+    tutoworld = World.new
+    tutoworld[:tuto] = true
+    tutoworld[:name] = "tuto"
+    tutoworld[:description] = "Almost done"
+    tutoworld[:background] = "foot"
+    tutoworld[:max_x] = 5
+    tutoworld[:max_y] = 1
+    tutoworld[:usercount] = 1
+    tutoworld.save
+
+    self.world_id = tutoworld.id
+    self.x = 1
+    self.y = 1
+    self.soja_updated_at = Time.now.at_beginning_of_hour
+    self.soja = 50
+    self.save
+  end
+
   def born
-    world = World.where('usercount < 50').order(usercount: :desc).limit(1).first
+    world = World.where('usercount < 50 AND tuto = false').order(usercount: :desc).limit(1).first
     self.world_id = world.id
     if world.users.empty?
       self.x = world.max_x / 2
@@ -77,7 +96,7 @@ class User < ActiveRecord::Base
       end
     end
     self.soja_updated_at = Time.now.at_beginning_of_hour
-    self.soja = 48
+    self.soja = 50
     self.save
 
     #event of birth

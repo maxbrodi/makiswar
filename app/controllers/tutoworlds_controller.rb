@@ -10,7 +10,6 @@ class WorldsController < ApplicationController
     set_world_info
     sojajauge
     available_move_items
-    tuto
   end
 
   def update
@@ -22,7 +21,6 @@ class WorldsController < ApplicationController
     set_world_info
     sojajauge
     available_move_items
-    tuto
   end
 
   private
@@ -120,8 +118,6 @@ class WorldsController < ApplicationController
   def set_world_info
     # background info
     @world_background = current_user.world.background
-    @max_x =  current_user.world.max_x
-    @max_y =  current_user.world.max_y
     # user infos
     @life = current_user.life
     @soja = current_user.soja
@@ -160,27 +156,6 @@ class WorldsController < ApplicationController
   def set_item_position_after_broken
     @item.x = rand(1..current_user.world.max_x)
     @item.y = rand(1..current_user.world.max_y)
-  end
-
-  def tuto
-    if current_user.world.tuto
-      case current_user.x
-      when 1
-        @tuto_1 = true
-      when 2
-        @tuto_2 = true
-      when 3
-        @tuto_3 = true
-      when 4
-        if current_user.items.count == 0
-          @tuto_4 = true
-        else
-          @tuto_4b = true
-        end
-       when 5
-        @tuto_5 = true
-      end
-    end
   end
 
 end

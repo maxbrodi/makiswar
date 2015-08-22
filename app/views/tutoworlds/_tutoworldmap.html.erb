@@ -4,7 +4,7 @@
 
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
 
-        <div class="worldmap default" data-bg='<%= world_background%>' data-maxx="<%= max_x %>" data-maxy="<%= max_y %>">
+        <div class="worldmap default" data-bg='<%= world_background%>'>
           <!-- first row -->
           <div class="cell" data-cell="11"></div>
           <div class="cell" data-cell="21"></div>
@@ -86,27 +86,7 @@
           <div class="news-info text-center">
             <div class="info-holder">
               <div class="col-xs-5"><%= image_tag "presentateur.gif", id: "anchorman" %></div>
-              <div class="col-xs-6 text-left" id="anchorman-speech">
-                <% if current_user.world.tuto %>
-                  <% if tuto_1 %>
-                  Touch the cell right from your maki. <br> Then touch "bounce"!
-                  <% elsif tuto_2 %>
-                  Wow! So cool! Keep going right!
-                  <% elsif tuto_3 %>
-                  Hey! Is that a box on your right? Go check it out.
-                  <% elsif tuto_4 %>
-                  Touch your maki.
-                  <br> Then touch "Open Box"!
-                  <% elsif tuto_4b %>
-                  That's a nice skate!
-                  <br> Ready to fight? Go right!
-                  <% elsif tuto_5 %>
-                  Before you go I must explain some things.
-                  <% end %>
-                <% else %>
-                  <%= t(info, ennemies: ennemies) %>
-                <% end %>
-              </div>
+              <div class="col-xs-6 text-left" id="anchorman-speech"><%= t(info, ennemies: ennemies) %></div>
             </div>
           </div>
 
@@ -175,14 +155,9 @@
               <% end %>
             <% else %>
               <div class="transportation-options bg-2" >
-                <% if current_user.world.tuto %>
-                  <%= image_tag "full_box.png", class:'img-options-display' %>
-                  <p class='text-white-shadow text-center' type='submit'>Touch Bounce!</p>
-                <% else %>
-                  <%= image_tag "full_box.png", class:'img-options-display' %>
-                  <br>
-                  <p class='text-white-shadow text-center' type='submit'>Go get some items!</p>
-                <% end %>
+                <%= image_tag "full_box.png", class:'img-options-display' %>
+                <br>
+                <p class='text-white-shadow text-center' type='submit'>Go get some items!</p>
               </div>
             <% end %>
           </div>

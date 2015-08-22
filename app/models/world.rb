@@ -11,13 +11,14 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  usercount   :integer          default(0)
+#  tuto        :boolean          default(TRUE)
 #
 
 class World < ActiveRecord::Base
   has_many :users
   has_many :events
   has_many :items
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   validates :background, presence: true
   validates :max_x, presence: true
   validates :max_y, presence: true

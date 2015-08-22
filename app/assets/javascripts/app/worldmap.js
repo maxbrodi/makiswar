@@ -109,7 +109,9 @@ $(function() {
     $('.cell').each(function() {
       var x_math = parseInt($(this).data('cell').toString().split('')[0]) + x_shift
       var y_math = parseInt($(this).data('cell').toString().split('')[1]) + y_shift
-      if ( x_math <= 0 || x_math > 20 || y_math <= 0 || y_math > 20) {
+      var max_x = parseInt($('.worldmap').data('maxx'))
+      var max_y = parseInt($('.worldmap').data('maxy'))
+      if ( x_math <= 0 || x_math > max_x || y_math <= 0 || y_math > max_y) {
         $(this).addClass('outta-world');
       };
     });

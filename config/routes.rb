@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'tutoworlds/show'
+
   get 'recaps/show'
   patch 'recaps/update'
 
