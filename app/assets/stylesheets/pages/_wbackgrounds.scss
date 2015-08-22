@@ -1,10 +1,31 @@
+// WORLD
+
 .worldmap{
     &.default {
     background: image-url('bg.png');
     background-repeat: no-repeat;
     }
     &.foot {
-    background: image-url('foot.png');
+    background: image-url('soccer.png');
     background-repeat: no-repeat;
     }
 }
+
+.fight-display{
+    &.default {
+      text-align: center;
+      background: image-url('fight/fightscenes/default.jpg');
+      background-size: cover;
+      width: 100%;
+    }
+    &.foot {
+      text-align: center;
+      background: image-url('fight/fightscenes/soccer.jpg');
+      background-size: cover;
+      width: 100%;
+    }
+  }
+
+
+// FIGHT
+

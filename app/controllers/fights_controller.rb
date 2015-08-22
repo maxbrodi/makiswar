@@ -23,6 +23,8 @@ class FightsController < ApplicationController
     available_fight_items
     session[:old_crew] = params[:old_crew] if params[:old_crew]
     @old_crew = session[:old_crew]
+    # fight background
+    @fight_bg = current_user.world.background
   end
 
   def update
