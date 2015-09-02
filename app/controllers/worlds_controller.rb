@@ -194,7 +194,9 @@ class WorldsController < ApplicationController
           @tuto_text = "Nice items! <br> You can now go further and hit harder!"
         end
        when 5
-        @tuto_text = "Before you go I must explain some things."
+        @tuto_text = "Each move or attack you make uses some soy sauce."
+        # Items are great to avoid spilling to much soy sauce.
+        # Allright I think you're ready to go! Teleportation!
       end
       # just in case user goes back and lacks soy sauce
       if current_user.soja < 5

@@ -99,10 +99,14 @@
           <!-- player self options -->
           <div class='my-maki hidden'>
             <div class='my-profile text-center'>
-              <%= form_tag user_path, method: :get do %>
-                <%= %>
-                <%= image_tag current_user.crew + '.png', class:'img-options-display' %>
-                <%= submit_tag t('.profile'), class: "confirm-action" %>
+              <% if current_user.x == 4 && current_user.world.tuto %>
+                Touch 'Open Box' to grab items!
+              <% else %>
+                <%= form_tag user_path, method: :get do %>
+                  <%= %>
+                  <%= image_tag current_user.crew + '.png', class:'img-options-display' %>
+                  <%= submit_tag t('.profile'), class: "confirm-action" %>
+                <% end %>
               <% end %>
             </div>
             <div class='search-item text-center'>
@@ -162,7 +166,6 @@
             <% else %>
               <div class="transportation-options bg-2" >
                 <% if current_user.world.tuto %>
-                  <%= image_tag "full_box.png", class:'img-options-display' %>
                   <p class='text-white-shadow text-center' type='submit'>Touch Bounce!</p>
                 <% else %>
                   <%= image_tag "full_box.png", class:'img-options-display' %>
