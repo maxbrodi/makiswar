@@ -11,6 +11,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  broken_count :integer
+#  tuto         :boolean          default(FALSE)
 #
 # Indexes
 #

@@ -88,21 +88,7 @@
               <div class="col-xs-5"><%= image_tag "presentateur.gif", id: "anchorman" %></div>
               <div class="col-xs-6 text-left" id="anchorman-speech">
                 <% if current_user.world.tuto %>
-                  <% if tuto_1 %>
-                  Touch the cell right from your maki. <br> Then touch "bounce"!
-                  <% elsif tuto_2 %>
-                  Wow! So cool! Keep going right!
-                  <% elsif tuto_3 %>
-                  Hey! Is that a box on your right? Go check it out.
-                  <% elsif tuto_4 %>
-                  Touch your maki.
-                  <br> Then touch "Open Box"!
-                  <% elsif tuto_4b %>
-                  That's a nice skate!
-                  <br> Ready to fight? Go right!
-                  <% elsif tuto_5 %>
-                  Before you go I must explain some things.
-                  <% end %>
+                  <%= tuto_text.html_safe %>
                 <% else %>
                   <%= t(info, ennemies: ennemies) %>
                 <% end %>

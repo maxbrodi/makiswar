@@ -65,22 +65,9 @@ class User < ActiveRecord::Base
   end
 
   def preborn
-    tutoworld = World.new
-    tutoworld[:tuto] = true
-    tutoworld[:name] = "tuto"
-    tutoworld[:description] = "Almost done"
-    tutoworld[:background] = "foot"
-    tutoworld[:max_x] = 5
-    tutoworld[:max_y] = 1
-    tutoworld[:usercount] = 1
-    tutoworld.save
-
-    self.world_id = tutoworld.id
-    self.x = 1
-    self.y = 1
-    self.soja_updated_at = Time.now.at_beginning_of_hour
-    self.soja = 50
-    self.save
+    tutoworld = create_tuto_world
+    create_item_for_tuto(tutoworld)
+    set_player_on_tuto(tutoworld)
   end
 
   def born
@@ -117,6 +104,35 @@ class User < ActiveRecord::Base
     n      = others.sample
     self.x = rand((n.x - 2)..(n.x + 2))
     self.y = rand((n.y - 2)..(n.y + 2))
+  end
+
+  def create_tuto_world
+    tutoworld = World.new
+    tutoworld[:tuto] = true
+    tutoworld[:name] = "tuto"
+    tutoworld[:description] = "Almost done"
+    tutoworld[:background] = "foot"
+    tutoworld[:max_x] = 5
+    tutoworld[:max_y] = 1
+    tutoworld[:usercount] = 1
+    tutoworld.save
+    return tutoworld
+  end
+
+  def set_player_on_tuto(tutoworld)
+    self.world_id = tutoworld.id
+    self.x = 1
+    self.y = 1
+    self.soja_updated_at = Time.now.at_beginning_of_hour
+    self.soja = 50
+    self.save
+  end
+
+  def create_item_for_tuto(tutoworld)
+    movement_typeid = ItemType.all.where(kind: "Movement").sample.id
+    attack_typeid = ItemType.all.where(kind: "Attack").sample.id
+    Item.create(item_type_id: movement_typeid, world_id: tutoworld.id, x: 4, y: 1, broken_count: 0, tuto: true)
+    Item.create(item_type_id: attack_typeid, world_id: tutoworld.id, x: 4, y: 1, broken_count: 0, tuto: true)
   end
 
 end

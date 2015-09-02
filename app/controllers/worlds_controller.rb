@@ -48,14 +48,21 @@ class WorldsController < ApplicationController
       @item.save
 
       if @item.broken_count >= @item.item_type.lifetime
-        @item.user_id = nil
-        @item.world_id = current_user.world_id
-        set_item_position_after_broken
-        while User.where(world_id: @item.world_id, x: @item.x, y: @item.y).exists? do
+        # normal items
+        if @item.tuto = false
+          @item.user_id = nil
+          @item.world_id = current_user.world_id
           set_item_position_after_broken
+          while User.where(world_id: @item.world_id, x: @item.x, y: @item.y).exists? do
+            set_item_position_after_broken
+          end
+          @item.broken_count = 0
+          @item.save
+        # items spawned for the tutoriel that must disappear
+        else
+          @item.user_id = nil
+          @item.save
         end
-        @item.broken_count = 0
-        @item.save
 
         # event d'objet casse
         broken = Event.new
@@ -166,19 +173,33 @@ class WorldsController < ApplicationController
     if current_user.world.tuto
       case current_user.x
       when 1
-        @tuto_1 = true
+        @tuto_text = "Touch the cell right from your maki. <br> Then touch 'bounce'!"
       when 2
-        @tuto_2 = true
+        if current_user.items.count == 0
+          @tuto_text = "Wow! So cool! <br>  Keep going right!"
+        else
+          @tuto_text = "If I were you, I'd go right."
+        end
       when 3
-        @tuto_3 = true
+        if current_user.items.count == 0
+          @tuto_text = "Hey! Is that a box on your right? <br> Go check it out."
+        else
+          @tuto_text = "You should keep going right, little maki."
+        end
+
       when 4
         if current_user.items.count == 0
-          @tuto_4 = true
+          @tuto_text = "Touch your maki. <br> Then touch 'Open Box'!"
         else
-          @tuto_4b = true
+          @tuto_text = "Nice items! <br> You can now go further and hit harder!"
         end
        when 5
-        @tuto_5 = true
+        @tuto_text = "Before you go I must explain some things."
+      end
+      # just in case user goes back and lacks soy sauce
+      if current_user.soja < 5
+        current_user.soja = 50
+        current_user.save
       end
     end
   end
