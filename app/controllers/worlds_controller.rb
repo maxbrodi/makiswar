@@ -173,7 +173,7 @@ class WorldsController < ApplicationController
     if current_user.world.tuto
       case current_user.x
       when 1
-        @tuto_text = "Touch the cell right from your maki. <br> Then touch 'bounce'!"
+        @tuto_text = "Hey! Touch the cell right to your maki to move there!"
       when 2
         if current_user.items.count == 0
           @tuto_text = "Wow! So cool! <br>  Keep going right!"
@@ -182,14 +182,14 @@ class WorldsController < ApplicationController
         end
       when 3
         if current_user.items.count == 0
-          @tuto_text = "Hey! Is that a box on your right? <br> Go check it out."
+          @tuto_text = "Wait! Is that a box on your right? <br> Go check it out."
         else
           @tuto_text = "You should keep going right, little maki."
         end
 
       when 4
         if current_user.items.count == 0
-          @tuto_text = "Touch your maki. <br> Then touch 'Open Box'!"
+          @tuto_text = "Touch your maki to see what\'s in the box !"
         else
           @tuto_text = "Nice items! <br> You can now go further and hit harder!"
         end
