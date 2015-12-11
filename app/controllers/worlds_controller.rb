@@ -173,7 +173,7 @@ class WorldsController < ApplicationController
     if current_user.world.tuto
       case current_user.x
       when 1
-        @tuto_text = "Hey! Touch the cell right to your maki to move there!"
+        @tuto_text = "Hey! Touch the cell next to " + current_user.name + " to move there!"
       when 2
         if current_user.items.count == 0
           @tuto_text = "Wow! So cool! <br>  Keep going right!"
@@ -189,16 +189,21 @@ class WorldsController < ApplicationController
 
       when 4
         if current_user.items.count == 0
-          @tuto_text = "Touch your maki to see what\'s in the box !"
+          @tuto_text = "Touch the bouncing box to see what\'s inside!"
         else
           @tuto_text = "Nice items! <br> You can now go further and hit harder!"
         end
-       when 5
-        @tuto_text = "Each move or attack you make uses some soy sauce."
-        # Items are great to avoid spilling to much soy sauce.
-        # Allright I think you're ready to go! Teleportation!
+      when 5
+        @tuto_text = "Each move or attack you make costs some soy sauce."
+      when 6
+        @tuto_text = "Let\'s teleport so I can explain you something, " + current_user.name + "."
+      # in case user goes to far by using several browsers
+      when 7
+        @tuto_text = "WOOOW! Reload the page please!"
+        current_user.x = 6
+        current_user.save
       end
-      # just in case user goes back and lacks soy sauce
+      # in case user goes back and lacks soy sauce
       if current_user.soja < 5
         current_user.soja = 50
         current_user.save

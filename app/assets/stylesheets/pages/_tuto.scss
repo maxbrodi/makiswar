@@ -1,15 +1,48 @@
 .bounce-arrow-left{
   position: absolute;
-  bottom: 2em;
-  left: -1em;
-  width: 46%;
-}
-
-.bounce-arrow-right{
-  position: absolute;
-  bottom: 2.2em;
-  right: 7.2 em;
+  bottom: 23%;
+  left: -8%;
   width: 28%;
 }
 
+  //smarphone version
 
+  .bounce-arrow-left-smartphones{
+    bottom: 31%;
+  }
+
+.bounce-arrow-right{
+  position: absolute;
+  bottom: 3.8em;
+  right: 8.7em;
+  width: 16%;
+}
+
+  // smartphone version
+
+  .bounce-arrow-right-smartphones{
+    bottom: 2.7em;
+    right: 7.4em;
+  }
+
+.bounce-arrow-next{
+  position: absolute;
+  width: 6%;
+  bottom: 30%;
+  left: 67%;
+}
+
+.bounce-arrow-me{
+  position: absolute;
+  width: 6%;
+  bottom: 28%;
+  left: 55%;
+}
+
+
+.bounce-arrow-soy{
+  position: absolute;
+  width: 6%;
+  top: 14%;
+  right: 4%;
+}

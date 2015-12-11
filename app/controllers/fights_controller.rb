@@ -184,6 +184,7 @@ class FightsController < ApplicationController
       # defender loses all items
       if @defender.items.count < 5
         lost_items = @defender.items
+        random_items = []
       else
         lost_items = @defender.items.last(4)
         random_items = @defender.items.first(@defender.items.count - 4)

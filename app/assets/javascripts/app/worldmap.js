@@ -49,6 +49,9 @@ $(function() {
       $('.my-maki .img-options-display').css('width', '35%');
       $('.my-maki .img-options-display').css('margin-top', '1em');
       $('.my-maki .img-options-display').css('margin-bottom', '1em');
+      // tuto
+      $('.bounce-arrow-right').addClass('bounce-arrow-right-smartphones');
+      $('.bounce-arrow-left').addClass('bounce-arrow-left-smartphones');
     };
 
     // iphone 5 - Chrome
@@ -59,6 +62,9 @@ $(function() {
       $('.my-maki .img-options-display').css('width', '35%');
       $('.my-maki .img-options-display').css('margin-top', '1em');
       $('.my-maki .img-options-display').css('margin-bottom', '1em');
+      // tuto
+      $('.bounce-arrow-right').addClass('bounce-arrow-right-smartphones');
+      $('.bounce-arrow-left').addClass('bounce-arrow-left-smartphones');
     };
 
     // iphone 5 - Safari
@@ -69,6 +75,9 @@ $(function() {
       $('.my-maki .img-options-display').css('width', '25%');
       $('.my-maki .img-options-display').css('margin-top', '0.8em');
       $('.my-maki .img-options-display').css('margin-bottom', '0.8em');
+      // tuto
+      $('.bounce-arrow-right').addClass('bounce-arrow-right-smartphones');
+      $('.bounce-arrow-left').addClass('bounce-arrow-left-smartphones');
     };
 
     // iphone 4 - all browser
@@ -103,6 +112,10 @@ $(function() {
       $('.my-maki .text-white-shadow').css('position', 'relative');
       $('.my-maki .text-white-shadow').css('padding', '2px');
       $('.my-maki .text-white-shadow').css('top', '10px');
+
+      // tuto
+      $('.bounce-arrow-right').addClass('bounce-arrow-right-smartphones');
+      $('.bounce-arrow-left').addClass('bounce-arrow-left-smartphones');
     };
 
     // afficher les limites du monde
@@ -140,6 +153,9 @@ $(function() {
     $('.cell').click(function() {
       var cell = $(this);
       showCell(cell);
+      // faire disparaitre indication tutoriel
+      $('.bounce-arrow-next').addClass('hidden');
+      $('.bounce-arrow-me').addClass('hidden');
     });
 
     $('.open-close').click(function() {
@@ -154,6 +170,12 @@ $(function() {
       $('.search-item').removeClass('hidden');
       $('.grab-item').addClass('hidden');
     };
+
+    // tuto: change message when click on soy sauce
+    $('.jauge-tuto').click(function() {
+      $('.bounce-arrow-soy').addClass('hidden');
+      $('#anchorman-speech').text('You get 10 cl of soy sauce every hour. Use them wisely!');
+    });
   };
 
   function showCell(cell) {

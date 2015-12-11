@@ -110,9 +110,9 @@ class User < ActiveRecord::Base
     tutoworld = World.new
     tutoworld[:tuto] = true
     tutoworld[:name] = "tuto"
-    tutoworld[:description] = "Almost done"
-    tutoworld[:background] = "foot"
-    tutoworld[:max_x] = 5
+    tutoworld[:description] = "Still a babymaki"
+    tutoworld[:background] = "tutoworld"
+    tutoworld[:max_x] = 6
     tutoworld[:max_y] = 1
     tutoworld[:usercount] = 1
     tutoworld.save
