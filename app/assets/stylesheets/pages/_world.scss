@@ -1,3 +1,5 @@
+// top options
+
 #life-holder{
   position: absolute;
   top: -11px;
@@ -70,6 +72,7 @@
 }
 
 
+// other classes
 
 .cell{
   width: 20%;
@@ -370,9 +373,10 @@
 
 .teleport{
   position: absolute;
-  bottom: 16%;
-  left: 28%;
-  padding: 10px 41px;
+  top: 18%;
+  left: 17%;
+  width: 65%;
+  opacity: 0.4;
 }
 
 #anchorman {
