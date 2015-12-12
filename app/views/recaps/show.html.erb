@@ -7,14 +7,21 @@
 
       <% if params[:endtuto] %>
 
-      <div class="recap">
+      <div class="recap tuto_scene1" id="grass-bg">
         <h1>End of tuto</h1>
         <p>Time to fight</p>
-        <%= button_to "Resurrect!", { action: 'update' }, method: :patch, id: "resurrect" %>
+
+      </div>
+
+      <div class="recap tuto_scene2 hidden" id="nonsense">
+        <h1>YES</h1>
+        <p>oui</p>
+
       </div>
 
       <div class="action tutostory">
-        <p class= "text-white-shadow">But one day, salmon makis discovered a big bag of wasabi and concluded they were so hot they could rule the world.</p>
+        <p class= "text-white-shadow tuto_scene1">But one day, salmon makis discovered a big bag of wasabi and concluded they were so hot they could rule the world.</p>
+        <%= button_to "Resurrect!", { action: 'update' }, method: :patch, id: "resurrect tuto_scene2 hidden" %>
       </div>
 
       <!-- MORT DU USER -->

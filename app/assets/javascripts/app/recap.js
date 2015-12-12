@@ -31,6 +31,12 @@ $( document ).ready(function() {
         $('.new-crew-delay').removeClass('hidden');
       }, 1200);
     });
+
+    // tuto scenes
+    $('.tuto_scene1').click(function() {
+      $('.tuto_scene1').addClass("hidden");
+      $('.tuto_scene2').removeClass("hidden");
+    });
   };
 
   recapDisplay();

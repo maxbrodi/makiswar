@@ -95,9 +95,10 @@
         <!-- Teleport -->
 
       <% if current_user.world.tuto && current_user.x == 6 %>
-        <%= link_to recaps_show_path(:endtuto => true) do %>
-          <%= image_tag "teleportgif.gif", class: "teleport" %>
+        <%= link_to recaps_show_path, {:endtuto => true}, method: :post do %>
+          <%= image_tag "teleportgif.gif", class: "teleport hidden" %>
         <% end %>
+         <%= button_to " ", recaps_show_path, params: {"endtuto" => true }, method: :post, class: "teleport" %>
       <% end %>
 
       </div>

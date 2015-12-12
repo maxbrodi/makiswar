@@ -372,11 +372,19 @@
 }
 
 .teleport{
+  background-image: url("teleportgif.gif");
   position: absolute;
   top: 18%;
   left: 17%;
   width: 65%;
   opacity: 0.4;
+  width: 68%;
+  height: 68%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
 }
 
 #anchorman {
