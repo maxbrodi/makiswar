@@ -156,6 +156,11 @@
           <!-- player moves options -->
           <div class='new-move scrolls text-center hidden'>
 
+            <!-- explication swipe -->
+            <% if current_user.world.tuto && move_item_types.count > 0 %>
+              <%= image_tag "info/swipeleft.gif", id: 'swipeleft' %>
+            <% end %>
+
             <div class="transportation-options bg-4" >
               <%= image_tag "items/default/bounce.png", class:'img-options-display' %>
               <div class="items_count"><h3>∞</h3></div>

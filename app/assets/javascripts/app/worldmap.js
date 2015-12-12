@@ -176,6 +176,13 @@ $(function() {
       $('.bounce-arrow-soy').addClass('hidden');
       $('#anchorman-speech').text('You get 10 cl of soy sauce every hour. Use them wisely!');
     });
+
+    // tuto: hide swipe left
+   $('#swipeleft').click(function() {
+      $('#swipeleft').addClass('hidden');
+      $('.new-move').scrollLeft(400);
+    });
+
   };
 
   function showCell(cell) {

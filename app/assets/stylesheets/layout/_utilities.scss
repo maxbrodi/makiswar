@@ -124,6 +124,47 @@ button:focus {
   width: 100%;
 }
 
+#story1{
+  background: image-url('tutostory/story1.jpg');
+  background-size: cover;
+  width: 100%;
+}
+
+#story2{
+  background: image-url('tutostory/story2.jpg');
+  background-size: cover;
+  width: 100%;
+}
+
+#story3{
+  background: image-url('tutostory/story3.jpg');
+  background-size: cover;
+  width: 100%;
+}
+
+#story4{
+  background: image-url('tutostory/story4.jpg');
+  background-size: cover;
+  width: 100%;
+}
+
+#teleportbutton{
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 62%;
+  height: 10%;
+  padding: 0;
+}
+
+#swipeleft{
+  position: absolute;
+  z-index: 2;
+  width: 31%;
+  left: 47%;
+  top: 16%;
+}
+
 .confirm-grab {
   color: black;
   background: white;
