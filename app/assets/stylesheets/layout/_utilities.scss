@@ -76,6 +76,24 @@
   }
 }
 
+.next-button {
+  border: 2px solid white;
+  color: white;
+  padding: 3px 8px;
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  &:hover{
+    color:white;
+  }
+  &:active{
+    color: white;
+  }
+  &:focus{
+    color: white;
+  }
+}
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -90,6 +108,11 @@ button:focus {
     1px -1px 0 #000,
    -1px  1px 0 #000,
     1px  1px 0 #000;
+}
+
+.text-fade {
+  color: #d79528;
+  text-shadow: none;
 }
 
 .inline-block {
@@ -157,13 +180,6 @@ button:focus {
   padding: 0;
 }
 
-#swipeleft{
-  position: absolute;
-  z-index: 2;
-  width: 31%;
-  left: 47%;
-  top: 16%;
-}
 
 .confirm-grab {
   color: black;

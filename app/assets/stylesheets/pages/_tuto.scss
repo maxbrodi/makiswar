@@ -5,6 +5,33 @@
   width: 28%;
 }
 
+.arrow-teleport{
+  position: absolute;
+  width: 6%;
+  bottom: 1%;
+  left: 49%;
+  z-index: 2;
+}
+
+.arrow-endtuto{
+  position: absolute;
+  width: 6%;
+  top: 16%;
+  left: 47%;
+  z-index: 2;
+}
+
+// mobile
+@media screen and (max-width: 640px) {
+  .arrow-endtuto {
+      position: absolute;
+      width: 6%;
+      top: 21%;
+      left: 49%;
+      z-index: 2;
+  }
+}
+
   //smarphone version
 
   .bounce-arrow-left-smartphones{
@@ -51,4 +78,22 @@
   width: 9%;
   margin-left: -4px;
   padding-top: 1.6%;
+}
+
+#start-after-tuto{
+  position: absolute;
+  top: 6%;
+  left: 18%;
+  color: white;
+}
+
+
+// mobile
+@media screen and (max-width: 640px) {
+  #start-after-tuto{
+    position: absolute;
+    top: 6%;
+    left: 15%;
+    color: white;
+  }
 }

@@ -95,10 +95,8 @@
         <!-- Teleport -->
 
       <% if current_user.world.tuto && current_user.x == 6 %>
-        <%= link_to recaps_show_path, {:endtuto => true}, method: :post do %>
-          <%= image_tag "teleportgif.gif", class: "teleport hidden" %>
-        <% end %>
          <%= button_to " ", recaps_show_path, params: {"endtuto" => true }, method: :post, class: "teleport" %>
+         <%= image_tag "info/arrow_top.gif", class: "arrow-teleport" %>
       <% end %>
 
       </div>
@@ -156,27 +154,6 @@
           <!-- player moves options -->
           <div class='new-move scrolls text-center hidden'>
 
-            <!-- explication swipe -->
-            <% if current_user.world.tuto && move_item_types.count > 0 %>
-              <%= image_tag "info/swipeleft.gif", id: 'swipeleft' %>
-            <% end %>
-
-            <div class="transportation-options bg-4" >
-              <%= image_tag "items/default/bounce.png", class:'img-options-display' %>
-              <div class="items_count"><h3>∞</h3></div>
-              <div class="consumption"><h3>4cl</h3></div>
-              <%= form_tag worlds_update_path, method: :put, remote: true do %>
-                <%= hidden_field_tag :choice, "move" %>
-                <%= hidden_field_tag :item_type_id, 'feet' %>
-                <%= hidden_field_tag :new_position,'',class:'new_position' %>
-                <% if current_user.soja >= 4 %>
-                  <%= submit_tag "Bounce", class: "confirm-action" %>
-                <% else %>
-                <p class="not-possible"><%= t(".nosoy", missing_cl: 4 - current_user.soja) %></p>
-                <% end %>
-              <% end %>
-            </div>
-
             <% if move_item_types.count > 0 %>
               <% move_item_types.each do |item_type| %>
                 <div class="transportation-options bg-<%= item_type.consumption %>" >
@@ -195,14 +172,33 @@
                   <% end %>
                 </div>
               <% end %>
-            <% else %>
+            <% end %>
+
+            <div class="transportation-options bg-4" >
+              <%= image_tag "items/default/bounce.png", class:'img-options-display' %>
+              <div class="items_count"><h3>∞</h3></div>
+              <div class="consumption"><h3>4cl</h3></div>
+              <%= form_tag worlds_update_path, method: :put, remote: true do %>
+                <%= hidden_field_tag :choice, "move" %>
+                <%= hidden_field_tag :item_type_id, 'feet' %>
+                <%= hidden_field_tag :new_position,'',class:'new_position' %>
+                <% if current_user.soja >= 4 %>
+                  <%= submit_tag "Bounce", class: "confirm-action" %>
+                <% else %>
+                <p class="not-possible"><%= t(".nosoy", missing_cl: 4 - current_user.soja) %></p>
+                <% end %>
+              <% end %>
+            </div>
+
+
+            <% if move_item_types.count == 0 %>
               <div class="transportation-options bg-2" >
                 <% if current_user.world.tuto %>
                   <%= image_tag "info/arrow_left.gif", class:'bounce-arrow-left' %>
                 <% else %>
-                  <%= image_tag "full_box.png", class:'img-options-display' %>
+                  <%= image_tag "items/noitem.png", class:'img-options-display' %>
                   <br>
-                  <p class='text-white-shadow text-center' type='submit'>Go get some items!</p>
+                  <p class='text-fade text-center' type='submit'>You have no item.</p>
                 <% end %>
               </div>
             <% end %>

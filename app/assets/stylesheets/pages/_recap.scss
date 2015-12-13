@@ -18,7 +18,14 @@
 }
 
 .tutostory {
-  padding: 1% 10%;
+  padding: 29% 4%;
+}
+
+// mobile
+@media screen and (max-width: 640px) {
+.tutostory {
+  padding: 1% 4%;
+}
 }
 
 .crew-change {
