@@ -2,8 +2,48 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
 
-      <!-- EN CAS DE MORT DU USER -->
-      <% if @dead %>
+
+      <!-- END OF TUTO -->
+
+      <% if params[:endtuto] %>
+
+      <div class="recap tuto_scene1" id="story1">
+        <p class="next-button">Next</p>
+      </div>
+
+      <div class="recap tuto_scene2 hidden" id="story2">
+        <p class="next-button">Next</p>
+      </div>
+
+      <div class="recap tuto_scene3 hidden" id="story3">
+        <p class="next-button">Next</p>
+      </div>
+
+      <div class="recap tuto_scene4 hidden" id="story4">
+        <%= button_to "Join the battle", { action: 'update' }, method: :patch, class: "tuto_scene4 btn btn-home hidden", id: "start-after-tuto" %>
+         <%= image_tag "info/arrow_top.gif", class: "arrow-endtuto" %>
+      </div>
+
+      <div class="action tutostory">
+        <p class= "text-white-shadow tuto_scene1">
+          Salmon and avocado makis used to smoke seaweed and live in harmony
+          <%= image_tag "threepoints.gif", id: "threepoints" %>
+        </p>
+        <p class= "text-white-shadow tuto_scene2 hidden">
+          But one day, salmon makis discovered a big bag of wasabi and concluded they were so hot they could rule the world
+          <%= image_tag "threepoints.gif", id: "threepoints" %>
+        </p>
+        <p class= "text-white-shadow tuto_scene3 hidden">
+          Jealous as hell, avocado makis managed to steal half of it and conquer the west islands. The war was on
+          <%= image_tag "threepoints.gif", id: "threepoints" %>
+        </p>
+        <p class= "text-white-shadow tuto_scene4 hidden">
+          You'll soon be part of one of the two crews. Conquer the world with it and get the most wasabi you can!
+        </p>
+      </div>
+
+      <!-- MORT DU USER -->
+      <% elsif @dead %>
 
         <div class="recap">
           <h1><%= current_user.name %> died!</h1>

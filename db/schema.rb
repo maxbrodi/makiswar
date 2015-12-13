@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708182443) do
+ActiveRecord::Schema.define(version: 20150902142828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,14 +50,22 @@ ActiveRecord::Schema.define(version: 20150708182443) do
     t.integer  "world_id"
     t.integer  "user_id"
     t.integer  "item_type_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "broken_count", default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "broken_count"
+    t.boolean  "tuto",         default: false
   end
 
   add_index "items", ["item_type_id"], name: "index_items_on_item_type_id", using: :btree
   add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
   add_index "items", ["world_id"], name: "index_items_on_world_id", using: :btree
+
+  create_table "tuto_worlds", force: :cascade do |t|
+    t.integer  "max_x"
+    t.integer  "max_y"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",         null: false
@@ -93,9 +101,10 @@ ActiveRecord::Schema.define(version: 20150708182443) do
     t.string   "background"
     t.integer  "max_x"
     t.integer  "max_y"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "usercount",   default: 0
+    t.boolean  "tuto",        default: true
   end
 
   add_foreign_key "events", "users"

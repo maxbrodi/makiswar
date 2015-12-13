@@ -31,6 +31,22 @@ $( document ).ready(function() {
         $('.new-crew-delay').removeClass('hidden');
       }, 1200);
     });
+
+    // tuto scenes
+    $('.tuto_scene1').click(function() {
+      $('.tuto_scene1').addClass("hidden");
+      $('.tuto_scene2').removeClass("hidden");
+    });
+    $('.tuto_scene2').click(function() {
+      $('.tuto_scene2').addClass("hidden");
+      $('.tuto_scene3').removeClass("hidden");
+    });
+    $('.tuto_scene3').click(function() {
+      $('.tuto_scene3').addClass("hidden");
+      $('.tuto_scene4').removeClass("hidden");
+    });
+
+
   };
 
   recapDisplay();

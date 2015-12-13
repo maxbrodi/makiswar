@@ -44,7 +44,7 @@ class RecapsController < ApplicationController
 
     current_user.born
 
-    current_user.soja = 24
+    current_user.soja = 50
     current_user.life = 10
     current_user.save
 

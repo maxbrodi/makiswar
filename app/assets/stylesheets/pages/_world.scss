@@ -1,7 +1,4 @@
-.worldmap{
-  background: image-url('bg.png');
-  background-repeat: no-repeat;
-}
+// top options
 
 #life-holder{
   position: absolute;
@@ -75,6 +72,7 @@
 }
 
 
+// other classes
 
 .cell{
   width: 20%;
@@ -371,6 +369,22 @@
       padding: 8px 0px;
     }
   }
+}
+
+.teleport{
+  background-image: url("teleportgif.gif");
+  position: absolute;
+  top: 18%;
+  left: 17%;
+  width: 65%;
+  opacity: 0.4;
+  width: 68%;
+  height: 68%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
 }
 
 #anchorman {

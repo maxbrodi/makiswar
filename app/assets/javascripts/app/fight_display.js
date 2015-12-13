@@ -10,6 +10,11 @@
     $('.the-fight').css("height", infoHeight);
     $('.weapon-options').css("height", infoHeight);
 
+    // set background
+    var fightbg = $( '.fight-display' ).data('bg');
+    $('.fight-display').removeClass( 'default' );
+    $('.fight-display').addClass( fightbg );
+
     // iphone 6 - Chrome
     if (infoHeight <= 225 && infoHeight > 200){
       $('.weapon-options .img-options-display').css('width', '40%');

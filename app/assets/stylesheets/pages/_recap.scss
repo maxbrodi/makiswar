@@ -17,6 +17,17 @@
   max-height: 280px;
 }
 
+.tutostory {
+  padding: 29% 4%;
+}
+
+// mobile
+@media screen and (max-width: 640px) {
+.tutostory {
+  padding: 1% 4%;
+}
+}
+
 .crew-change {
   height: 50%;
 }

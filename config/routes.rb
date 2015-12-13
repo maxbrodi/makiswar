@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'tutoworlds/show'
+
   get 'recaps/show'
+  post 'recaps/show'
   patch 'recaps/update'
 
   get 'fights/show'

@@ -10,7 +10,6 @@ class WorldsController < ApplicationController
     set_world_info
     sojajauge
     available_move_items
-    tuto
   end
 
   def update
@@ -22,7 +21,6 @@ class WorldsController < ApplicationController
     set_world_info
     sojajauge
     available_move_items
-    tuto
   end
 
   private
@@ -48,21 +46,14 @@ class WorldsController < ApplicationController
       @item.save
 
       if @item.broken_count >= @item.item_type.lifetime
-        # normal items
-        if @item.tuto = false
-          @item.user_id = nil
-          @item.world_id = current_user.world_id
+        @item.user_id = nil
+        @item.world_id = current_user.world_id
+        set_item_position_after_broken
+        while User.where(world_id: @item.world_id, x: @item.x, y: @item.y).exists? do
           set_item_position_after_broken
-          while User.where(world_id: @item.world_id, x: @item.x, y: @item.y).exists? do
-            set_item_position_after_broken
-          end
-          @item.broken_count = 0
-          @item.save
-        # items spawned for the tutoriel that must disappear
-        else
-          @item.user_id = nil
-          @item.save
         end
+        @item.broken_count = 0
+        @item.save
 
         # event d'objet casse
         broken = Event.new
@@ -127,8 +118,6 @@ class WorldsController < ApplicationController
   def set_world_info
     # background info
     @world_background = current_user.world.background
-    @max_x =  current_user.world.max_x
-    @max_y =  current_user.world.max_y
     # user infos
     @life = current_user.life
     @soja = current_user.soja
@@ -167,48 +156,6 @@ class WorldsController < ApplicationController
   def set_item_position_after_broken
     @item.x = rand(1..current_user.world.max_x)
     @item.y = rand(1..current_user.world.max_y)
-  end
-
-  def tuto
-    if current_user.world.tuto
-      case current_user.x
-      when 1
-        @tuto_text = "Hey! Touch the cell next to " + current_user.name + " to move there!"
-      when 2
-        if current_user.items.count == 0
-          @tuto_text = "Wow! So cool! <br>  Keep going right!"
-        else
-          @tuto_text = "If I were you, I'd go right."
-        end
-      when 3
-        if current_user.items.count == 0
-          @tuto_text = "Wait! Is that a box on your right? <br> Go check it out."
-        else
-          @tuto_text = "You should keep going right, little maki."
-        end
-
-      when 4
-        if current_user.items.count == 0
-          @tuto_text = "Touch the bouncing box to see what\'s inside!"
-        else
-          @tuto_text = "Nice items! <br> You can now go further and hit harder!"
-        end
-      when 5
-        @tuto_text = "Each move or attack you make costs some soy sauce."
-      when 6
-        @tuto_text = "Let\'s teleport so I can explain you something, " + current_user.name + "."
-      # in case user goes to far by using several browsers
-      when 7
-        @tuto_text = "WOOOW! Reload the page please!"
-        current_user.x = 6
-        current_user.save
-      end
-      # in case user goes back and lacks soy sauce
-      if current_user.soja < 5
-        current_user.soja = 50
-        current_user.save
-      end
-    end
   end
 
 end

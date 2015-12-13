@@ -13,6 +13,12 @@ $(function() {
     // check if user is on item on load
 
 
+    // set background
+    var worldbg = $( '.worldmap' ).data('bg');
+    $('.worldmap').removeClass( 'default' );
+    $('.worldmap').addClass( worldbg );
+
+
     // ajustement de la hauteur des divs + position du joueur sur le background
     $('.cell').css("height", cellwidth);
     $('.worldmap').css("height", worldSize);
@@ -43,6 +49,9 @@ $(function() {
       $('.my-maki .img-options-display').css('width', '35%');
       $('.my-maki .img-options-display').css('margin-top', '1em');
       $('.my-maki .img-options-display').css('margin-bottom', '1em');
+      // tuto
+      $('.bounce-arrow-right').addClass('bounce-arrow-right-smartphones');
+      $('.bounce-arrow-left').addClass('bounce-arrow-left-smartphones');
     };
 
     // iphone 5 - Chrome
@@ -53,6 +62,9 @@ $(function() {
       $('.my-maki .img-options-display').css('width', '35%');
       $('.my-maki .img-options-display').css('margin-top', '1em');
       $('.my-maki .img-options-display').css('margin-bottom', '1em');
+      // tuto
+      $('.bounce-arrow-right').addClass('bounce-arrow-right-smartphones');
+      $('.bounce-arrow-left').addClass('bounce-arrow-left-smartphones');
     };
 
     // iphone 5 - Safari
@@ -63,6 +75,9 @@ $(function() {
       $('.my-maki .img-options-display').css('width', '25%');
       $('.my-maki .img-options-display').css('margin-top', '0.8em');
       $('.my-maki .img-options-display').css('margin-bottom', '0.8em');
+      // tuto
+      $('.bounce-arrow-right').addClass('bounce-arrow-right-smartphones');
+      $('.bounce-arrow-left').addClass('bounce-arrow-left-smartphones');
     };
 
     // iphone 4 - all browser
@@ -97,13 +112,19 @@ $(function() {
       $('.my-maki .text-white-shadow').css('position', 'relative');
       $('.my-maki .text-white-shadow').css('padding', '2px');
       $('.my-maki .text-white-shadow').css('top', '10px');
+
+      // tuto
+      $('.bounce-arrow-right').addClass('bounce-arrow-right-smartphones');
+      $('.bounce-arrow-left').addClass('bounce-arrow-left-smartphones');
     };
 
     // afficher les limites du monde
     $('.cell').each(function() {
       var x_math = parseInt($(this).data('cell').toString().split('')[0]) + x_shift
       var y_math = parseInt($(this).data('cell').toString().split('')[1]) + y_shift
-      if ( x_math <= 0 || x_math > 20 || y_math <= 0 || y_math > 20) {
+      var max_x = parseInt($('.worldmap').data('maxx'))
+      var max_y = parseInt($('.worldmap').data('maxy'))
+      if ( x_math <= 0 || x_math > max_x || y_math <= 0 || y_math > max_y) {
         $(this).addClass('outta-world');
       };
     });
@@ -132,6 +153,9 @@ $(function() {
     $('.cell').click(function() {
       var cell = $(this);
       showCell(cell);
+      // faire disparaitre indication tutoriel
+      $('.bounce-arrow-next').addClass('hidden');
+      $('.bounce-arrow-me').addClass('hidden');
     });
 
     $('.open-close').click(function() {
@@ -139,15 +163,26 @@ $(function() {
     });
 
     if ($('#player').hasClass('item')) {
-      console.log('yo')
       $('.grab-item').removeClass('hidden');
       $('.search-item').addClass('hidden');
     }
     else {
-      console.log('ya')
       $('.search-item').removeClass('hidden');
       $('.grab-item').addClass('hidden');
     };
+
+    // tuto: change message when click on soy sauce
+    $('.jauge-tuto').click(function() {
+      $('.bounce-arrow-soy').addClass('hidden');
+      $('#anchorman-speech').text('You get 10 cl of soy sauce every hour. Use them wisely!');
+    });
+
+    // tuto: hide swipe left
+   $('#swipeleft').click(function() {
+      $('#swipeleft').addClass('hidden');
+      $('.new-move').scrollLeft(400);
+    });
+
   };
 
   function showCell(cell) {

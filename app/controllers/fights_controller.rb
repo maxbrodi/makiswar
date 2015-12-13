@@ -23,6 +23,8 @@ class FightsController < ApplicationController
     available_fight_items
     session[:old_crew] = params[:old_crew] if params[:old_crew]
     @old_crew = session[:old_crew]
+    # fight background
+    @fight_bg = current_user.world.background
   end
 
   def update
@@ -74,14 +76,20 @@ class FightsController < ApplicationController
           @item.save
           # bris d'objet
           if @item.broken_count >= @item.item_type.lifetime
-            @item.user_id = nil
-            @item.world_id = current_user.world_id
-            set_item_position_after_broken
-            while User.where(world_id: @item.world_id, x: @item.x, y: @item.y).exists? do
+            if @item.tuto = false
+              @item.user_id = nil
+              @item.world_id = current_user.world_id
               set_item_position_after_broken
+              while User.where(world_id: @item.world_id, x: @item.x, y: @item.y).exists? do
+                set_item_position_after_broken
+              end
+              @item.broken_count = 0
+              @item.save
+            # items spawned for the tutoriel that must disappear
+            else
+              @item.user_id = nil
+              @item.save
             end
-            @item.broken_count = 0
-            @item.save
 
             # event d'objet casse
             broken = Event.new
@@ -176,26 +184,33 @@ class FightsController < ApplicationController
       # defender loses all items
       if @defender.items.count < 5
         lost_items = @defender.items
+        random_items = []
       else
         lost_items = @defender.items.last(4)
         random_items = @defender.items.first(@defender.items.count - 4)
+      end
 
-        random_items.each do |item|
-        item.world_id = @defender.world_id
-        item.x = rand(1..current_user.world.max_x)
-        item.y = rand(1..current_user.world.max_y)
-        item.user_id = nil
-        item.broken_count = 0
-        item.save
-      end
-      end
       lost_items.each do |item|
-        item.world_id = @defender.world_id
-        item.x = @defender.x
-        item.y = @defender.y
-        item.user_id = nil
-        item.save
+        if item.tuto = false
+          item.world_id = @defender.world_id
+          item.x = @defender.x
+          item.y = @defender.y
+        end
+          item.user_id = nil
+          item.save
       end
+
+      random_items.each do |item|
+        if item.tuto = false
+          item.world_id = @defender.world_id
+          item.x = rand(1..current_user.world.max_x)
+          item.y = rand(1..current_user.world.max_y)
+          item.broken_count = 0
+        end
+          item.user_id = nil
+          item.save
+      end
+
       # defender dies
       @defender.world_id = nil
       @defender.x = nil

@@ -1,0 +1,99 @@
+.bounce-arrow-left{
+  position: absolute;
+  bottom: 23%;
+  left: -8%;
+  width: 28%;
+}
+
+.arrow-teleport{
+  position: absolute;
+  width: 6%;
+  bottom: 1%;
+  left: 49%;
+  z-index: 2;
+}
+
+.arrow-endtuto{
+  position: absolute;
+  width: 6%;
+  top: 16%;
+  left: 47%;
+  z-index: 2;
+}
+
+// mobile
+@media screen and (max-width: 640px) {
+  .arrow-endtuto {
+      position: absolute;
+      width: 6%;
+      top: 21%;
+      left: 49%;
+      z-index: 2;
+  }
+}
+
+  //smarphone version
+
+  .bounce-arrow-left-smartphones{
+    bottom: 31%;
+  }
+
+.bounce-arrow-right{
+  position: absolute;
+  bottom: 3.8em;
+  right: 8.7em;
+  width: 16%;
+}
+
+  // smartphone version
+
+  .bounce-arrow-right-smartphones{
+    bottom: 2.7em;
+    right: 7.4em;
+  }
+
+.bounce-arrow-next{
+  position: absolute;
+  width: 6%;
+  bottom: 30%;
+  left: 67%;
+}
+
+.bounce-arrow-me{
+  position: absolute;
+  width: 6%;
+  bottom: 28%;
+  left: 55%;
+}
+
+
+.bounce-arrow-soy{
+  position: absolute;
+  width: 6%;
+  top: 14%;
+  right: 4%;
+}
+
+#threepoints{
+  width: 9%;
+  margin-left: -4px;
+  padding-top: 1.6%;
+}
+
+#start-after-tuto{
+  position: absolute;
+  top: 6%;
+  left: 18%;
+  color: white;
+}
+
+
+// mobile
+@media screen and (max-width: 640px) {
+  #start-after-tuto{
+    position: absolute;
+    top: 6%;
+    left: 15%;
+    color: white;
+  }
+}

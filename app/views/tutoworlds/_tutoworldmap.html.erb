@@ -4,7 +4,7 @@
 
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
 
-        <div class="worldmap default" data-bg='<%= world_background%>' data-maxx="<%= max_x %>" data-maxy="<%= max_y %>">
+        <div class="worldmap default" data-bg='<%= world_background%>'>
           <!-- first row -->
           <div class="cell" data-cell="11"></div>
           <div class="cell" data-cell="21"></div>
@@ -21,18 +21,7 @@
           <div class="cell" data-cell="13"></div>
           <div class="cell welcome" data-cell="23"></div>
           <div class="cell" id='player' data-cell="33" data-shift-x="<%= x_shift %>" data-shift-y="<%= y_shift %>" data-playercrew="<%= current_user.crew %>"></div>
-          <div class="cell welcome" data-cell="43">
-            <!-- arrow to indicate cells in tuto -->
-            <% if current_user.world.tuto %>
-              <% if current_user.x < 4 && current_user.items.count == 0 %>
-                <%= image_tag "info/arrow_top.gif", class:'bounce-arrow-next' %>
-              <% elsif current_user.x == 4 && current_user.items.count == 0 %>
-                <%= image_tag "info/arrow_top.gif", class:'bounce-arrow-me' %>
-              <% elsif current_user.x == 5 %>
-                <%= image_tag "info/arrow_yellow.gif", class:'bounce-arrow-soy' %>
-              <% end %>
-            <% end %>
-          </div>
+          <div class="cell welcome" data-cell="43"></div>
           <div class="cell" data-cell="53"></div>
           <!-- fourth row -->
           <div class="cell" data-cell="14"></div>
@@ -53,11 +42,7 @@
               x<%= life %>
             </div>
           </div>
-          <% if current_user.world.tuto %>
-            <div id="jauge-holder" class="jauge-tuto">
-          <% else %>
-            <div id="jauge-holder">
-          <% end %>
+          <div id="jauge-holder">
             <%= image_tag "info/soja_" + jauge, id: "jauge" %>
             <div id="soja" class="text-center">
               <%= soja %>
@@ -92,13 +77,6 @@
           </table>
         </div>
 
-        <!-- Teleport -->
-
-      <% if current_user.world.tuto && current_user.x == 6 %>
-         <%= button_to " ", recaps_show_path, params: {"endtuto" => true }, method: :post, class: "teleport" %>
-         <%= image_tag "info/arrow_top.gif", class: "arrow-teleport" %>
-      <% end %>
-
       </div>
 
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
@@ -108,30 +86,17 @@
           <div class="news-info text-center">
             <div class="info-holder">
               <div class="col-xs-5"><%= image_tag "presentateur.gif", id: "anchorman" %></div>
-              <div class="col-xs-6 text-left" id="anchorman-speech">
-                <% if current_user.world.tuto %>
-                  <%= tuto_text.html_safe %>
-                  <% if current_user.x == 6 %>
-                    <%= button_to t('.confirm_attack'), fights_show_path, params: {"endtuto" => true }, class: "attack-opponent hidden" %>
-                  <% end %>
-                <% else %>
-                  <%= t(info, ennemies: ennemies) %>
-                <% end %>
-              </div>
+              <div class="col-xs-6 text-left" id="anchorman-speech"><%= t(info, ennemies: ennemies) %></div>
             </div>
           </div>
 
           <!-- player self options -->
           <div class='my-maki hidden'>
             <div class='my-profile text-center'>
-              <% if current_user.x == 4 && current_user.world.tuto && current_user.items.count == 0 %>
-                <%= image_tag "info/arrow_right.gif", class:'bounce-arrow-right' %>
-              <% else %>
-                <%= form_tag user_path, method: :get do %>
-                  <%= %>
-                  <%= image_tag current_user.crew + '.png', class:'img-options-display' %>
-                  <%= submit_tag t('.profile'), class: "confirm-action" %>
-                <% end %>
+              <%= form_tag user_path, method: :get do %>
+                <%= %>
+                <%= image_tag current_user.crew + '.png', class:'img-options-display' %>
+                <%= submit_tag t('.profile'), class: "confirm-action" %>
               <% end %>
             </div>
             <div class='search-item text-center'>
@@ -154,6 +119,22 @@
           <!-- player moves options -->
           <div class='new-move scrolls text-center hidden'>
 
+            <div class="transportation-options bg-4" >
+              <%= image_tag "items/default/bounce.png", class:'img-options-display' %>
+              <div class="items_count"><h3>∞</h3></div>
+              <div class="consumption"><h3>4cl</h3></div>
+              <%= form_tag worlds_update_path, method: :put, remote: true do %>
+                <%= hidden_field_tag :choice, "move" %>
+                <%= hidden_field_tag :item_type_id, 'feet' %>
+                <%= hidden_field_tag :new_position,'',class:'new_position' %>
+                <% if current_user.soja >= 4 %>
+                  <%= submit_tag "Bounce", class: "confirm-action" %>
+                <% else %>
+                <p class="not-possible"><%= t(".nosoy", missing_cl: 4 - current_user.soja) %></p>
+                <% end %>
+              <% end %>
+            </div>
+
             <% if move_item_types.count > 0 %>
               <% move_item_types.each do |item_type| %>
                 <div class="transportation-options bg-<%= item_type.consumption %>" >
@@ -172,34 +153,11 @@
                   <% end %>
                 </div>
               <% end %>
-            <% end %>
-
-            <div class="transportation-options bg-4" >
-              <%= image_tag "items/default/bounce.png", class:'img-options-display' %>
-              <div class="items_count"><h3>∞</h3></div>
-              <div class="consumption"><h3>4cl</h3></div>
-              <%= form_tag worlds_update_path, method: :put, remote: true do %>
-                <%= hidden_field_tag :choice, "move" %>
-                <%= hidden_field_tag :item_type_id, 'feet' %>
-                <%= hidden_field_tag :new_position,'',class:'new_position' %>
-                <% if current_user.soja >= 4 %>
-                  <%= submit_tag "Bounce", class: "confirm-action" %>
-                <% else %>
-                <p class="not-possible"><%= t(".nosoy", missing_cl: 4 - current_user.soja) %></p>
-                <% end %>
-              <% end %>
-            </div>
-
-
-            <% if move_item_types.count == 0 %>
+            <% else %>
               <div class="transportation-options bg-2" >
-                <% if current_user.world.tuto %>
-                  <%= image_tag "info/arrow_left.gif", class:'bounce-arrow-left' %>
-                <% else %>
-                  <%= image_tag "items/noitem.png", class:'img-options-display' %>
-                  <br>
-                  <p class='text-fade text-center' type='submit'>You have no item.</p>
-                <% end %>
+                <%= image_tag "full_box.png", class:'img-options-display' %>
+                <br>
+                <p class='text-white-shadow text-center' type='submit'>Go get some items!</p>
               </div>
             <% end %>
           </div>
@@ -232,4 +190,5 @@
     </div>
   </div>
 </div>
+
 
