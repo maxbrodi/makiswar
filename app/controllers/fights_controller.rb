@@ -189,15 +189,17 @@ class FightsController < ApplicationController
         lost_items = @defender.items.last(4)
         random_items = @defender.items.first(@defender.items.count - 4)
       end
+
       lost_items.each do |item|
         if item.tuto = false
           item.world_id = @defender.world_id
           item.x = @defender.x
           item.y = @defender.y
         end
-        item.user_id = nil
-        item.save
+          item.user_id = nil
+          item.save
       end
+
       random_items.each do |item|
         if item.tuto = false
           item.world_id = @defender.world_id
@@ -205,9 +207,10 @@ class FightsController < ApplicationController
           item.y = rand(1..current_user.world.max_y)
           item.broken_count = 0
         end
-        item.user_id = nil
-        item.save
+          item.user_id = nil
+          item.save
       end
+
       # defender dies
       @defender.world_id = nil
       @defender.x = nil
