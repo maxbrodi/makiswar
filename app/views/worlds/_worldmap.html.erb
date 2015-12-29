@@ -165,7 +165,7 @@
                     <%= hidden_field_tag :item_type_id, item_type.id %>
                     <%= hidden_field_tag :new_position,'',class:'new_position' %>
                     <% if current_user.soja >= item_type.consumption %>
-                      <%= submit_tag item_type.name, class: "confirm-action" %>
+                      <%= submit_tag item_type.name, class: "confirm-action minipulse" %>
                     <% else %>
                     <p class="not-possible"><%= t(".nosoy", missing_cl: item_type.consumption - current_user.soja) %></p>
                     <% end %>
@@ -183,7 +183,7 @@
                 <%= hidden_field_tag :item_type_id, 'feet' %>
                 <%= hidden_field_tag :new_position,'',class:'new_position' %>
                 <% if current_user.soja >= 4 %>
-                  <%= submit_tag "Bounce", class: "confirm-action" %>
+                  <%= submit_tag "Bounce", class: "confirm-action minipulse" %>
                 <% else %>
                 <p class="not-possible"><%= t(".nosoy", missing_cl: 4 - current_user.soja) %></p>
                 <% end %>
