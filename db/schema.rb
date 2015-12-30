@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902142828) do
+ActiveRecord::Schema.define(version: 20151230230347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20150902142828) do
     t.integer  "world_id"
     t.string   "lowername"
     t.datetime "soja_updated_at"
+    t.integer  "wasabi",                 default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

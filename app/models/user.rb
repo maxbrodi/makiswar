@@ -24,6 +24,7 @@
 #  world_id               :integer
 #  lowername              :string
 #  soja_updated_at        :datetime
+#  wasabi                 :integer          default(0)
 #
 # Indexes
 #
