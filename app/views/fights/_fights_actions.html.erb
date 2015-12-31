@@ -35,6 +35,7 @@
             <% if killed %>
               <div id="ko">
                 <%= image_tag "fight/ko.png", class: "bigEntrance" %>
+                <h2><%= t(".killed", opponent: defender.name) %></h2>
               </div>
             <% end %>
         </div>
@@ -86,7 +87,10 @@
 
           <% if killed %>
             <div id="killed">
-              <h2><%= t(".killed", opponent: defender.name) %></h2>
+              <% session[:wasabi_won].times do %>
+                <%= image_tag "info/wasabi.png", class:"wasabi-won expandOpen" %>
+              <% end %>
+              <p>You earned <%= session[:wasabi_won]%>g of wasabi!</p>
               <br>
               <p><%= link_to "Back to the future", worlds_show_path, class: "confirm-action" %></p>
             </div>
