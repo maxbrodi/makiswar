@@ -214,6 +214,7 @@
                 <div class="col-xs-7 ">
                   <div class="othermaki-info">
                     <h3><%= player.name %></h3>
+                    <p><%= image_tag "info/wasabi.png", class:"player-wasabi" %><%= player.wasabi %>g</p>
                     <%= button_to t('.confirm_attack'), fights_show_path, params: {"defender" => player.id, "old_crew" => current_user.crew }, class: "attack-opponent hidden" %>
                   </div>
                 </div>

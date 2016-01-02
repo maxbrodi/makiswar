@@ -280,9 +280,8 @@ class FightsController < ApplicationController
 
   def set_ennemies
     case current_user.crew
-    when "avocado" then @ennemies = "salmons"
-    when "salmon" then @ennemies = "avocados"
-    when "bastardo" then @ennemies = "everyone"
+    when "avocado" then @ennemies = "salmon"
+    when "salmon" then @ennemies = "avocado"
     end
   end
 
@@ -299,12 +298,14 @@ class FightsController < ApplicationController
       else
         wasabi_won = 0
       end
-    else attacker.crew == "bastardo"
+    elsif attacker.crew == "bastardo"
       if defender.crew == "babyrice"
         wasabi_won = 1
       else
         wasabi_won = 4
       end
+    else
+      wasabi_won = 4
     end
     attacker.wasabi += wasabi_won
     session[:wasabi_won] = wasabi_won
