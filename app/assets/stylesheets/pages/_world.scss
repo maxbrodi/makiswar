@@ -255,6 +255,7 @@
 .info-bottom {
   background-color: $info;
   color: white;
+  overflow: scroll;
   text-shadow:
    -1px -1px 0 #000,
     1px -1px 0 #000,
@@ -391,7 +392,7 @@
   width: 18%;
 }
 
-#anchorman {
+.profilepic {
   width: 103%;
 }
 

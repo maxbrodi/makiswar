@@ -107,7 +107,7 @@
           <!-- funky news -->
           <div class="news-info text-center">
             <div class="info-holder">
-              <div class="col-xs-5"><%= image_tag "presentateur.gif", id: "anchorman" %></div>
+              <div class="col-xs-5"><%= image_tag "presentateur.gif", class: "profilepic" %></div>
               <div class="col-xs-6 text-left" id="anchorman-speech">
                 <% if current_user.world.tuto %>
                   <%= tuto_text.html_safe %>
@@ -208,14 +208,14 @@
           <% players_on_map.each do |cell, player| %>
             <div class="cell-info text-center hidden" id="cell-info-<%= cell %>" data-x="<%= player.x - x_shift %>" data-y="<%= player.y - y_shift%>" data-crew="<%= player.crew %>" >
               <div class="info-holder">
-                <div class="col-xs-5">
-                  <%= image_tag "emblems/" + player.crew + ".gif", id: "emblem" %>
-                </div>
-                <div class="col-xs-7 ">
-                  <div class="othermaki-info">
-                    <h3><%= player.name %></h3>
-                    <p><%= image_tag "info/wasabi.png", class:"player-wasabi" %><%= player.wasabi %>g</p>
-                    <%= button_to t('.confirm_attack'), fights_show_path, params: {"defender" => player.id, "old_crew" => current_user.crew }, class: "attack-opponent hidden" %>
+                <div class="visitcard">
+                  <div class="col-xs-5">
+                    <%= image_tag "profilepics/" + player.crew + ".png", class: "profilepic" %>
+                  </div>
+                  <div class="col-xs-7">
+                    avocado
+                    5g
+                    attack
                   </div>
                 </div>
               </div>
