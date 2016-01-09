@@ -213,10 +213,16 @@
                     <div class="profilename"><%= player.name %></div>
                     <%= image_tag "profilepics/" + player.crew + ".png", class: "profilepic" %>
                   </div>
-                  <div class="col-xs-7">
-                    avocado
-                    5g
-                    attack
+                  <div class="col-xs-7 profileinfos">
+                    <p>
+                      <%= image_tag "emblems/" + player.crew + ".gif", id: "emblem" %>
+                      Team <%= player.crew %>
+                    </p>
+                    <p>
+                      <%= image_tag "info/wasabi.png", class: "wasabi-opponent" %>
+                      <%= player.wasabi %>g
+                    </p>
+                    <p><%= button_to t('.confirm_attack'), fights_show_path, params: {"defender" => player.id, "old_crew" => current_user.crew }, class: "attack-opponent hidden" %></p>
                   </div>
                 </div>
               </div>

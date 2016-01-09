@@ -326,19 +326,21 @@
 .attack-opponent {
   color: black;
   background: white;
-  padding: 9px;
+  padding: 2px;
   border-color: black;
   border-width: 2px;
   border-style: solid;
-  width: 80%;
+  width: 100%;
   margin-top: 0;
 }
 
+.wasabi-opponent {
+  width: 14%;
+  padding-bottom: 5%;
+}
+
 #emblem {
-  width: 80%;
-  position: absolute;
-  left: 10%;
-  top: 0%;
+  width: 13%;
 }
 
 .items-list {
@@ -405,6 +407,11 @@
   width: 137px;
   overflow:hidden;
   text-overflow:ellipsis;
+}
+
+.profileinfos {
+  text-align: left;
+  padding-left: 7%;
 }
 
 #anchorman-speech {
