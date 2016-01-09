@@ -255,7 +255,6 @@
 .info-bottom {
   background-color: $info;
   color: white;
-  overflow: scroll;
   text-shadow:
    -1px -1px 0 #000,
     1px -1px 0 #000,
@@ -394,6 +393,18 @@
 
 .profilepic {
   width: 103%;
+}
+
+.profilename {
+  position: absolute;
+  top: 4%;
+  left: 3%;
+  text-shadow: none;
+  color: black;
+  text-overflow: ellipsis;
+  width: 137px;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 #anchorman-speech {

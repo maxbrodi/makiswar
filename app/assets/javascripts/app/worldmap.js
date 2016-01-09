@@ -149,6 +149,10 @@ $(function() {
       $('*[data-cell="'+ x + y + '"]').addClass('item');
     });
 
+    // centrage du nom du joueur adverse
+    var profilepicwidth = $('.profilepic').width();
+    $('.profilename').css("width", profilepicwidth);
+
     // interaction du joueur avec la map
     $('.cell').click(function() {
       var cell = $(this);
