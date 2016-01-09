@@ -104,22 +104,62 @@
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
         <div class="info-bottom">
 
-          <!-- funky news -->
-          <div class="news-info text-center">
-            <div class="info-holder">
-              <div class="col-xs-5"><%= image_tag "presentateur.gif", class: "profilepic" %></div>
-              <div class="col-xs-6 text-left" id="anchorman-speech">
-                <% if current_user.world.tuto %>
-                  <%= tuto_text.html_safe %>
-                  <% if current_user.x == 6 %>
-                    <%= button_to t('.confirm_attack'), fights_show_path, params: {"endtuto" => true }, class: "attack-opponent hidden" %>
+          <!-- anchorman -->
+
+          <% if current_user.world.tuto %>
+
+            <div class="news-info text-center">
+              <div class="info-holder">
+                <div class="col-xs-5"><%= image_tag "presentateur.gif", class: "profilepic" %></div>
+                <div class="col-xs-6 text-left" id="anchorman-speech">
+                  <% if current_user.world.tuto %>
+                    <%= tuto_text.html_safe %>
+                    <% if current_user.x == 6 %>
+                      <%= button_to t('.confirm_attack'), fights_show_path, params: {"endtuto" => true }, class: "attack-opponent hidden" %>
+                    <% end %>
+                  <% else %>
+                    <%= t(info, ennemies: ennemies) %>
                   <% end %>
-                <% else %>
-                  <%= t(info, ennemies: ennemies) %>
-                <% end %>
+                </div>
               </div>
             </div>
+
+          <% else %>
+
+          <!-- live news -->
+
+          <div class="news-info">
+
+            <div id="live-news-title">Live</div>
+
+            <div id="live-news-content">
+              <div class="row news-card">
+                  <div class="col-xs-3 profilepic-holder"><%= image_tag "profilepics/salmon.png", class: "live-news-avatar" %></div>
+                  <div class="col-xs-9">
+                    <p class="news-time"><%= image_tag "info/clock.png", class: "clock" %>10min</p>
+                    <p class="news-text">Grosgrostas A Championdumonde</p>
+                  </div>
+              </div>
+              <div class="row news-card">
+                <div class="col-xs-3 profilepic-holder"><%= image_tag "profilepics/babyrice.png", class: "live-news-avatar" %></div>
+                  <div class="col-xs-9">
+                    <p class="news-time"><%= image_tag "info/clock.png", class: "clock" %>10min</p>
+                    <p class="news-text">Grosgrostas A Championdumonde</p>
+                </div>
+              </div>
+              <div class="row news-card">
+                <div class="col-xs-3 profilepic-holder"><%= image_tag "profilepics/bastardo.png", class: "live-news-avatar" %></div>
+                  <div class="col-xs-9">
+                    <p class="news-time"><%= image_tag "info/clock.png", class: "clock" %>10min</p>
+                    <p class="news-text">Grosgrostas A Championdumonde</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="view-leaderboard">view leaderboard</div>
           </div>
+
+          <% end %>
 
           <!-- player self options -->
           <div class='my-maki hidden'>
