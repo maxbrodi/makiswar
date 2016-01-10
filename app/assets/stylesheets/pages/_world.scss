@@ -255,6 +255,7 @@
 .info-bottom {
   background-color: $info;
   color: white;
+  overflow: scroll;
   text-shadow:
    -1px -1px 0 #000,
     1px -1px 0 #000,
@@ -465,6 +466,8 @@
 }
 
 #live-news-content{
+    overflow: scroll;
+    height: 139px;
   p{
     margin-bottom: 0;
   }
@@ -479,5 +482,5 @@
   padding: 0px 20px;
   background-color: #f1c40f;
   color: black;
-  opacity: 0.5;
+  opacity: 0;
 }

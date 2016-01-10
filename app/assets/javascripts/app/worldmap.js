@@ -30,6 +30,15 @@ $(function() {
     $('.transportation-options').css("height", infoHeight);
     $('.info-bottom').css("height", infoHeight);
     $('.info-bottom').css("width", worldSize);
+    $('#live-news-content').css("height", infoHeight - 20);
+
+    // computer
+    if (infoHeight > 300 && infoHeight <= 350){
+      $('body').css('padding-top', '2%');
+    };
+    if (infoHeight > 350){
+      $('body').css('padding-top', '4%');
+    };
 
     // iphone 6 - Chrome
     if (infoHeight <= 225 && infoHeight > 200){

@@ -211,4 +211,11 @@ class WorldsController < ApplicationController
     end
   end
 
+  def livenews
+    lastevents = Event.last(5)
+    lastevents.each do |event|
+      event.name
+    end
+  end
+
 end

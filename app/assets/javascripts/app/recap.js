@@ -47,6 +47,15 @@ $( document ).ready(function() {
     });
 
 
+    // computer
+    if (infoHeight > 300 && infoHeight <= 350){
+      $('body').css('padding-top', '2%');
+    };
+    if (infoHeight > 350){
+      $('body').css('padding-top', '4%');
+    };
+
+
   };
 
   recapDisplay();

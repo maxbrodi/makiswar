@@ -15,6 +15,15 @@
     $('.fight-display').removeClass( 'default' );
     $('.fight-display').addClass( fightbg );
 
+
+    // computer
+    if (infoHeight > 300 && infoHeight <= 350){
+      $('body').css('padding-top', '2%');
+    };
+    if (infoHeight > 350){
+      $('body').css('padding-top', '4%');
+    };
+
     // iphone 6 - Chrome
     if (infoHeight <= 225 && infoHeight > 200){
       $('.weapon-options .img-options-display').css('width', '40%');

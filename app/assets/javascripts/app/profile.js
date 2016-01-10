@@ -10,6 +10,15 @@ $(function() {
     $('.my-items-list').css("height", profileSize);
     $('.my-profile-menu').css("height", infoHeight);
 
+
+    // computer
+    if (infoHeight > 300 && infoHeight <= 350){
+      $('body').css('padding-top', '2%');
+    };
+    if (infoHeight > 350){
+      $('body').css('padding-top', '4%');
+    };
+
     // iphone 6 - Chrome
     if (infoHeight <= 225 && infoHeight > 200){
       $('.my-profile-menu .img-options-display').css('width', '40%');
