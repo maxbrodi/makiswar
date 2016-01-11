@@ -134,62 +134,21 @@
 
             <div id="live-news-content">
               <div class="row news-card">
-                  <div class="col-xs-3 profilepic-holder"><%= image_tag "profilepics/salmon.png", class: "live-news-avatar" %></div>
-                  <div class="col-xs-9">
-                    <p class="news-time"><%= image_tag "info/clock.png", class: "clock" %>10min</p>
-                    <p class="news-text">Grosgrostas A Championdumonde</p>
-                  </div>
-              </div>
-              <div class="row news-card">
-                <div class="col-xs-3 profilepic-holder"><%= image_tag "profilepics/babyrice.png", class: "live-news-avatar" %></div>
-                  <div class="col-xs-9">
-                    <p class="news-time"><%= image_tag "info/clock.png", class: "clock" %>10min</p>
-                    <p class="news-text">Grosgrostas A Championdumonde</p>
-                </div>
-              </div>
-              <div class="row news-card">
-                <div class="col-xs-3 profilepic-holder"><%= image_tag "profilepics/bastardo.png", class: "live-news-avatar" %></div>
-                  <div class="col-xs-9">
-                    <p class="news-time"><%= image_tag "info/clock.png", class: "clock" %>10min</p>
-                    <p class="news-text">Grosgrostas A Championdumonde</p>
-                </div>
-              </div>
-              <div class="row news-card">
-                <div class="col-xs-3 profilepic-holder"><%= image_tag "profilepics/bastardo.png", class: "live-news-avatar" %></div>
-                  <div class="col-xs-9">
-                    <p class="news-time"><%= image_tag "info/clock.png", class: "clock" %>10min</p>
-                    <p class="news-text">Grosgrostas A Championdumonde</p>
-                </div>
-              </div>
-              <div class="row news-card">
-                <div class="col-xs-3 profilepic-holder"><%= image_tag "profilepics/bastardo.png", class: "live-news-avatar" %></div>
-                  <div class="col-xs-9">
-                    <p class="news-time"><%= image_tag "info/clock.png", class: "clock" %>10min</p>
-                    <p class="news-text">Grosgrostas A Championdumonde</p>
-                </div>
-              </div>
-              <div class="row news-card">
-                <div class="col-xs-3 profilepic-holder"><%= image_tag "profilepics/bastardo.png", class: "live-news-avatar" %></div>
-                  <div class="col-xs-9">
-                    <p class="news-time"><%= image_tag "info/clock.png", class: "clock" %>10min</p>
-                    <p class="news-text">Grosgrostas A Championdumonde</p>
-                </div>
-              </div>
-              <div class="row news-card">
-                <div class="col-xs-3 profilepic-holder"><%= image_tag "profilepics/bastardo.png", class: "live-news-avatar" %></div>
-                  <div class="col-xs-9">
-                    <p class="news-time"><%= image_tag "info/clock.png", class: "clock" %>10min</p>
-                    <p class="news-text">Grosgrostas A Championdumonde</p>
-                </div>
-              </div>
-              <div class="row news-card">
-                <div class="col-xs-3 profilepic-holder"><%= image_tag "profilepics/bastardo.png", class: "live-news-avatar" %></div>
-                  <div class="col-xs-9">
-                    <p class="news-time"><%= image_tag "info/clock.png", class: "clock" %>10min</p>
-                    <p class="news-text">Grosgrostas A Championdumonde</p>
-                </div>
+                <% @liveevents.each do |event| %>
+                  <% if event[:other_user_name] %>
+                    <div class="col-xs-3 profilepic-holder"><%= image_tag "profilepics/" + event[:user_crew] + ".png", class: "live-news-avatar" %></div>
+                    <div class="col-xs-9">
+                      <p class="news-time"><%= image_tag "info/clock.png", class: "clock" %><%= time_ago_in_words(@liveevents.last[:date])%></p>
+                      <p class="news-text"><%= event[:user_name] %> <%= image_tag event[:image], class: "eventimage" %> <%= event[:other_user_name] %> </p>
+                    </div>
+                  <% else %>
+                      <div class="col-xs-3 profilepic-holder"></div>
+                      <div class="col-xs-9">COUCOU</div>
+                  <% end %>
+                <% end %>
               </div>
             </div>
+
 
             <div id="view-leaderboard">view leaderboard</div>
           </div>

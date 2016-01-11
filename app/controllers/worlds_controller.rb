@@ -10,6 +10,7 @@ class WorldsController < ApplicationController
     set_world_info
     sojajauge
     available_move_items
+    livenews
     tuto
   end
 
@@ -22,6 +23,7 @@ class WorldsController < ApplicationController
     set_world_info
     sojajauge
     available_move_items
+    livenews
     tuto
   end
 
@@ -212,9 +214,24 @@ class WorldsController < ApplicationController
   end
 
   def livenews
-    lastevents = Event.last(5)
+    @liveevents = []
+    lastevents = Event.where({world_id: current_user.world_id}).last(10)
     lastevents.each do |event|
-      event.name
+      eventhash = {}
+      eventhash[:date] = event.created_at
+
+      name = event.name
+      userid = event.user_id
+      otheruserid = event.other_user_id
+
+      if otheruserid
+        eventhash[:user_name] = User.find(userid).name
+        eventhash[:user_crew] = User.find(userid).crew
+        eventhash[:other_user_name] = User.find(otheruserid).name
+        eventhash[:image] = "info/" + "fire.png"
+      end
+
+      @liveevents << eventhash
     end
   end
 
